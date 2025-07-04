@@ -1724,9 +1724,9 @@ const Navbar = () => {
                        <Image
     src="/nav_logo.png"
     alt="Acorn Travels Logo"
-    width={120} // Reduced from 150
-    height={48} // Reduced from 60, maintaining aspect ratio roughly
-    className="w-24 sm:w-28 md:w-32 h-auto" // Reduced Tailwind classes
+    width={120} 
+    height={48} 
+    className="w-24 sm:w-28 md:w-32 h-auto"
     sizes="(max-width: 640px) 96px,
            (max-width: 768px) 112px,
            (max-width: 1024px) 128px,
