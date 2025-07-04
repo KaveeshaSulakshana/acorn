@@ -256,7 +256,7 @@ const Footer = () => {
                                     />
                                 </div>
                             </Link>
-                            <p className="text-[13px] sm:text-[14px] lg:text-[15px] font-normal leading-7">
+                           <p className="text-[13px] sm:text-[14px] lg:text-[15px] font-normal leading-7 text-justify">
                                 Acorn Travels, a trusted and IATA-accredited travel agency established in 1973,
                                 specializes in delivering exceptional travel experiences across both leisure and
                                 corporate sectors. With a steadfast commitment to personalized service.
@@ -270,7 +270,7 @@ const Footer = () => {
                         <div className="pl-0 sm:pl-4">
                             <h3 className="text-sm lg:text-base font-bold mb-2 sm:mb-3 md:mb-4 lato">QUICK
                                 LINKS</h3>
-                            <ul className="px-3 sm:px-5 list-disc space-y-1 sm:space-y-2 text-[#E2E2E2] text-[13px] sm:text-[14px] md:text-[16px] lg:text-lg lato font-normal">
+                            <ul className="px-3 sm:px-5 list-disc space-y-1 sm:space-y-2 text-[#E2E2E2] text-[10px] sm:text-[12px] md:text-[14px] lg:text-lg lato font-normal">
                                 <li><Link href="/flight-booking#offers" className="hover:text-white">Offers</Link></li>
                                 <li><Link href="/flight-booking" className="hover:text-white">Flight Booking</Link></li>
                                 <li><Link href="/about-us" className="hover:text-white">About Us</Link></li>
@@ -282,7 +282,7 @@ const Footer = () => {
                         <div>
                             <h3 className="text-sm lg:text-base font-bold mb-2 sm:mb-3 md:mb-4 lato">OUR
                                 SERVICES</h3>
-                            <ul className="px-3 sm:px-5 list-disc space-y-1 sm:space-y-2 text-[#E2E2E2] text-[13px] sm:text-[14px] md:text-[16px] lg:text-lg lato font-normal">
+                            <ul className="px-3 sm:px-5 list-disc space-y-1 sm:space-y-2 text-[#E2E2E2] text-[10px] sm:text-[12px] md:text-[14px] lg:text-lg lato font-normal">
                                 <li><Link href="/corporate-travel" className="hover:text-white">Corporate</Link></li>
                                 <li><Link href="/leisure-travel" className="hover:text-white">Leisure</Link></li>
                                 <li><Link href="/student-travel" className="hover:text-white">Student</Link></li>
