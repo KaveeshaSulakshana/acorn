@@ -549,7 +549,33 @@ const LeisureTravel = async () => {
                                 <p className="text-sm sm:text-base md:text-xl font-normal mt-4 sm:mt-6 text-[#737373] max-w-2xl leading-relaxed">
                                     {section.description}
                                 </p>
-                                {section.logo ? (
+                         
+                            </div>
+                            {/*<div className="mt-6 sm:mt-8 justify-center lg:justify-start">*/}
+                            {/*    <div className="grid grid-cols-2 sm:grid-cols-3  gap-4 sm:gap-6">*/}
+                            {/*        {section.travelServices.map((service, index) => (*/}
+                            {/*            <TravelFeatures key={index} url={service.url} title={service.title}*/}
+                            {/*                            isBigger={service.isBigger}/>*/}
+                            {/*        ))}*/}
+                            {/*    </div>*/}
+                            {/*</div>*/}
+
+                            <TravelFeaturesGrid featuresSection={section} isBigger={false}/>
+                        </div>
+                        <div className="w-full md:w-2/5">
+                            <Image
+                                src={section.image}
+                                alt="Section Image"
+                                width={400}
+                                height={600}
+                                className="rounded-lg object-cover w-full h-full md:h-[400px] lg:h-[600px]"
+                            />
+                        </div>
+                    </div>
+                ))}
+            </div>
+            <ParallaxBackground parallax={parallax} formFields={parallax.formFields} pageSource={parallax.pageSource} />
+                   {section.logo ? (
                                     <div
                                         className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between max-w-2xl gap-4">
                                         <Image
@@ -578,31 +604,6 @@ const LeisureTravel = async () => {
                                         </Link>
                                     </div>
                                 )}
-                            </div>
-                            {/*<div className="mt-6 sm:mt-8 justify-center lg:justify-start">*/}
-                            {/*    <div className="grid grid-cols-2 sm:grid-cols-3  gap-4 sm:gap-6">*/}
-                            {/*        {section.travelServices.map((service, index) => (*/}
-                            {/*            <TravelFeatures key={index} url={service.url} title={service.title}*/}
-                            {/*                            isBigger={service.isBigger}/>*/}
-                            {/*        ))}*/}
-                            {/*    </div>*/}
-                            {/*</div>*/}
-
-                            <TravelFeaturesGrid featuresSection={section} isBigger={false}/>
-                        </div>
-                        <div className="w-full md:w-2/5">
-                            <Image
-                                src={section.image}
-                                alt="Section Image"
-                                width={400}
-                                height={600}
-                                className="rounded-lg object-cover w-full h-full md:h-[400px] lg:h-[600px]"
-                            />
-                        </div>
-                    </div>
-                ))}
-            </div>
-            <ParallaxBackground parallax={parallax} formFields={parallax.formFields} pageSource={parallax.pageSource} />
         </div>
     );
 }
