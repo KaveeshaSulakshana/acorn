@@ -1721,26 +1721,27 @@ const Navbar = () => {
                     <motion.div
                         className="flex flex-col items-center cursor-pointer"
                     >
-                        <Image
-                            src="/nav_logo.png"
-                            alt="Acorn Travels Logo"
-                            width={150}
-                            height={60}
-                            className="w-28 sm:w-32 md:w-40 h-auto"
-                            sizes="(max-width: 640px) 112px,
-                      (max-width: 768px) 128px,
-                      (max-width: 1024px) 160px,
-                      (max-width: 1280px) 192px,
-                      224px"
-                            quality={85}
-                            priority
-                        />
-                        <p
+                       <Image
+    src="/nav_logo.png"
+    alt="Acorn Travels Logo"
+    width={120} // Reduced from 150
+    height={48} // Reduced from 60, maintaining aspect ratio roughly
+    className="w-24 sm:w-28 md:w-32 h-auto" // Reduced Tailwind classes
+    sizes="(max-width: 640px) 96px,
+           (max-width: 768px) 112px,
+           (max-width: 1024px) 128px,
+           (max-width: 1280px) 144px,
+           160px"
+    quality={85}
+    priority
+/>
+
+                        {/* <p
                             className="text-[5px] sm:text-[6px] md:text-[7px] lg:text-[8px]
                          text-[#314F9E] font-bold text-center pt-1 sm:pt-1.5"
                         >
                             Est. 1973
-                        </p>
+                        </p>*/}
                     </motion.div>
                 </Link>
 
