@@ -550,7 +550,7 @@ const LeisureTravel = async () => {
                                     {section.description}
                                 </p>
                                 <div className="mx-auto">
-                                <TravelFeaturesGrid featuresSection={section} isBigger={false}/>
+                                    <TravelFeaturesGrid featuresSection={section} isBigger={false}/>
                                 </div>
                             </div>
                             {section.logo ? (
@@ -563,19 +563,28 @@ const LeisureTravel = async () => {
                                         width={160}
                                         className="object-contain w-32 sm:w-40 md:w-48"
                                     />
-                                    <Link href="">
-                                        <button
-                                            className="bg-[#2B5597] cursor-pointer text-white text-xs sm:text-sm font-bold px-3 sm:px-4 py-2 sm:py-3 rounded-md hover:bg-blue-950 transition-colors lato"
-                                        >
-                                            {section.buttonText}
-                                        </button>
-                                    </Link>
+                                    <div className="flex justify-end right-0 content-end self-end">
+                                        <Link href="">
+                                            <button
+                                                className="bg-[#2B5597] cursor-pointer text-white text-xs sm:text-sm font-bold px-3 sm:px-4 py-2 sm:py-3 rounded-md hover:bg-blue-950 transition-colors lato"
+                                            >
+                                                {section.buttonText}
+                                            </button>
+                                        </Link>
+                                    </div>
                                 </div>
                             ) : (
-                                <div className="mt-6 sm:mt-8">
-                                    <Link href="" className="items-end self-end justify-end">
+                                <div className="mt-6 sm:mt-8 flex justify-end">
+                                    {/*<Link href="" className="items-end self-end justify-end">*/}
+                                    {/*    <button*/}
+                                    {/*        className="bg-[#2B5597] cursor-pointer items-end self-end text-white text-xs sm:text-sm font-bold px-3 sm:px-4 py-2 sm:py-3 rounded-md hover:bg-blue-950 transition-colors lato"*/}
+                                    {/*    >*/}
+                                    {/*        {section.buttonText}*/}
+                                    {/*    </button>*/}
+                                    {/*</Link>*/}
+                                    <Link href="" className="inline-block">
                                         <button
-                                            className="bg-[#2B5597] cursor-pointer items-end self-end text-white text-xs sm:text-sm font-bold px-3 sm:px-4 py-2 sm:py-3 rounded-md hover:bg-blue-950 transition-colors lato"
+                                            className="bg-[#2B5597] cursor-pointer text-white text-xs sm:text-sm font-bold px-3 sm:px-4 py-2 sm:py-3 rounded-md hover:bg-blue-950 transition-colors lato"
                                         >
                                             {section.buttonText}
                                         </button>

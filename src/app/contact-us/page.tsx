@@ -409,6 +409,18 @@ const ContactUsPage = async () => {
         {type: "email", name: "email", placeholder: "Email", required: true},
         {type: "text", name: "contactNumber", placeholder: "Contact Number", required: true},
         {type: "text", name: "requirement", placeholder: "Requirement", required: true},
+        {
+            type: "select",
+            name: "service",
+            placeholder: "Select a Service",
+            options: [
+                {value: "Travel Insurance", label: "Travel Insurance"},
+                {value: "Hotel Bookings", label: "Hotel Bookings"},
+                {value: "Foreign Currency Exchange", label: "Foreign Currency Exchange"},
+                {value: "Other", label: "Other"},
+            ],
+            required: true,
+        },
         {type: "text", name: "company", placeholder: "Company Name", required: false},
         {type: "textarea", name: "inquiry", placeholder: "Inquiry", rows: 3, required: true},
     ];

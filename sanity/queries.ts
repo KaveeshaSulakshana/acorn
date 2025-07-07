@@ -46,6 +46,7 @@ export const homePageQuery = `
         duration,
         guests,
         price,
+        inclusionCard
       }
     },
     testimonials {
