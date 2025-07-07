@@ -270,7 +270,7 @@ const Footer = () => {
                         <div className="pl-0 sm:pl-4">
                             <h3 className="text-sm lg:text-base font-bold mb-2 sm:mb-3 md:mb-4 lato">QUICK
                                 LINKS</h3>
-                            <ul className="px-3 sm:px-5 list-disc space-y-1 sm:space-y-2 text-[#E2E2E2] text-[13px] sm:text-[14px] md:text-[16px]  lato font-normal">
+                            <ul className="px-3 sm:px-5 list-disc space-y-1 sm:space-y-2 text-[#E2E2E2] text-[13px] sm:text-[14px] md:text-[15px]  lato font-normal">
                                 <li><Link href="/flight-booking#offers" className="hover:text-white">Offers</Link></li>
                                 <li><Link href="/flight-booking" className="hover:text-white">Flight Booking</Link></li>
                                 <li><Link href="/about-us" className="hover:text-white">About Us</Link></li>
@@ -282,7 +282,7 @@ const Footer = () => {
                         <div>
                             <h3 className="text-sm lg:text-base font-bold mb-2 sm:mb-3 md:mb-4 lato">OUR
                                 SERVICES</h3>
-                            <ul className="px-3 sm:px-5 list-disc space-y-1 sm:space-y-2 text-[#E2E2E2] text-[13px] sm:text-[14px] md:text-[16px]  lato font-normal">
+                            <ul className="px-3 sm:px-5 list-disc space-y-1 sm:space-y-2 text-[#E2E2E2] text-[13px] sm:text-[14px] md:text-[15px]  lato font-normal">
                                 <li><Link href="/corporate-travel" className="hover:text-white">Corporate</Link></li>
                                 <li><Link href="/leisure-travel" className="hover:text-white">Leisure</Link></li>
                                 <li><Link href="/student-travel" className="hover:text-white">Student</Link></li>
@@ -291,9 +291,9 @@ const Footer = () => {
                         </div>
 
                         <div>
-                            <h3 className="text-[15px] sm:text-[16px] md:text-[18px] lg:text-lg font-bold mb-2 sm:mb-3 md:mb-4">CONTACT
+                            <h3 className="text-[15px] sm:text-[16px] font-bold mb-2 sm:mb-3 md:mb-4">CONTACT
                                 US</h3>
-                            <ul className="space-y-2 sm:space-y-3 md:space-y-4 text-[#E2E2E2] text-[13px] sm:text-[14px] md:text-[16px]">
+                            <ul className="space-y-2 sm:space-y-3 md:space-y-4 text-[#E2E2E2] text-[13px] sm:text-[14px] md:text-[15px]">
                                 <li className="flex items-start gap-2 sm:gap-3 md:gap-4 font-normal">
                                     <Image
                                         src="/location.png"
@@ -335,7 +335,7 @@ const Footer = () => {
                             </ul>
                             <div
                                 className="pt-4 sm:pt-5 md:pt-6 lg:pt-8 flex flex-col xl:flex-row items-start xl:items-center gap-3 sm:gap-4 md:gap-5">
-                                <h3 className="text-[15px] sm:text-[16px] md:text-[18px] lg:text-lg font-bold">FOLLOW
+                                <h3 className="text-[15px] sm:text-[16px] font-bold">FOLLOW
                                     US:</h3>
                                 <div className="flex space-x-3 sm:space-x-4 md:space-x-5">
                                     <Link href="#" className="hover:opacity-80">
