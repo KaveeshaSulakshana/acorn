@@ -788,37 +788,37 @@ const Services = () => {
             image: "/services/travel-insurance.png",
             title: "Travel Insurance",
             description: "Stay protected with our comprehensive travel insurance solutions.",
-            link: "#",
+            link: "/contact-us#inquiry",
         },
         {
             image: "/services/foreign-currency.png",
             title: "Foreign Currency Exchange",
             description: "Secure and competitive foreign currency exchange services for your travels.",
-            link: "#",
+            link: "/contact-us#inquiry",
         },
         {
             image: "/services/travel-insurance.png",
             title: "Travel Insurance",
             description: "Stay protected with our comprehensive travel insurance solutions.",
-            link: "#",
+            link: "/contact-us#inquiry",
         },
         {
             image: "/services/foreign-currency.png",
             title: "Foreign Currency Exchange",
             description: "Secure and competitive foreign currency exchange services for your travels.",
-            link: "#",
+            link: "/contact-us#inquiry",
         },
         {
             image: "/services/meet-greet.png",
             title: "Meet & Greet Services",
             description: "Seamless airport assistance with our Meet & Greet services.",
-            link: "#",
+            link: "/contact-us#inquiry",
         },
         {
             image: "/services/hotel-booking.png",
             title: "Hotel Bookings",
             description: "Exclusive hotel booking services ensuring the best rates and comfort.",
-            link: "#",
+            link: "/contact-us#inquiry",
         },
     ];
 

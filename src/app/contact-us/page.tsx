@@ -738,7 +738,7 @@ const ContactUsPage = async () => {
                             </div>
                         </div>
 
-                        <div className="w-full md:w-1/2 md:pl-6 lg:pl-8 xl:pl-12">
+                        <div id="inquiry" className="w-full md:w-1/2 md:pl-6 lg:pl-8 xl:pl-12">
                             <ContactForm
                                 fields={formFields}
                                 title="Make an Inquiry"
