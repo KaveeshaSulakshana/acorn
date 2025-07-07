@@ -332,10 +332,16 @@ const ContactForm: React.FC<ContactFormProps> = ({
         setNotification(null);
 
         try {
+            const payload = {
+                // data: { ...data, recaptchaToken },
+                data,
+                pageSource,
+            };
+
             const response = await fetch("/api/submit-form", {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
-                body: JSON.stringify({ ...data, recaptchaToken, pageSource }),
+                body: JSON.stringify(payload),
             });
 
             if (!response.ok) {
