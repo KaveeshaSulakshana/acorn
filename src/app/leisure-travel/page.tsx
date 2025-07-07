@@ -443,9 +443,9 @@ const LeisureTravel = async () => {
             logo: section?.logo?.asset?.url, // This is now directly the URL string
             logoAlt: section?.logo?.alt,
             image: section?.image?.asset?.url, // This is now directly the URL string
-            imageAlt: section?.image?.alt ,
+            imageAlt: section?.image?.alt,
             buttonText: section?.buttonText,
-            buttonLink: section?.buttonLink ,
+            buttonLink: section?.buttonLink,
             sectionLink: section?.sectionLink,
             travelServices: (section?.travelServices || []).map((service) => ({ // Using 'any' here too
                 url: service?.url?.asset?.url, // This is now directly the URL string
@@ -469,26 +469,26 @@ const LeisureTravel = async () => {
                     name: "title",
                     placeholder: "Title",
                     options: [
-                        { value: "Mr", label: "Mr" },
-                        { value: "Mrs", label: "Mrs" },
-                        { value: "Miss", label: "Miss" },
-                        { value: "Rev", label: "Rev" },
-                        { value: "Dr", label: "Dr" },
+                        {value: "Mr", label: "Mr"},
+                        {value: "Mrs", label: "Mrs"},
+                        {value: "Miss", label: "Miss"},
+                        {value: "Rev", label: "Rev"},
+                        {value: "Dr", label: "Dr"},
                     ],
                     required: true,
                 },
-                { type: "text", name: "name", placeholder: "Name", required: true },
+                {type: "text", name: "name", placeholder: "Name", required: true},
                 {
                     type: "select",
                     name: "tourOfChoice",
                     placeholder: "Tour of Choice",
                     options: [
-                        { value: "Customized Tours", label: "Customized Tours" },
-                        { value: "Royal Caribbean Cruises", label: "Royal Caribbean Cruises" },
-                        { value: "Celebrity Cruises", label: "Celebrity Cruises" },
-                        { value: "Avalon River Cruises", label: "Avalon River Cruises" },
-                        { value: "Globus Coach Tours", label: "Globus Coach Tours" },
-                        { value: "Cosmos Coach Tours", label: "Cosmos Coach Tours" },
+                        {value: "Customized Tours", label: "Customized Tours"},
+                        {value: "Royal Caribbean Cruises", label: "Royal Caribbean Cruises"},
+                        {value: "Celebrity Cruises", label: "Celebrity Cruises"},
+                        {value: "Avalon River Cruises", label: "Avalon River Cruises"},
+                        {value: "Globus Coach Tours", label: "Globus Coach Tours"},
+                        {value: "Cosmos Coach Tours", label: "Cosmos Coach Tours"},
                     ],
                     required: true,
                 },
@@ -498,7 +498,7 @@ const LeisureTravel = async () => {
                     placeholder: "Contact Number",
                     required: true,
                 },
-                { type: "email", name: "email", placeholder: "Email", required: true },
+                {type: "email", name: "email", placeholder: "Email", required: true},
                 {
                     type: "textarea",
                     name: "inquiry",
@@ -549,36 +549,39 @@ const LeisureTravel = async () => {
                                 <p className="text-sm sm:text-base md:text-xl font-normal mt-4 sm:mt-6 text-[#737373] max-w-2xl leading-relaxed">
                                     {section.description}
                                 </p>
-                                {section.logo ? (
-                                    <div
-                                        className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between max-w-2xl gap-4">
-                                        <Image
-                                            src={section.logo}
-                                            alt="Section Logo"
-                                            height={40}
-                                            width={160}
-                                            className="object-contain w-32 sm:w-40 md:w-48"
-                                        />
-                                        <Link href="">
-                                            <button
-                                                className="bg-[#2B5597] cursor-pointer text-white text-xs sm:text-sm font-bold px-3 sm:px-4 py-2 sm:py-3 rounded-md hover:bg-blue-950 transition-colors lato"
-                                            >
-                                                {section.buttonText}
-                                            </button>
-                                        </Link>
-                                    </div>
-                                ) : (
-                                    <div className="mt-6 sm:mt-8">
-                                        <Link href="">
-                                            <button
-                                                className="bg-[#2B5597] cursor-pointer text-white text-xs sm:text-sm font-bold px-3 sm:px-4 py-2 sm:py-3 rounded-md hover:bg-blue-950 transition-colors lato"
-                                            >
-                                                {section.buttonText}
-                                            </button>
-                                        </Link>
-                                    </div>
-                                )}
+                                <div className="mx-auto">
+                                <TravelFeaturesGrid featuresSection={section} isBigger={false}/>
+                                </div>
                             </div>
+                            {section.logo ? (
+                                <div
+                                    className={`mt-6 sm:mt-8 items-center content-end flex flex-row ${index % 2 == 0 ? "sm:flex-row" : "sm:flex-row-reverse"} sm:items-center justify-between max-w-2xl gap-4`}>
+                                    <Image
+                                        src={section.logo}
+                                        alt="Section Logo"
+                                        height={40}
+                                        width={160}
+                                        className="object-contain w-32 sm:w-40 md:w-48"
+                                    />
+                                    <Link href="">
+                                        <button
+                                            className="bg-[#2B5597] cursor-pointer text-white text-xs sm:text-sm font-bold px-3 sm:px-4 py-2 sm:py-3 rounded-md hover:bg-blue-950 transition-colors lato"
+                                        >
+                                            {section.buttonText}
+                                        </button>
+                                    </Link>
+                                </div>
+                            ) : (
+                                <div className="mt-6 sm:mt-8">
+                                    <Link href="" className="items-end self-end justify-end">
+                                        <button
+                                            className="bg-[#2B5597] cursor-pointer items-end self-end text-white text-xs sm:text-sm font-bold px-3 sm:px-4 py-2 sm:py-3 rounded-md hover:bg-blue-950 transition-colors lato"
+                                        >
+                                            {section.buttonText}
+                                        </button>
+                                    </Link>
+                                </div>
+                            )}
                             {/*<div className="mt-6 sm:mt-8 justify-center lg:justify-start">*/}
                             {/*    <div className="grid grid-cols-2 sm:grid-cols-3  gap-4 sm:gap-6">*/}
                             {/*        {section.travelServices.map((service, index) => (*/}
@@ -588,7 +591,7 @@ const LeisureTravel = async () => {
                             {/*    </div>*/}
                             {/*</div>*/}
 
-                            <TravelFeaturesGrid featuresSection={section} isBigger={false}/>
+                            {/*<TravelFeaturesGrid featuresSection={section} isBigger={false}/>*/}
                         </div>
                         <div className="w-full md:w-2/5">
                             <Image
@@ -602,7 +605,7 @@ const LeisureTravel = async () => {
                     </div>
                 ))}
             </div>
-            <ParallaxBackground parallax={parallax} formFields={parallax.formFields} pageSource={parallax.pageSource} />
+            <ParallaxBackground parallax={parallax} formFields={parallax.formFields} pageSource={parallax.pageSource}/>
         </div>
     );
 }
