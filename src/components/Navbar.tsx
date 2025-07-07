@@ -1630,18 +1630,18 @@ const Navbar = () => {
     // };
 
     const dropdownVariants: Variants = {
-        hidden: { opacity: 0, y: -10, scale: 0.95 },
+        hidden: {opacity: 0, y: -10, scale: 0.95},
         visible: {
             opacity: 1,
             y: 0,
             scale: 1,
-            transition: { duration: 0.2, ease: "easeOut" }, // Use valid Easing value
+            transition: {duration: 0.2, ease: "easeOut"}, // Use valid Easing value
         },
         exit: {
             opacity: 0,
             y: -10,
             scale: 0.95,
-            transition: { duration: 0.15, ease: "easeIn" }, // Use valid Easing value
+            transition: {duration: 0.15, ease: "easeIn"}, // Use valid Easing value
         },
     };
 
@@ -1669,7 +1669,7 @@ const Navbar = () => {
     // };
 
     const mobileMenuVariants: Variants = {
-        hidden: { opacity: 0, height: 0 },
+        hidden: {opacity: 0, height: 0},
         visible: {
             opacity: 1,
             height: "auto", // This is fine, but ensure Framer Motion handles it
@@ -1713,7 +1713,7 @@ const Navbar = () => {
 
     return (
         <nav
-            className="bg-white rounded-b-xl sm:rounded-b-2xl py-2 sm:py-3 md:py-4
+            className="bg-white rounded-b-lg sm:rounded-b-xl py-2 sm:py-3 md:py-4
                  px-4 sm:px-6 lg:px-8 roboto z-50 absolute w-full shadow-lg sm:shadow-xl"
         >
             <div className="flex container mx-auto items-center justify-between">
@@ -1721,20 +1721,20 @@ const Navbar = () => {
                     <motion.div
                         className="flex flex-col items-center cursor-pointer"
                     >
-                       <Image
-    src="/nav_logo.png"
-    alt="Acorn Travels Logo"
-    width={120} 
-    height={48} 
-    className="w-24 sm:w-28 md:w-32 h-auto"
-    sizes="(max-width: 640px) 96px,
-           (max-width: 768px) 112px,
-           (max-width: 1024px) 128px,
-           (max-width: 1280px) 144px,
-           160px"
-    quality={85}
-    priority
-/>
+                        <Image
+                            src="/nav_logo_new.png"
+                            alt="Acorn Travels Logo"
+                            width={120}
+                            height={48}
+                            className="w-24 sm:w-28 md:w-32 h-auto"
+                            sizes="(max-width: 640px) 96px,
+                                   (max-width: 768px) 112px,
+                                   (max-width: 1024px) 128px,
+                                   (max-width: 1280px) 144px,
+                                   160px"
+                            quality={85}
+                            priority
+                        />
 
                         {/* <p
                             className="text-[5px] sm:text-[6px] md:text-[7px] lg:text-[8px]

@@ -33,8 +33,28 @@ const ParallaxBackground = ({parallax, formFields, pageSource}: ParallaxProps) =
                         <Parallax
                             bgImage={parallax.image}
                             bgImageAlt={parallax.title}
-                            strength={600}
+                            strength={300}
                             className="min-h-screen lg:block hidden"
+                            bgImageStyle={{
+                                objectFit: "cover",
+                                willChange: "transform",
+                                transform: "translate3d(0, 0, 0)",
+                            }}
+                            // bgImageSizes="(max-width: 768px) 100vw, 1920px"
+                            // bgImageSrcSet={`${parallax.image}?w=800 800w, ${parallax.image}?w=1200 1200w, ${parallax.image}?w=1920 1920w`}
+                            // renderLayer={(percentage) => (
+                            //     <div
+                            //         style={{
+                            //             position: "absolute",
+                            //             top: 0,
+                            //             left: 0,
+                            //             right: 0,
+                            //             bottom: 0,
+                            //             transform: `translate3d(0, ${(percentage - 1) * 300}px, 0)`,
+                            //             willChange: "transform",
+                            //         }}
+                            //     />
+                            // )}
                         >
                         </Parallax>
                         {/*<div className="top-50 left-1/2 xl:top-70 absolute z-50">*/}
@@ -112,7 +132,8 @@ const ParallaxBackground = ({parallax, formFields, pageSource}: ParallaxProps) =
                             </div>
 
                             <div className="w-full flex justify-center">
-                                <ContactForm fields={formFields} pageSource={pageSource} reCaptchaSiteKey={recaptchaSiteKey}/>
+                                <ContactForm fields={formFields} pageSource={pageSource}
+                                             reCaptchaSiteKey={recaptchaSiteKey}/>
                             </div>
                         </div>
                     </div>
