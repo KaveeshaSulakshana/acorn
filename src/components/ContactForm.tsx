@@ -292,6 +292,14 @@ const createSchema = (fields: FormField[]) => {
                 .max(50, `Company must not exceed 50 characters`)
                 .regex(/^[a-zA-Z0-9 !@#$%^&*()_+{}\[\]:;<>,.?~\\/-]*$/, "Only letters and spaces are allowed")
             : z.string().regex(/^[a-zA-Z0-9 !@#$%^&*()_+{}\[\]:;<>,.?~\\/-]*$/, "Only letters and spaces are allowed").optional();
+
+        schemaShape["requirement"] = field.required
+            ? z
+                .string()
+                .min(1, `Requirement is required`)
+                .max(50, `Requirement must not exceed 50 characters`)
+                .regex(/^[a-zA-Z0-9 !@#$%^&*()_+{}\[\]:;<>,.?~\\/-]*$/, "Only letters and spaces are allowed")
+            : z.string().regex(/^[a-zA-Z0-9 !@#$%^&*()_+{}\[\]:;<>,.?~\\/-]*$/, "Only letters and spaces are allowed").optional();
     });
 
     schemaShape["recaptchaToken"] = z.string().min(1, "Please complete the reCAPTCHA");
@@ -544,13 +552,63 @@ const ContactForm: React.FC<ContactFormProps> = ({
                             .filter((f) => !["title", "name"].includes(f.name) && f.type !== "toggle")
                             .map(renderField)}
 
-                        <div className="recaptcha-container">
-                            <ReCAPTCHA
-                                sitekey={reCaptchaSiteKey}
-                                onChange={onRecaptchaChange}
-                            />
+                        {/*<div className="recaptcha-container">*/}
+                        {/*    <ReCAPTCHA*/}
+                        {/*        sitekey={reCaptchaSiteKey}*/}
+                        {/*        onChange={onRecaptchaChange}*/}
+                        {/*    />*/}
+                        {/*    {errors.recaptchaToken && (*/}
+                        {/*        <p className="text-red-500 text-xs mt-1">*/}
+                        {/*            {errors.recaptchaToken.message as string}*/}
+                        {/*        </p>*/}
+                        {/*    )}*/}
+                        {/*</div>*/}
+
+                        {/*<div className="recaptcha-container flex justify-center mt-4">*/}
+                        {/*    <div*/}
+                        {/*        className="w-full transform scale-100 md:scale-100 lg:scale-100 sm:scale-85 xs:scale-75">*/}
+                        {/*        <ReCAPTCHA*/}
+                        {/*            sitekey={reCaptchaSiteKey}*/}
+                        {/*            onChange={onRecaptchaChange}*/}
+                        {/*        />*/}
+                        {/*        {errors.recaptchaToken && (*/}
+                        {/*            <p className="text-red-500 text-xs mt-1 text-center">*/}
+                        {/*                {errors.recaptchaToken.message as string}*/}
+                        {/*            </p>*/}
+                        {/*        )}*/}
+                        {/*    </div>*/}
+                        {/*</div>*/}
+
+                        <div className="flex justify-center items-center w-full overflow-hidden">
+                            <div className="recaptcha-wrapper
+                                            w-full
+                                            max-w-[304px]
+                                            sm:max-w-[304px]
+                                            md:max-w-[304px]
+                                            lg:max-w-[304px]
+                                            transform-gpu
+                                            scale-[0.77]
+                                            sm:scale-[0.85]
+                                            md:scale-[0.75]
+                                            lg:scale-100
+                                            origin-center
+                                            -mx-4
+                                            sm:-mx-2
+                                            md:mx-0
+                                            lg:mx-0">
+                                <ReCAPTCHA
+                                    sitekey={reCaptchaSiteKey}
+                                    onChange={onRecaptchaChange}
+                                    size="normal"
+                                    style={{
+                                        width: '100%',
+                                        maxWidth: '304px',
+                                        margin: '0 auto'
+                                    }}
+                                />
+                            </div>
                             {errors.recaptchaToken && (
-                                <p className="text-red-500 text-xs mt-1">
+                                <p className="text-red-500 text-xs mt-1 absolute -bottom-5 left-1/2 transform -translate-x-1/2 whitespace-nowrap">
                                     {errors.recaptchaToken.message as string}
                                 </p>
                             )}
