@@ -468,7 +468,7 @@ const Footer = () => {
                 <div
                     className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4 md:space-x-6 text-[13px] sm:text-[14px] md:text-[16px]">
                     <Link href="/terms" className="hover:underline font-normal">Terms & Conditions</Link>
-                    <Link href="/terms" className="hover:underline font-normal">Privacy Policy</Link>
+                    <Link href="/privacy" className="hover:underline font-normal">Privacy Policy</Link>
                 </div>
             </div>
         </footer>

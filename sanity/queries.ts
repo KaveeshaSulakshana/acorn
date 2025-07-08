@@ -481,6 +481,13 @@ export const termsQuery = `
     }
   `;
 
+export const privacyQuery = `
+    *[_type == "privacyAndPolicy"][0]{
+      title,
+      body
+    }
+  `;
+
 
 export const offerDetailsQuery = `
   *[_type == "offerDetail" && slug.current == $slug][0] {

@@ -3,7 +3,7 @@ import {
     aboutUsQuery, contactUsQuery,
     corporateTravelQuery, flightBookingQuery,
     homePageQuery,
-    leisureTravelQuery, offerDetailsQuery, partnersQuery,
+    leisureTravelQuery, offerDetailsQuery, partnersQuery, privacyQuery,
     studentTravelQuery, termsQuery,
     visaQuery
 } from "./queries";
@@ -46,6 +46,10 @@ export async function getPartnerData() {
 
 export async function getTermsData() {
     return sanityClient.fetch(termsQuery);
+}
+
+export async function getPrivacyData() {
+    return sanityClient.fetch(privacyQuery);
 }
 
 export async function getOfferDetailsData(slug: string) {

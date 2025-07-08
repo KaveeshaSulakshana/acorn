@@ -254,10 +254,44 @@ interface Testi {
     rate: string;
 }
 
+// interface Service {
+//     image: { asset: { url: string } },
+//     title: string,
+//     description: string,
+//     link: string,
+// }
+
+interface Service {
+    _key: string;
+    title: string;
+    description: string;
+    link: string;
+    image: {
+        alt: string | null;
+        asset: {
+            _id: string;
+            url: string;
+        };
+    };
+}
+
+interface ServiceProp {
+    image: string;
+    title: string;
+    description: string;
+    link: string;
+}
+
+
+// interface Services {
+//     services: Service[];
+// }
+
 export default async function Home() {
     let slides: Slide[] = [];
     // let offersData = {title: "", description: "", offers: [] as Offer[]};
     let testimonials: Testimonial[] = [];
+    let services: ServiceProp[] = [];
 
     const homeData = await getHomePageData();
     console.log(homeData);
@@ -289,6 +323,13 @@ export default async function Home() {
     //     })),
     // };
 
+    services = (homeData?.services || []).map((service: Service) => ({
+        image: service.image?.asset?.url || "/demo.png",
+        title: service.title || "",
+        description: service.description || "",
+        link: service.link || "#",
+    }));
+
 
     const offersData = {
         title: homeData?.offers?.title || '',
@@ -305,7 +346,6 @@ export default async function Home() {
             inclusion: item.inclusionCard || '',
         })),
     };
-
 
 
     testimonials = (homeData?.testimonials?.items || []).map((item: Testi) => ({
@@ -325,7 +365,7 @@ export default async function Home() {
                 autoSlide={true}
                 autoSlideInterval={5000}
             />
-            <Services/>
+            <Services services={services}/>
             <div className="bg-white">
                 <Offers
                     offersPack={offersData}

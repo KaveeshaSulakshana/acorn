@@ -740,87 +740,100 @@ import React, {useState, useEffect} from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const Services = () => {
-    const services = [
-        {
-            image: "/services/corporate-travel.png",
-            title: "Corporate Travel",
-            description:
-                "At Acorn Travels, we specialize in designing custom, reliable, and seamless corporate travel solutions.",
-            link: "/corporate-travel#corporate-travel",
-        },
-        {
-            image: "/services/mice-tours.png",
-            title: "MICE Tours",
-            description:
-                "At Acorn Travels, we excel in crafting tailored, professional, and seamless MICE experiences.",
-            link: "/corporate-travel#mice-travel",
-        },
-        {
-            image: "/services/leisure-travel.png",
-            title: "Leisure Travel",
-            description:
-                "At Acorn Travels, we create personalized, unforgettable leisure travel experiences.",
-            link: "/leisure-travel",
-        },
-        {
-            image: "/services/flight-booking.png",
-            title: "Flight Booking",
-            description:
-                "At Acorn Travels, we provide hassle-free, reliable, and customized flight booking services.",
-            link: "/flight-booking",
-        },
-        {
-            image: "/services/student-travel.png",
-            title: "Student Travel",
-            description:
-                "Experience the best of student travel with exclusive fares and special perks!",
-            link: "/student-travel",
-        },
-        {
-            image: "/services/visa-service.png",
-            title: "Visa Services",
-            description:
-                "Our expert team simplifies the visa process with hassle-free guidance and support.",
-            link: "/visa",
-        },
-        {
-            image: "/services/travel-insurance.png",
-            title: "Travel Insurance",
-            description: "Stay protected with our comprehensive travel insurance solutions.",
-            link: "/contact-us#inquiry",
-        },
-        {
-            image: "/services/foreign-currency.png",
-            title: "Foreign Currency Exchange",
-            description: "Secure and competitive foreign currency exchange services for your travels.",
-            link: "/contact-us#inquiry",
-        },
-        {
-            image: "/services/travel-insurance.png",
-            title: "Travel Insurance",
-            description: "Stay protected with our comprehensive travel insurance solutions.",
-            link: "/contact-us#inquiry",
-        },
-        {
-            image: "/services/foreign-currency.png",
-            title: "Foreign Currency Exchange",
-            description: "Secure and competitive foreign currency exchange services for your travels.",
-            link: "/contact-us#inquiry",
-        },
-        {
-            image: "/services/meet-greet.png",
-            title: "Meet & Greet Services",
-            description: "Seamless airport assistance with our Meet & Greet services.",
-            link: "/contact-us#inquiry",
-        },
-        {
-            image: "/services/hotel-booking.png",
-            title: "Hotel Bookings",
-            description: "Exclusive hotel booking services ensuring the best rates and comfort.",
-            link: "/contact-us#inquiry",
-        },
-    ];
+
+interface Service {
+    image: string;
+    title: string;
+    description: string;
+    link: string;
+}
+
+interface ServicesProps {
+    services: Service[];
+}
+
+
+const Services = ({ services }: ServicesProps) => {
+    // const services = [
+    //     {
+    //         image: "/services/corporate-travel.png",
+    //         title: "Corporate Travel",
+    //         description:
+    //             "At Acorn Travels, we specialize in designing custom, reliable, and seamless corporate travel solutions.",
+    //         link: "/corporate-travel#corporate-travel",
+    //     },
+    //     {
+    //         image: "/services/mice-tours.png",
+    //         title: "MICE Tours",
+    //         description:
+    //             "At Acorn Travels, we excel in crafting tailored, professional, and seamless MICE experiences.",
+    //         link: "/corporate-travel#mice-travel",
+    //     },
+    //     {
+    //         image: "/services/leisure-travel.png",
+    //         title: "Leisure Travel",
+    //         description:
+    //             "At Acorn Travels, we create personalized, unforgettable leisure travel experiences.",
+    //         link: "/leisure-travel",
+    //     },
+    //     {
+    //         image: "/services/flight-booking.png",
+    //         title: "Flight Booking",
+    //         description:
+    //             "At Acorn Travels, we provide hassle-free, reliable, and customized flight booking services.",
+    //         link: "/flight-booking",
+    //     },
+    //     {
+    //         image: "/services/student-travel.png",
+    //         title: "Student Travel",
+    //         description:
+    //             "Experience the best of student travel with exclusive fares and special perks!",
+    //         link: "/student-travel",
+    //     },
+    //     {
+    //         image: "/services/visa-service.png",
+    //         title: "Visa Services",
+    //         description:
+    //             "Our expert team simplifies the visa process with hassle-free guidance and support.",
+    //         link: "/visa",
+    //     },
+    //     {
+    //         image: "/services/travel-insurance.png",
+    //         title: "Travel Insurance",
+    //         description: "Stay protected with our comprehensive travel insurance solutions.",
+    //         link: "/contact-us#inquiry",
+    //     },
+    //     {
+    //         image: "/services/foreign-currency.png",
+    //         title: "Foreign Currency Exchange",
+    //         description: "Secure and competitive foreign currency exchange services for your travels.",
+    //         link: "/contact-us#inquiry",
+    //     },
+    //     {
+    //         image: "/services/travel-insurance.png",
+    //         title: "Travel Insurance",
+    //         description: "Stay protected with our comprehensive travel insurance solutions.",
+    //         link: "/contact-us#inquiry",
+    //     },
+    //     {
+    //         image: "/services/foreign-currency.png",
+    //         title: "Foreign Currency Exchange",
+    //         description: "Secure and competitive foreign currency exchange services for your travels.",
+    //         link: "/contact-us#inquiry",
+    //     },
+    //     {
+    //         image: "/services/meet-greet.png",
+    //         title: "Meet & Greet Services",
+    //         description: "Seamless airport assistance with our Meet & Greet services.",
+    //         link: "/contact-us#inquiry",
+    //     },
+    //     {
+    //         image: "/services/hotel-booking.png",
+    //         title: "Hotel Bookings",
+    //         description: "Exclusive hotel booking services ensuring the best rates and comfort.",
+    //         link: "/contact-us#inquiry",
+    //     },
+    // ];
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const [itemsPerView, setItemsPerView] = useState(1);

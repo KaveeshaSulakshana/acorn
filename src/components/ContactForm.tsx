@@ -575,7 +575,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
                             By submitting this form, you are agreeing to the{" "}
                             <span className="font-medium text-[#2B5597]"><a
                                 href="/terms">Terms & Conditions</a></span> and{" "}
-                            <span className="font-medium text-[#2B5597]"><a href="/terms">Privacy Policy</a></span> of
+                            <span className="font-medium text-[#2B5597]"><a href="/privacy">Privacy Policy</a></span> of
                             Acorn Travels
                             (Pvt) Ltd.
                         </p>
