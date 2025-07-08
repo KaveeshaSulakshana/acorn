@@ -225,7 +225,7 @@ const createSchema = (fields: FormField[]) => {
                         .string()
                         .min(1, `${field.placeholder || "This field"} is required`)
                         .max(50, `${field.placeholder || "This field"} must not exceed 50 characters`)
-                        .regex(/^[a-zA-Z\s]*$/, "Only letters and spaces are allowed")
+                        .regex(/^[a-zA-Z0-9_.-]*$/, "Only letters and spaces are allowed")
                     : z.string().regex(/^[a-zA-Z\s]*$/, "Only letters and spaces are allowed")
                         .max(50, `${field.placeholder || "This field"} must not exceed 50 characters`)
                         .optional();
@@ -251,7 +251,7 @@ const createSchema = (fields: FormField[]) => {
                         .string()
                         .min(1, `${field.placeholder || "This field"} is required`)
                         .max(500, `${field.placeholder || "This field"} must not exceed 500 characters`)
-                        .regex(/^[a-zA-Z\s.,!?]*$/, "Only letters, spaces, and basic punctuation are allowed")
+                        .regex(/^[a-zA-Z0-9_.-]*$/, "Only letters, spaces, and basic punctuation are allowed")
                     : z.string().regex(/^[a-zA-Z\s.,!?]*$/, "Only letters, spaces, and basic punctuation are allowed")
                         .max(500, `${field.placeholder || "This field"} must not exceed 500 characters`)
                         .optional();
@@ -276,6 +276,14 @@ const createSchema = (fields: FormField[]) => {
                 .min(1, "Contact Number is required")
                 .regex(/^\d{10}$/, "Contact Number must be 10 digits")
             : z.string().regex(/^\d{10}$/, "Contact Number must be 10 digits").optional();
+
+        schemaShape["name"] = field.required
+            ? z
+                .string()
+                .min(1, `Name is required`)
+                .max(50, `Name must not exceed 50 characters`)
+                .regex(/^[a-zA-Z\s]*$/, "Only letters and spaces are allowed")
+            : z.string().regex(/^[a-zA-Z\s]*$/, "Only letters and spaces are allowed").optional();
     });
 
     schemaShape["recaptchaToken"] = z.string().min(1, "Please complete the reCAPTCHA");
@@ -323,7 +331,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
 
     const onSubmitForm = async (data: Record<string, string>) => {
         if (!recaptchaToken) {
-            setNotification({ type: "error", message: "Please complete the reCAPTCHA." });
+            setNotification({type: "error", message: "Please complete the reCAPTCHA."});
             return;
         }
 
