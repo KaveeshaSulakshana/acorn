@@ -338,7 +338,7 @@ const Footer = () => {
                                 <h3 className="text-[15px] sm:text-[16px] font-bold">FOLLOW
                                     US:</h3>
                                 <div className="flex space-x-3 sm:space-x-4 md:space-x-5">
-                                    <Link href="#" className="hover:opacity-80">
+                                    <Link href="https://www.facebook.com/acorntravels" className="hover:opacity-80">
                                         <svg
                                             width="44"
                                             height="44"
@@ -376,7 +376,7 @@ const Footer = () => {
                                             </defs>
                                         </svg>
                                     </Link>
-                                    <Link href="#" className="hover:opacity-80">
+                                    <Link href="https://www.instagram.com/acorntravels/" className="hover:opacity-80">
                                         <svg
                                             width="44"
                                             height="44"
@@ -414,7 +414,7 @@ const Footer = () => {
                                             </defs>
                                         </svg>
                                     </Link>
-                                    <Link href="#" className="hover:opacity-80">
+                                    <Link href="https://www.linkedin.com/company/acorntravels/" className="hover:opacity-80">
                                         <svg
                                             width="44"
                                             height="44"
