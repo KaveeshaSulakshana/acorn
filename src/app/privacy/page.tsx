@@ -1,16 +1,9 @@
-import {PortableText} from 'next-sanity'
-import {getTermsData} from "../../../sanity/api";
+import {getPrivacyData} from "../../../sanity/api";
+import {PortableText} from "next-sanity";
 
+const PrivacyAndPolicy = async () => {
 
-// interface TermsAndConditionsData {
-//     title: string;
-//     body: any[];
-// }
-
-
-const TermsAndConditions = async () => {
-
-    const termsData = await getTermsData();
+    const termsData = await getPrivacyData();
     console.log("terms: ", termsData);
 
     return (
@@ -24,4 +17,4 @@ const TermsAndConditions = async () => {
     );
 }
 
-export default TermsAndConditions;
+export default PrivacyAndPolicy;
