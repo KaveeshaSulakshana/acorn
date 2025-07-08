@@ -243,7 +243,7 @@ const Offers = ({offersPack, type}: { offersPack: OfferProps, type: string }) =>
                                             {/*    </button>*/}
                                             {/*</Link>*/}
                                             <div className="flex justify-center mt-4">
-                                                <Link href={offer.link}>
+                                                <Link href={`${offer.link}#inquiry`}>
                                                     <button
                                                         className="bg-[#2B5597] cursor-pointer flex justify-center items-center text-white text-xs sm:text-sm md:text-sm lg:text-xs font-bold px-3 sm:px-4 py-2 sm:py-3 rounded-md hover:bg-blue-950 transition-colors lato"
                                                     >
