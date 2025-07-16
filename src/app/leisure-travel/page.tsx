@@ -357,7 +357,7 @@ interface Section {
     image: string; // Corrected to string (URL)
     imageAlt?: string;
     buttonText?: string;
-    buttonLink?: string;
+    buttonLink: string;
     sectionLink?: string;
     travelServices: {
         url: string; // Corrected to string (URL)
@@ -564,7 +564,7 @@ const LeisureTravel = async () => {
                                         className="object-contain w-32 sm:w-40 md:w-48"
                                     />
                                     <div className="flex justify-end right-0 content-end self-end">
-                                        <Link href="">
+                                        <Link href={section.buttonLink}>
                                             <button
                                                 className="bg-[#2B5597] cursor-pointer text-white text-xs sm:text-sm font-bold px-3 sm:px-4 py-2 sm:py-3 rounded-md hover:bg-blue-950 transition-colors lato"
                                             >
@@ -582,7 +582,7 @@ const LeisureTravel = async () => {
                                     {/*        {section.buttonText}*/}
                                     {/*    </button>*/}
                                     {/*</Link>*/}
-                                    <Link href="" className="inline-block">
+                                    <Link href={section.buttonLink} className="inline-block">
                                         <button
                                             className="bg-[#2B5597] cursor-pointer text-white text-xs sm:text-sm font-bold px-3 sm:px-4 py-2 sm:py-3 rounded-md hover:bg-blue-950 transition-colors lato"
                                         >
@@ -614,7 +614,10 @@ const LeisureTravel = async () => {
                     </div>
                 ))}
             </div>
-            <ParallaxBackground parallax={parallax} formFields={parallax.formFields} pageSource={parallax.pageSource}/>
+            <div id="inquiry">
+                <ParallaxBackground parallax={parallax} formFields={parallax.formFields}
+                                    pageSource={parallax.pageSource}/>
+            </div>
         </div>
     );
 }
