@@ -330,6 +330,7 @@ const Footer = () => {
                                         <a href="tel:+94114704704" className="hover:text-white block">+94 114 704 704/5
                                         </a>
                                         <a href="tel:+94772775679" className="hover:text-white block">+94 772 775 679</a>
+                                        <a href="https://wa.link/d1ikuv" className="hover:text-white block">+94 763 028 250</a>
                                     </div>
                                 </li>
                             </ul>
