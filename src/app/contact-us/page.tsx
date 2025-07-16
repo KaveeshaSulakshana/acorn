@@ -414,6 +414,12 @@ const ContactUsPage = async () => {
             name: "service",
             placeholder: "Select a Service",
             options: [
+                {value: "Corporate Travel", label: "Corporate Travel"},
+                {value: "Leisure Travel", label: "Leisure Travel"},
+                {value: "MICE Travel", label: "MICE Travel"},
+                {value: "Student Travel", label: "Student Travel"},
+                {value: "Visa Services", label: "Visa Services"},
+                {value: "Flight Bookings", label: "Flight Bookings"},
                 {value: "Travel Insurance", label: "Travel Insurance"},
                 {value: "Hotel Bookings", label: "Hotel Bookings"},
                 {value: "Foreign Currency Exchange", label: "Foreign Currency Exchange"},
