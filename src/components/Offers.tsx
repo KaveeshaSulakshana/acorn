@@ -159,12 +159,12 @@ const Offers = ({offersPack, type}: { offersPack: OfferProps, type: string }) =>
                 </p>
 
                 <div
-                    className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 px-0 sm:px-4 md:px-8 lg:px-28">
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 px-0 sm:px-4 md:px-8 lg:px-28">
                     {offersPack.offers?.map((offer, index) => (
                         // <Link href={offer.link} >
                         <div
                             key={index}
-                            className="bg-white rounded-md border-2 border-[#E4E6E8] overflow-hidden shadow-lg transition-shadow duration-300 relative"
+                            className="bg-white rounded-md w-full max-w-86 mx-auto sm:max-w-full border-2 border-[#E4E6E8] overflow-hidden shadow-lg transition-shadow duration-300 relative"
                         >
                             {/* Image Section */}
                             <div className="relative h-40 sm:h-48 md:h-64">
