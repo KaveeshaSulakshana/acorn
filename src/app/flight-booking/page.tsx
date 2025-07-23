@@ -6,6 +6,7 @@ import {getFlightBookingPageData} from "../../../sanity/api";
 import React from "react";
 import Image from "next/image";
 import TravelFeaturesGrid from "@/components/ServiceIcon";
+import Nav from "@/components/Nav";
 
 interface HeroButton {
     title: string;
@@ -303,6 +304,7 @@ const FlightBookingPage = async () => {
 
     return (
         <div className="min-h-screen bg-[#F6F6F6] lato">
+            <Nav/>
             <Hero hero={hero}/>
             <div id="offers" className="bg-white">
                 <Offers offersPack={offersPack} type="flightBooking"/>

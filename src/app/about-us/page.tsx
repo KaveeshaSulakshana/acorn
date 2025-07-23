@@ -3,6 +3,8 @@ import Image from "next/image";
 import Partners from "@/components/Partners";
 import {getAboutUsPageData} from "../../../sanity/api";
 import Strengths from "@/components/Strenghts";
+import Nav from "@/components/Nav";
+import React from "react";
 
 interface HeroButton {
     title: string;
@@ -153,6 +155,7 @@ const AboutUs = async () => {
 
     return (
         <div className="min-h-screen lato">
+            <Nav/>
             <Hero hero={hero}/>
             <div id="about-explore" className="py-8 sm:py-12 bg-white">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-15">

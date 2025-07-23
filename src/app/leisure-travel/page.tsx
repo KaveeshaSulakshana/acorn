@@ -294,6 +294,7 @@ import {getLeisurePageData} from "../../../sanity/api";
 import Link from "next/link";
 import React from "react";
 import TravelFeaturesGrid from "@/components/ServiceIcon";
+import Nav from "@/components/Nav";
 
 // interface HeroButton {
 //     title: string;
@@ -533,6 +534,7 @@ const LeisureTravel = async () => {
 
     return (
         <div className="min-h-screen relative bg-white lato">
+            <Nav/>
             <Hero hero={hero}/>
             <div className="mx-auto">
                 {sections.map((section, index) => (

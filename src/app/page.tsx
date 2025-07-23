@@ -174,6 +174,7 @@ import {getHomePageData} from "../../sanity/api";
 import Image from "next/image";
 import React from "react";
 import TestimonialSlider from "@/components/TestimonialSlider";
+import Nav from "@/components/Nav";
 
 interface Slide {
     image: string;
@@ -360,6 +361,7 @@ export default async function Home() {
 
     return (
         <div className="min-h-screen">
+            <Nav/>
             <Carousel
                 slides={slides}
                 autoSlide={true}

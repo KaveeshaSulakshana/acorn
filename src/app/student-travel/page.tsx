@@ -4,6 +4,7 @@ import {FormField} from "@/components/ContactForm";
 import {getStudentPageData} from "../../../sanity/api";
 import React from "react";
 import TravelFeaturesGrid from "@/components/ServiceIcon";
+import Nav from "@/components/Nav";
 
 interface HeroButton {
     title: string;
@@ -180,6 +181,7 @@ const StudentTravelPage = async () => {
 
     return (
         <div className="min-h-screen lato">
+            <Nav/>
             <Hero hero={hero}/>
             <div id="student-explore" className="py-12 my-8 bg-white relative overflow-hidden lato">
                 <div className="container mx-auto px-4">

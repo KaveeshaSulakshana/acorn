@@ -910,7 +910,7 @@ const Services = ({ services }: ServicesProps) => {
                             {Array.from({ length: totalSlides }).map((_, slideIndex) => (
                                 <div
                                     key={slideIndex}
-                                    className="flex-shrink-0 w-full flex"
+                                    className="flex-shrink-0 w-full max-w-86 md:max-w-none flex"
                                 >
                                     {services
                                         .slice(slideIndex * itemsPerView, (slideIndex + 1) * itemsPerView)
@@ -1047,7 +1047,7 @@ const Services = ({ services }: ServicesProps) => {
                         <button
                             key={index}
                             onClick={() => goToSlide(index)}
-                            className={`w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 xl:w-8 xl:h-2 2xl:w-10 2xl:h-2 
+                            className={`w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-6 lg:h-2 xl:w-8 xl:h-2 2xl:w-10 2xl:h-2 
                        rounded-full transition-all duration-300 ${
                                 index === currentIndex ? "bg-[#2B5597]" : "bg-[#DDDDDD] hover:bg-gray-400"
                             }`}

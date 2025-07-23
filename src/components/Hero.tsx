@@ -18,7 +18,7 @@ interface HeroProps {
 
 const Hero = ({hero}: HeroProps) => {
     return (
-        <div className="relative w-full h-[400px] md:h-[600px] lg:h-[800px] overflow-hidden lato">
+        <div className="relative w-full h-[400px] md:h-[600px] lg:h-[790px] overflow-hidden lato">
             <div
                 className="absolute inset-0 transition-opacity duration-500 opacity-100">
                 <Image

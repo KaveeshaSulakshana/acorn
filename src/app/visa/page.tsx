@@ -4,6 +4,7 @@ import {FormField} from "@/components/ContactForm";
 import {getVisaPageData} from "../../../sanity/api";
 import React from "react";
 import TravelFeaturesGrid from "@/components/ServiceIcon";
+import Nav from "@/components/Nav";
 
 interface HeroButton {
     title: string;
@@ -194,6 +195,7 @@ const VisaPage = async () => {
 
     return (
         <div className="min-h-screen bg-white lato">
+            <Nav/>
             <Hero hero={hero}/>
             <div className="py-6 my-0 lg:py-12 lg:my-8 bg-white relative overflow-hidden lato">
                 <div id="visa-explore" className="container mx-auto px-4">

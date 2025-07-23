@@ -267,6 +267,8 @@
 import Hero from "@/components/Hero";
 import ContactForm, {FormField} from "@/components/ContactForm";
 import {getContactUsPageData} from "../../../sanity/api";
+import Nav from "@/components/Nav";
+import React from "react";
 
 interface HeroButton {
     title: string;
@@ -435,6 +437,7 @@ const ContactUsPage = async () => {
 
     return (
         <div className="min-h-screen lato bg-white">
+            <Nav/>
             <Hero hero={hero}/>
             <div className="w-full">
                 <div id="explore" className="container mx-auto px-4 sm:px-6 lg:px-15">

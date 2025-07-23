@@ -4,6 +4,7 @@ import ParallaxBackground from "@/components/ParallaxBackground";
 import {FormField} from "@/components/ContactForm";
 import {getCorporatePageData} from "../../../sanity/api";
 import FeatureSlider from "@/components/FeatureSlider";
+import Nav from "@/components/Nav";
 
 // interface Slide {
 //     _key: string;
@@ -216,6 +217,7 @@ const CorporateTravel = async () => {
 
         return (
             <div className="lato bg-[#F6F6F6]">
+                <Nav/>
                 <Hero hero={heroProps}/>
                 <div id="corporate-travel" className="py-12 bg-white relative overflow-hidden lato">
                     <div className="container mx-auto px-4">

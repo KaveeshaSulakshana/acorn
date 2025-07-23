@@ -26,7 +26,7 @@ export default function RootLayout({
         <body
             className={lato.className}
         >
-        <Navbar/>
+        {/*<Navbar/>*/}
         {children}
         <Footer/>
         </body>

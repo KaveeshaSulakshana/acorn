@@ -582,8 +582,8 @@ const ContactForm: React.FC<ContactFormProps> = ({
                         <div className="flex justify-center items-center w-full overflow-hidden">
                             <div className="recaptcha-wrapper
                                             w-full
-                                            max-w-[304px]
-                                            sm:max-w-[304px]
+                                            max-w-[250px]
+                                            sm:max-w-[260px]
                                             md:max-w-[304px]
                                             lg:max-w-[304px]
                                             transform-gpu

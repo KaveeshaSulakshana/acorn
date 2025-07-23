@@ -2,6 +2,7 @@ import Hero from "@/components/Hero";
 import ContactForm, {FormField} from "@/components/ContactForm";
 import React from "react";
 import {getOfferDetailsData} from "../../../../sanity/api";
+import Nav from "@/components/Nav";
 
 interface HeroButton {
     title: string;
@@ -61,6 +62,7 @@ const OfferDetailPage = async ({params}: Props) => {
 
     return (
         <div className="min-h-screen lato bg-white">
+            <Nav/>
             <Hero hero={hero}/>
             <div className="w-full">
                 <div id="explore" className="container mx-auto px-4 sm:px-6 lg:px-15">
