@@ -192,7 +192,7 @@ interface Offer {
     guests?: string;
     price?: string;
     contact?: string;
-    inclusion?: string;
+    inclusions?: string[];
 }
 
 interface OfferProps {
@@ -289,14 +289,34 @@ const Offers = ({offersPack, type}: { offersPack: OfferProps, type: string }) =>
                                                 {/*</div>*/}
                                             </div>
                                             <div className="space-y-3 sm:space-y-4 mb-8 sm:mb-10">
-                                                <p className="text-sm sm:text-base text-gray-700 whitespace-pre-line"
-                                                   style={{opacity: 1, transform: "none"}}>
-                                                    {offer.inclusion}
-                                                </p>
+                                                {/*<p className="text-sm sm:text-base text-gray-700 whitespace-pre-line"*/}
+                                                {/*   style={{opacity: 1, transform: "none"}}>*/}
+                                                {/*    {offer.inclusion}*/}
+                                                {/*</p>*/}
+                                                {
+                                                    offer.inclusions?.map((inclusion, index) => (
+                                                        <div key={index} className="flex items-center"
+                                                             style={{opacity: 1, transform: "none"}}>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                                 height="24" viewBox="0 0 24 24" fill="none"
+                                                                 stroke="currentColor" strokeWidth="2"
+                                                                 strokeLinecap="round" strokeLinejoin="round"
+                                                                 className="lucide lucide-check w-4 h-4 mr-3 flex-shrink-0">
+                                                                <path d="M20 6 9 17l-5-5"></path>
+                                                            </svg>
+                                                            <span
+                                                                className="text-sm sm:text-base text-gray-700">{inclusion}</span>
+                                                        </div>
+                                                    ))
+                                                }
+
+                                                {/*<div className="flex items-center" style={{opacity: 1, transform: "none"}}>*/}
+                                                {/*    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-check w-4 h-4 mr-3 flex-shrink-0"><path d="M20 6 9 17l-5-5"></path></svg>*/}
+                                                {/*    <span className="text-sm sm:text-base text-gray-700">Aquaventure Water Park</span></div>*/}
                                             </div>
                                             <Link href={`${offer.link}#inquiry`}>
                                                 <button
-                                                    className="w-full bg-blue-900 text-white py-3 sm:py-4 rounded-lg cursor-pointer sm:rounded-xl font-semibold hover:bg-blue-800 transition-colors uppercase tracking-wide text-sm sm:text-base"
+                                                    className="w-full bg-blue-900 text-white py-3 sm:py-4 rounded-lg cursor-pointer sm:rounded-xl font-semibold hover:bg-blue-800 hover:scale-105 transition-all duration-300 uppercase tracking-wide text-sm sm:text-base"
                                                     style={{
                                                         boxShadow: "rgba(0, 0, 0, 0) 0px 0px 0px",
                                                         transform: "none"

@@ -243,7 +243,7 @@ interface ItemData {
     duration?: string;
     guests?: string;
     price?: string;
-    inclusionCard?: string;
+    inclusionCard?: string[];
 }
 
 interface Testi {
@@ -344,7 +344,7 @@ export default async function Home() {
             duration: item.duration || '',
             guests: item.guests || '',
             price: item.price || '',
-            inclusion: item.inclusionCard || '',
+            inclusions: item.inclusionCard || '',
         })),
     };
 

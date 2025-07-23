@@ -26,7 +26,7 @@ interface Props {
 
 const OfferDetailPage = async ({params}: Props) => {
 
-    const { id } = await params;
+    const {id} = await params;
     const offer = await getOfferDetailsData(id);
 
     console.log(offer);
@@ -140,18 +140,25 @@ const OfferDetailPage = async ({params}: Props) => {
                             <ul className="space-y-1 sm:space-y-2 mb-6 mt-5 sm:mb-8">
                                 {offer.inclusions.map((inclusion: string, index: string) => (
                                     <li key={index} className="flex items-center">
-                                        <svg
-                                            className="w-3 h-3 sm:w-4 sm:h-4 mr-2 sm:mr-4 flex-shrink-0 mt-1"
-                                            width="19"
-                                            height="16"
-                                            viewBox="0 0 19 16"
-                                            fill="none"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                            <path
-                                                d="M8.11168 15.7656C8.10922 15.7656 8.10635 15.7656 8.10389 15.7656C8.00217 15.7635 7.9062 15.7201 7.83729 15.6454L0.804751 7.99846C0.684161 7.86721 0.673091 7.66951 0.778501 7.52555C0.883911 7.38199 1.07586 7.33277 1.23746 7.40824L7.67405 10.4221C7.72819 10.4475 7.79217 10.4352 7.8336 10.3921L17.6519 0.130429C17.7848 -0.00861141 18.0022 -0.0237915 18.1531 0.0959785C18.3041 0.215739 18.3389 0.430659 18.2335 0.591859L8.46688 15.5535C8.45293 15.5753 8.43653 15.595 8.41848 15.6134L8.37541 15.6565C8.30528 15.7262 8.21012 15.7656 8.11168 15.7656Z"
-                                                fill="#2B5597"
-                                            />
+                                        {/*<svg*/}
+                                        {/*    className="w-3 h-3 sm:w-4 sm:h-4 mr-2 sm:mr-4 flex-shrink-0 mt-1"*/}
+                                        {/*    width="19"*/}
+                                        {/*    height="16"*/}
+                                        {/*    viewBox="0 0 19 16"*/}
+                                        {/*    fill="none"*/}
+                                        {/*    xmlns="http://www.w3.org/2000/svg"*/}
+                                        {/*>*/}
+                                        {/*    <path*/}
+                                        {/*        d="M8.11168 15.7656C8.10922 15.7656 8.10635 15.7656 8.10389 15.7656C8.00217 15.7635 7.9062 15.7201 7.83729 15.6454L0.804751 7.99846C0.684161 7.86721 0.673091 7.66951 0.778501 7.52555C0.883911 7.38199 1.07586 7.33277 1.23746 7.40824L7.67405 10.4221C7.72819 10.4475 7.79217 10.4352 7.8336 10.3921L17.6519 0.130429C17.7848 -0.00861141 18.0022 -0.0237915 18.1531 0.0959785C18.3041 0.215739 18.3389 0.430659 18.2335 0.591859L8.46688 15.5535C8.45293 15.5753 8.43653 15.595 8.41848 15.6134L8.37541 15.6565C8.30528 15.7262 8.21012 15.7656 8.11168 15.7656Z"*/}
+                                        {/*        fill="#2B5597"*/}
+                                        {/*    />*/}
+                                        {/*</svg>*/}
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                             height="24" viewBox="0 0 24 24" fill="none"
+                                             stroke="currentColor" strokeWidth="2"
+                                             strokeLinecap="round" strokeLinejoin="round"
+                                             className="lucide lucide-check w-4 h-4 mr-3 flex-shrink-0">
+                                            <path d="M20 6 9 17l-5-5"></path>
                                         </svg>
                                         <span
                                             className="text-[#737373] text-sm sm:text-base leading-6 font-normal">
@@ -169,7 +176,8 @@ const OfferDetailPage = async ({params}: Props) => {
                                 className="my-4 sm:my-6 md:my-8 py-4 sm:py-6 md:py-8
                            border-t-2 border-[#D2D2D2]"
                             >
-                                <div className="flex flex-col space-y-4 md:space-y-0 items-start sm:flex-row sm:gap-8 lg:gap-12">
+                                <div
+                                    className="flex flex-col space-y-4 md:space-y-0 items-start sm:flex-row sm:gap-8 lg:gap-12">
                                     <div className="flex flex-col sm:gap-4">
                                         <div className="flex gap-3 sm:gap-4 items-start mb-4 sm:mb-0">
                                             <svg

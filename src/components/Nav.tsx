@@ -107,8 +107,8 @@ const Navbar = () => {
     // Define active link class
     const getLinkClass = (href: string) => {
         return pathname === href
-            ? "border-b-4 border-[#2B5597] pb-3 font-medium"
-            : "hover:text-blue-950 font-medium";
+            ? "text-[#2B5597] font-medium"
+            : "hover:text-[#2B5597] text-[#3C3C3C] font-medium";
     };
 
     // Define active dropdown link class
@@ -194,7 +194,7 @@ const Navbar = () => {
                                 <motion.div>
                                     <Link
                                         href="/"
-                                        className={`${getLinkClass("/")} text-[#3C3C3C] font-medium text-sm sm:text-base md:text-[16px] lg:text-[17px] xl:text-lg`}
+                                        className={`${getLinkClass("/")} font-medium text-sm sm:text-base md:text-[16px] lg:text-[17px] xl:text-lg`}
                                         onClick={handleLinkClick}
                                     >
                                         Home
@@ -308,7 +308,7 @@ const Navbar = () => {
                                 <motion.div>
                                     <Link
                                         href="/student-travel"
-                                        className={`${getLinkClass("/student-travel")} text-[#3C3C3C] font-medium text-sm sm:text-base md:text-[16px] lg:text-[17px] xl:text-lg`}
+                                        className={`${getLinkClass("/student-travel")} font-medium text-sm sm:text-base md:text-[16px] lg:text-[17px] xl:text-lg`}
                                         onClick={handleLinkClick}
                                     >
                                         Student
@@ -317,7 +317,7 @@ const Navbar = () => {
                                 <motion.div>
                                     <Link
                                         href="/visa"
-                                        className={`${getLinkClass("/visa")} text-[#3C3C3C] font-medium text-sm sm:text-base md:text-[16px] lg:text-[17px] xl:text-lg`}
+                                        className={`${getLinkClass("/visa")} font-medium text-sm sm:text-base md:text-[16px] lg:text-[17px] xl:text-lg`}
                                         onClick={handleLinkClick}
                                     >
                                         Visa
@@ -326,7 +326,7 @@ const Navbar = () => {
                                 <motion.div>
                                     <Link
                                         href="/about-us"
-                                        className={`${getLinkClass("/about-us")} text-[#3C3C3C] text-sm font-medium sm:text-base md:text-[16px] lg:text-[17px] xl:text-lg`}
+                                        className={`${getLinkClass("/about-us")} text-sm font-medium sm:text-base md:text-[16px] lg:text-[17px] xl:text-lg`}
                                         onClick={handleLinkClick}
                                     >
                                         About Us
@@ -477,7 +477,7 @@ const Navbar = () => {
                                     <motion.div variants={mobileMenuItemVariants}>
                                         <Link
                                             href="/student-travel"
-                                            className={`${getLinkClass("/student-travel")} text-[#3C3C3C] font-medium text-base sm:text-lg`}
+                                            className={`${getLinkClass("/student-travel")} font-medium text-base sm:text-lg`}
                                             onClick={handleLinkClick}
                                         >
                                             Student Travel
@@ -486,7 +486,7 @@ const Navbar = () => {
                                     <motion.div variants={mobileMenuItemVariants}>
                                         <Link
                                             href="/visa"
-                                            className={`${getLinkClass("/visa")} text-[#3C3C3C] font-medium text-base sm:text-lg`}
+                                            className={`${getLinkClass("/visa")} font-medium text-base sm:text-lg`}
                                             onClick={handleLinkClick}
                                         >
                                             Visa
@@ -495,7 +495,7 @@ const Navbar = () => {
                                     <motion.div variants={mobileMenuItemVariants}>
                                         <Link
                                             href="/about-us"
-                                            className={`${getLinkClass("/about-us")} text-[#3C3C3C] font-medium text-base sm:text-lg`}
+                                            className={`${getLinkClass("/about-us")} font-medium text-base sm:text-lg`}
                                             onClick={handleLinkClick}
                                         >
                                             About Us
