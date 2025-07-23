@@ -251,7 +251,7 @@ interface Testi {
     title: string;
     description: string;
     name: string;
-    image: { asset: { url: string }; alt: string };
+    image?: { asset: { url: string }; alt: string };
     rate: string;
 }
 
@@ -354,7 +354,7 @@ export default async function Home() {
         title: item.title || "",
         description: item.description || "",
         name: item.name || "",
-        image: item.image?.asset?.url || "",
+        // image: item.image?.asset?.url || "",
         rate: item.rate || 0,
     }));
 
@@ -380,7 +380,7 @@ export default async function Home() {
 
 
             <section className="py-8 sm:py-10 md:py-12 bg-white lato">
-                <div className="container mx-auto px-4 sm:px-6 flex flex-col md:flex-row justify-between items-start">
+                <div className="container mx-auto px-4 sm:px-6 flex flex-col md:flex-row justify-between items-center">
                     <div className="w-full md:w-1/2 mb-6 sm:mb-8 md:mb-0">
                         <h2 className="text-3xl sm:text-4xl md:text-[52px] font-bold lato max-w-xl px-4 sm:px-6 md:px-8 text-black mb-3 sm:mb-4">
                             {homeData.testimonials.title}

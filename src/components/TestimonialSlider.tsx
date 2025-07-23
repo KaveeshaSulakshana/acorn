@@ -311,7 +311,7 @@
 
 "use client"
 import React, { useState } from 'react';
-import Image from 'next/image';
+// import Image from 'next/image';
 
 interface Testimonial {
     _key: string;
@@ -341,7 +341,7 @@ const TestimonialSlider: React.FC<TestimonialSliderProps> = ({ testimonials }) =
         );
     };
 
-    const { title, description, name, image, rate } = testimonials[currentIndex];
+    const { title, description, name, rate } = testimonials[currentIndex];
 
     return (
         <div
@@ -349,8 +349,7 @@ const TestimonialSlider: React.FC<TestimonialSliderProps> = ({ testimonials }) =
             sm:p-6 sm:gap-6
             md:flex-row-reverse md:p-8 md:gap-8 md:w-11/12
             lg:p-10 lg:gap-10">
-            <div className="w-full flex flex-col justify-between
-                            md:w-3/5 md:mb-0">
+            <div className="w-full flex flex-col justify-between md:mb-0">
                 <div>
                     <h2 className="font-bold text-sm leading-tight text-black max-w-2xl
                                   sm:text-base
@@ -427,18 +426,18 @@ const TestimonialSlider: React.FC<TestimonialSliderProps> = ({ testimonials }) =
                 </div>
             </div>
 
-            <div className="w-full
-                           md:w-2/5">
-                <Image
-                    src={image}
-                    alt="Testimonial Image"
-                    width={400}
-                    height={800}
-                    className="rounded-lg object-cover w-full h-76
-                              md:h-80
-                              lg:h-96"
-                />
-            </div>
+            {/*<div className="w-full*/}
+            {/*               md:w-2/5">*/}
+            {/*    <Image*/}
+            {/*        src={image}*/}
+            {/*        alt="Testimonial Image"*/}
+            {/*        width={400}*/}
+            {/*        height={800}*/}
+            {/*        className="rounded-lg object-cover w-full h-76*/}
+            {/*                  md:h-80*/}
+            {/*                  lg:h-96"*/}
+            {/*    />*/}
+            {/*</div>*/}
         </div>
     );
 };
