@@ -153,7 +153,7 @@ const Carousel = ({
                             className="text-[10px] sm:text-xs md:text-xl
                          text-[#D3D1D1] font-medium
                          mb-3 sm:mb-4 md:mb-5 lg:mb-6 xl:mb-7 2xl:mb-8
-                         max-w-xs sm:max-w-sm md:max-w-md lg:max-w-2xl leading-6 2xl:max-w-3xl"
+                         max-w-xs sm:max-w-sm md:max-w-md lg:max-w-2xl md:leading-6 2xl:max-w-3xl"
                         >
                             {slide.description}
                         </p>

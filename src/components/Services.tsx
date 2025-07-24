@@ -844,7 +844,7 @@ const Services = ({ services }: ServicesProps) => {
                 if (window.innerWidth >= 1280) {
                     setItemsPerView(4); // lg and above (desktop) - 4 items per slide
                 }
-                else if (window.innerWidth >= 820 ){
+                else if (window.innerWidth >= 1024 ){
                     setItemsPerView(3);
                 }
                 else if (window.innerWidth >= 640) {
@@ -892,7 +892,7 @@ const Services = ({ services }: ServicesProps) => {
                     Our Services
                 </h2>
                 <p
-                    className="text-[#737373] text-base sm:text-lg md:text-xl leading-8
+                    className="text-[#737373] text-base sm:text-lg md:text-xl md:leading-8
                      text-center mb-4 sm:mb-6 md:mb-8 max-w-2xl sm:max-w-3xl mx-auto lato"
                 >
                     At Acorn Travels, we deliver tailored corporate and leisure travel solutions for seamless
@@ -910,7 +910,7 @@ const Services = ({ services }: ServicesProps) => {
                             {Array.from({ length: totalSlides }).map((_, slideIndex) => (
                                 <div
                                     key={slideIndex}
-                                    className="flex-shrink-0 w-full max-w-86 md:max-w-none flex"
+                                    className="flex-shrink-0 w-full flex"
                                 >
                                     {services
                                         .slice(slideIndex * itemsPerView, (slideIndex + 1) * itemsPerView)
@@ -930,15 +930,15 @@ const Services = ({ services }: ServicesProps) => {
                                            overflow-hidden h-full hover:shadow-lg
                                            transition-shadow"
                                                 >
-                                                    <div className="relative h-32 sm:h-40 md:h-48 lg:h-60 xl:h-64">
+                                                    <div className="relative" style={{ paddingTop: '56.25%'}}>
                                                         <Image
                                                             src={service.image}
                                                             alt={service.title}
                                                             fill
                                                             className="object-cover"
-                                                            sizes="(max-width: 640px) 100vw,
-                                                            (max-width: 1024px) 50vw,
-                                                            25vw"
+                                                            // sizes="(max-width: 640px) 100vw,
+                                                            // (max-width: 1024px) 50vw,
+                                                            // 25vw"
                                                             quality={85}
                                                             loading="lazy"
                                                             priority={false}

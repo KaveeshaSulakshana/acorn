@@ -211,7 +211,7 @@ const Offers = ({offersPack, type}: { offersPack: OfferProps, type: string }) =>
                 <h2 className="text-xl sm:text-2xl md:text-[52px] font-bold text-[#3C3C3C] text-center mb-4 sm:mb-6 lato">
                     {offersPack.title}
                 </h2>
-                <p className="text-[#737373] text-sm sm:text-base md:text-xl text-center mb-4 sm:mb-6 md:mb-8 leading-8 max-w-2xl mx-auto lato">
+                <p className="text-[#737373] text-sm sm:text-base md:text-xl text-center mb-4 sm:mb-6 md:mb-8 md:leading-8 max-w-2xl mx-auto lato">
                     {offersPack.description}
                 </p>
 
