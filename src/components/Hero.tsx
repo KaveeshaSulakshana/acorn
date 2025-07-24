@@ -34,7 +34,7 @@ const Hero = ({hero}: HeroProps) => {
                     <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-6xl font-semibold text-white mb-3 md:mb-4 lg:mb-6 max-w-5xl leading-tight">
                         {hero.title}
                     </h1>
-                    <p className="text-base sm:text-xl text-[#D3D1D1] font-medium mb-4 md:mb-6 lg:mb-8 max-w-xl leading-7 lg:max-w-2xl">
+                    <p className="text-base sm:text-xl text-[#D3D1D1] font-medium mb-4 md:mb-6 lg:mb-8 max-w-xl md:leading-7 lg:max-w-2xl">
                         {hero.description}
                     </p>
                     {hero.buttonText && hero.buttonText.length > 0 && (
