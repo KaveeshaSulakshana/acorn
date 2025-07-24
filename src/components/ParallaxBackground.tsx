@@ -27,7 +27,7 @@ const ParallaxBackground = ({parallax, formFields, pageSource}: ParallaxProps) =
     return (
         <>
             <div className="py-6 mx-4 lg:py-18 lg:mx-12">
-                <div className="hidden lg:block container mx-auto">
+                <div className="hidden xl:block container mx-auto">
                     <div className="min-h-screen block items-center justify-center relative"
                     >
                         <Parallax
