@@ -318,7 +318,7 @@ const Footer = () => {
                                         inquiries.travels@acorn.lk
                                     </a>
                                 </li>
-                                <li className="flex items-start gap-2 sm:gap-3 md:gap-4 font-normal">
+                                <li className="flex items-center gap-2 sm:gap-3 md:gap-4 font-normal">
                                     <Image
                                         src="/phone.png"
                                         alt="Phone"
@@ -330,6 +330,18 @@ const Footer = () => {
                                         <a href="tel:+94114704704" className="hover:text-white block">+94 114 704 704/5
                                         </a>
                                         <a href="tel:+94772775679" className="hover:text-white block">+94 772 775 679</a>
+                                        {/*<a href="https://wa.link/d1ikuv" className="hover:text-white block">+94 763 028 250</a>*/}
+                                    </div>
+                                </li>
+                                <li className="flex items-center gap-2 sm:gap-3 md:gap-4 font-normal">
+                                    <Image
+                                        src="/whatsapp.png"
+                                        alt="Phone"
+                                        width={24}
+                                        height={24}
+                                        className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 flex-shrink-0"
+                                    />
+                                    <div className="space-y-1">
                                         <a href="https://wa.link/d1ikuv" className="hover:text-white block">+94 763 028 250</a>
                                     </div>
                                 </li>
