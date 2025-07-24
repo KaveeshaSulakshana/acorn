@@ -357,7 +357,7 @@ const TestimonialSlider: React.FC<TestimonialSliderProps> = ({ testimonials }) =
                                   lg:text-2xl">
                         {title}
                     </h2>
-                    <p className="text-xs font-normal mt-3 text-[#626262] max-w-2xl leading-relaxed
+                    <p className="text-xs font-normal mt-3 text-[#626262] max-w-2xl leading-relaxed min-h-32 md:min-h-40
                                  sm:text-sm sm:mt-4
                                  md:text-base
                                  lg:text-lg">

@@ -290,7 +290,7 @@ const Footer = () => {
                             </ul>
                         </div>
 
-                        <div>
+                        <div className="md:-ml-6">
                             <h3 className="text-[15px] sm:text-[16px] font-bold mb-2 sm:mb-3 md:mb-4">CONTACT
                                 US</h3>
                             <ul className="space-y-2 sm:space-y-3 md:space-y-4 text-[#E2E2E2] text-[13px] sm:text-[14px] md:text-[15px]">
@@ -474,7 +474,7 @@ const Footer = () => {
             </div>
 
             <div
-                className="container mx-auto py-3 sm:py-4 md:py-5 px-4 sm:px-6 md:px-8 text-[#2B5597] bg-white flex flex-col md:flex-row justify-between items-center border-t">
+                className="container mx-auto py-3 sm:py-4 md:py-5 px-4 sm:px-6 md:px-8 text-[#2B5597] bg-white flex flex-col lg:flex-row justify-between items-center border-t">
                 <p className="text-[13px] sm:text-[14px] md:text-[16px] font-normal mb-2 md:mb-0 text-center">
                     Copyright 2025 ©Acorn Travels Pvt Ltd  Developed By KodeTech
                 </p>
