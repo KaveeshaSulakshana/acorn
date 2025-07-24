@@ -217,150 +217,164 @@ const Offers = ({offersPack, type}: { offersPack: OfferProps, type: string }) =>
 
                 <div
                     className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 px-0 sm:px-4 md:px-8 lg:px-20">
-                    {offersPack.offers?.map((offer, index) => (
+                    {offersPack.offers?.map((offer, index) => {
                         // <div
                         //     key={index}
                         //     className="bg-white rounded-md w-full max-w-86 mx-auto sm:max-w-full border-2 border-[#E4E6E8] overflow-hidden shadow-lg transition-shadow duration-300 relative"
                         // >
-                        <div
-                            key={index}
-                            className="bg-white rounded-3xl sm:rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
-                            style={{opacity: 1, transform: "none"}}
-                        >
-                            <div className="relative m-5">
-                                <Image
-                                    src={offer.image}
-                                    alt={offer.alt || offer.title}
-                                    width={400}
-                                    height={400}
-                                    className="w-full h-48 sm:h-56 lg:h-80 object-cover rounded-3xl"
-                                    // sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                                    style={{opacity: 1, transform: "none"}}
-                                    quality={85}
-                                />
-                                {offer.topRated && (
-                                    <span
-                                        className="absolute top-3 sm:top-4 left-3 sm:left-4 bg-white text-gray-800 px-3 sm:px-4 py-1 sm:py-2 rounded-lg text-xs sm:text-sm font-bold"
-                                        style={{opacity: 1, transform: "none"}}>
+                        const cardContent = (
+                            <div
+                                className="bg-white rounded-3xl sm:rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+                                style={{opacity: 1, transform: "none"}}
+                            >
+                                <div className="relative m-5">
+                                    <Image
+                                        src={offer.image}
+                                        alt={offer.alt || offer.title}
+                                        width={400}
+                                        height={400}
+                                        className="w-full h-48 sm:h-56 lg:h-80 object-cover rounded-3xl"
+                                        // sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                        style={{opacity: 1, transform: "none"}}
+                                        quality={85}
+                                    />
+                                    {offer.topRated && (
+                                        <span
+                                            className="absolute top-3 sm:top-4 left-3 sm:left-4 bg-white text-gray-800 px-3 sm:px-4 py-1 sm:py-2 rounded-lg text-xs sm:text-sm font-bold"
+                                            style={{opacity: 1, transform: "none"}}>
                                         Top Rated
                                     </span>
-                                )}
-                            </div>
+                                    )}
+                                </div>
 
-                            <div
-                                className="p-6 sm:p-8">
-                                <h3 className="text-xl sm:text-3xl font-bold text-gray-900 mb-2 sm:mb-6 min-h-6 sm:min-h-30 lg:min-h-18"
-                                    style={{opacity: 1, transform: "none"}}>
-                                    {offer.title}
-                                </h3>
+                                <div
+                                    className="p-6 sm:p-8">
+                                    <h3 className="text-xl sm:text-3xl font-bold text-gray-900 mb-2 sm:mb-6 min-h-6 sm:min-h-30 lg:min-h-18"
+                                        style={{opacity: 1, transform: "none"}}>
+                                        {offer.title}
+                                    </h3>
 
-                                {
-                                    type === "home" ? (
-                                        <div>
-                                            <div className="mb-3 sm:mb-8">
-                                                <div className="w-full h-px bg-gray-200 mb-3"
-                                                     style={{opacity: 1, transform: "none"}}/>
-                                                <p className="text-xs sm:text-sm text-gray-500 mb-1">Starting from</p>
-                                                <div className="flex items-baseline gap-2 mb-4" style={{opacity: 1}}>
+                                    {
+                                        type === "home" ? (
+                                            <div>
+                                                <div className="mb-3 sm:mb-8">
+                                                    <div className="w-full h-px bg-gray-200 mb-3"
+                                                         style={{opacity: 1, transform: "none"}}/>
+                                                    <p className="text-xs sm:text-sm text-gray-500 mb-1">Starting
+                                                        from</p>
+                                                    <div className="flex items-baseline gap-2 mb-4"
+                                                         style={{opacity: 1}}>
                                                     <span
                                                         className="text-lg sm:text-xl font-bold text-gray-900">{offer.price}</span>
-                                                    <span
-                                                        className="text-sm sm:text-base text-gray-400"> / per person</span>
+                                                        <span
+                                                            className="text-sm sm:text-base text-gray-400"> / per person</span>
+                                                    </div>
+                                                    <div className="w-full h-px bg-gray-200"
+                                                         style={{transform: "none"}}></div>
+                                                    {/*<div*/}
+                                                    {/*    className="flex flex-row flex-wrap justify-between items-center text-[#737373] text-xs sm:text-sm md:text-base gap-2">*/}
+                                                    {/*    <p className="text-[#737373] lato whitespace-pre-line overflow-auto max-h-24">*/}
+                                                    {/*        {offer.inclusion}*/}
+                                                    {/*    </p>*/}
+                                                    {/*</div>*/}
+                                                    {/*<h3 className="text-xs sm:text-sm md:text-base pt-4 sm:pt-5 font-bold text-[#2B5597] lato line-clamp-2 min-h-10 sm:min-h-12 md:min-h-16">*/}
+                                                    {/*    Starting From - {offer.price}*/}
+                                                    {/*</h3>*/}
+                                                    {/*<div className="flex justify-center mt-4">*/}
+                                                    {/*    <Link href={`${offer.link}#inquiry`}>*/}
+                                                    {/*        <button*/}
+                                                    {/*            className="bg-[#2B5597] cursor-pointer flex justify-center items-center text-white text-xs sm:text-sm md:text-sm lg:text-xs font-bold px-3 sm:px-4 py-2 sm:py-3 rounded-md hover:bg-blue-950 transition-colors lato"*/}
+                                                    {/*        >*/}
+                                                    {/*            Inquiry Now*/}
+                                                    {/*        </button>*/}
+                                                    {/*    </Link>*/}
+                                                    {/*</div>*/}
                                                 </div>
-                                                <div className="w-full h-px bg-gray-200"
-                                                     style={{transform: "none"}}></div>
-                                                {/*<div*/}
-                                                {/*    className="flex flex-row flex-wrap justify-between items-center text-[#737373] text-xs sm:text-sm md:text-base gap-2">*/}
-                                                {/*    <p className="text-[#737373] lato whitespace-pre-line overflow-auto max-h-24">*/}
-                                                {/*        {offer.inclusion}*/}
-                                                {/*    </p>*/}
-                                                {/*</div>*/}
-                                                {/*<h3 className="text-xs sm:text-sm md:text-base pt-4 sm:pt-5 font-bold text-[#2B5597] lato line-clamp-2 min-h-10 sm:min-h-12 md:min-h-16">*/}
-                                                {/*    Starting From - {offer.price}*/}
-                                                {/*</h3>*/}
-                                                {/*<div className="flex justify-center mt-4">*/}
-                                                {/*    <Link href={`${offer.link}#inquiry`}>*/}
-                                                {/*        <button*/}
-                                                {/*            className="bg-[#2B5597] cursor-pointer flex justify-center items-center text-white text-xs sm:text-sm md:text-sm lg:text-xs font-bold px-3 sm:px-4 py-2 sm:py-3 rounded-md hover:bg-blue-950 transition-colors lato"*/}
-                                                {/*        >*/}
-                                                {/*            Inquiry Now*/}
-                                                {/*        </button>*/}
-                                                {/*    </Link>*/}
-                                                {/*</div>*/}
-                                            </div>
-                                            <div className="space-y-3 sm:space-y-4 mb-8 sm:mb-10">
-                                                {/*<p className="text-sm sm:text-base text-gray-700 whitespace-pre-line"*/}
-                                                {/*   style={{opacity: 1, transform: "none"}}>*/}
-                                                {/*    {offer.inclusion}*/}
-                                                {/*</p>*/}
-                                                {
-                                                    offer.inclusions?.map((inclusion, index) => (
-                                                        <div key={index} className="flex items-center"
-                                                             style={{opacity: 1, transform: "none"}}>
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                                                 height="24" viewBox="0 0 24 24" fill="none"
-                                                                 stroke="currentColor" strokeWidth="2"
-                                                                 strokeLinecap="round" strokeLinejoin="round"
-                                                                 className="lucide lucide-check w-4 h-4 mr-3 flex-shrink-0">
-                                                                <path d="M20 6 9 17l-5-5"></path>
-                                                            </svg>
-                                                            <span
-                                                                className="text-sm sm:text-base text-gray-700">{inclusion}</span>
-                                                        </div>
-                                                    ))
-                                                }
+                                                <div className="space-y-3 sm:space-y-4 mb-8 sm:mb-10">
+                                                    {/*<p className="text-sm sm:text-base text-gray-700 whitespace-pre-line"*/}
+                                                    {/*   style={{opacity: 1, transform: "none"}}>*/}
+                                                    {/*    {offer.inclusion}*/}
+                                                    {/*</p>*/}
+                                                    {
+                                                        offer.inclusions?.map((inclusion, index) => (
+                                                            <div key={index} className="flex items-center"
+                                                                 style={{opacity: 1, transform: "none"}}>
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                                     height="24" viewBox="0 0 24 24" fill="none"
+                                                                     stroke="currentColor" strokeWidth="2"
+                                                                     strokeLinecap="round" strokeLinejoin="round"
+                                                                     className="lucide lucide-check w-4 h-4 mr-3 flex-shrink-0">
+                                                                    <path d="M20 6 9 17l-5-5"></path>
+                                                                </svg>
+                                                                <span
+                                                                    className="text-sm sm:text-base text-gray-700">{inclusion}</span>
+                                                            </div>
+                                                        ))
+                                                    }
 
-                                                {/*<div className="flex items-center" style={{opacity: 1, transform: "none"}}>*/}
-                                                {/*    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-check w-4 h-4 mr-3 flex-shrink-0"><path d="M20 6 9 17l-5-5"></path></svg>*/}
-                                                {/*    <span className="text-sm sm:text-base text-gray-700">Aquaventure Water Park</span></div>*/}
+                                                    {/*<div className="flex items-center" style={{opacity: 1, transform: "none"}}>*/}
+                                                    {/*    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-check w-4 h-4 mr-3 flex-shrink-0"><path d="M20 6 9 17l-5-5"></path></svg>*/}
+                                                    {/*    <span className="text-sm sm:text-base text-gray-700">Aquaventure Water Park</span></div>*/}
+                                                </div>
+                                                <Link href={`${offer.link}#inquiry`}>
+                                                    <button
+                                                        className="w-full bg-blue-900 text-white py-3 sm:py-4 rounded-lg cursor-pointer sm:rounded-xl font-semibold hover:bg-blue-800 hover:scale-105 transition-all duration-300 uppercase tracking-wide text-sm sm:text-base"
+                                                        style={{
+                                                            boxShadow: "rgba(0, 0, 0, 0) 0px 0px 0px",
+                                                            transform: "none"
+                                                        }}>INQUIRE
+                                                    </button>
+                                                </Link>
                                             </div>
-                                            <Link href={`${offer.link}#inquiry`}>
-                                                <button
-                                                    className="w-full bg-blue-900 text-white py-3 sm:py-4 rounded-lg cursor-pointer sm:rounded-xl font-semibold hover:bg-blue-800 hover:scale-105 transition-all duration-300 uppercase tracking-wide text-sm sm:text-base"
-                                                    style={{
-                                                        boxShadow: "rgba(0, 0, 0, 0) 0px 0px 0px",
-                                                        transform: "none"
-                                                    }}>INQUIRE
-                                                </button>
-                                            </Link>
-                                        </div>
-                                    ) : (
-                                        <div
-                                            className="flex items-center text-[#737373] text-sm md:text-base gap-2">
-                                            <svg
-                                                width="20"
-                                                height="20"
-                                                viewBox="0 0 20 20"
-                                                fill="none"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                xmlnsXlink="http://www.w3.org/1999/xlink"
-                                            >
-                                                <rect width="20" height="20" fill="url(#pattern0_286_6480)"/>
-                                                <defs>
-                                                    <pattern
-                                                        id="pattern0_286_6480"
-                                                        patternContentUnits="objectBoundingBox"
-                                                        width="1"
-                                                        height="1"
-                                                    >
-                                                        <use xlinkHref="#image0_286_6480" transform="scale(0.01)"/>
-                                                    </pattern>
-                                                    <image
-                                                        id="image0_286_6480"
-                                                        width="100"
-                                                        height="100"
-                                                        preserveAspectRatio="none"
-                                                        xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFGElEQVR4nO2dSYgdVRSGn0NwAFEU52GhKKI4EIelC0XQ7NxoHBZicEAXQqsJQhYiBBUJziBils5xoyIiaIMiiD7I0HX+/1SZtrFDBkSMbbcYg1hyXzetUYlV71XVqXfr/HA2ock75//q1q07VN1ez+VyuVwul8vlcrlcLpfL5eqo8jw/fEr1qoS8HdAJQNdFFhOhNpJXhlp7bRXJMwB9HtQ9oOZdCKHuBvQ5AKf32qI8zw8D8Ciov1gbBLtYCK0neGEKY3Z29hhA326BIXkrAnwreGICI1wNQr5hbgLbFQLdbNJSlm5T5gagjQFd13wHHu6b1oWztbHQaEe/9DRlXXTe6oA+2wiM8OzdpUdbDB97GxmnJGl6dQuKzcchwuCxdiCieod1oRiXAG6tHwj5sHmhHI8g+VATQB6zLhRjEsGrmIBkQm4U0etIHtfv91ckSXr54N/A/dZmdwXIgpAvJkl20aFyCJ2lUH+wNjxuIOBX27LsrMJ5qN5obXi0QAT66czMzNFlcwH4ibXpMQLZkyTJaUPlou1uJWMJRMgHR8kH4FZr46MBIuCvSZKcOEo+JO+0Nj4aICA/GzWffr+/QsCd1uZHAUSoL1SU03pr86MAkpD3VpGTql5qbX4UQET15ipympycPNLa/DiASLqqipymp6ePtzY/CiAArq8iJyC9ydr8KICI6C2j5pPn+REAP7c2PwoggN4/aj6APm1tfExANoy4L2yjtelRARHyg6FvU+Sr1obHBwTcWfb3syw7KuwOtDY7SiAhwqa7MtMkaPmU+9gDEfKuEr99n7XJ0QMB9J2ivw3oJmuTowci4E+hXygIZIO1ydEDKTOnJZKusja5E0AAflhiEnGvtdHRAxHw96I7TkA+ZW109ECWkn+iEBDgJAHnrM2OHwg4F6bRC+bwuLXZ0QMZFCC6tsT6R+vfURl/INTd/X7/2HFeA4kKCBaLWF80l/AasrXp8QMB57IsO7lILuHvBPzW2viogaDk9iAROV/A7w/9f3KfQN8Li1lCvgTySwdSDsoBkpcUhTKVppcJNf1HS5sW8plE9dowS/xvkOk14W+8hRS+dekXZd5iDQ8DQLpaRNeIyMWFQE59c7ZAZ/yWVRAKyXt6NSu8/APqb96HFIPyY5kFrLa9yBpNp46DO/iP634Bf3HDhL7vQIqCgU70atbWHTtOGXyQzFtIkQ6e+wGsrBtKonqDAyl+RX63ffv2U+uGItCPvA8p8SicFVzuHVZAercDKdPJQ1+rs5Ov8rYV5VMW/ruT31QXlPDBGAcyHJSX6/i2YZVbjbrTQrh8+9pcdP2kiABcEN4MdiCjQfk6TdMzqxiHAESlF0zXWgiWg/tGmfdKkuQcgWrlLbi7QHTJAH03TdNzy9SjqheGMU49+XQcCBbjgJCvTGXZef9bi+gaUOfru0AcSL5sBvhHGEgC+kCYYt+yZeaE8BmP8E57+L6KgNvqb7EOJG9BC20ciH8Eky36CCbJ26yvPIxLIF1dO5Bweo55oRyPIHlF7UDCHFLVCzkxhkB3NXZsxeCYnxYUjRZH2ILUa0qD5U7oz9ZFo70xP+x3JIfW4MQy+8LzNoaQj/Sa1tJOjdeti0fLwuzIo78OBWv3DnQ0GnzT7FCwg1qK6NqOH4E0HwbM5sfm/V3hzKVwzE+XHokFumuwobvpDrzsOCUMiAYjeuiEkE/GFIBOLNaGla1qES6Xy+VyuVwul8vlcrlcLlevWf0Jiy07qx8TG6IAAAAASUVORK5CYII="
-                                                    />
-                                                </defs>
-                                            </svg>
-                                            <span className="volkhov">Contact Us - {offer.contact}</span>
-                                        </div>
-                                    )
-                                }
+                                        ) : (
+                                            <div
+                                                className="flex items-center text-[#737373] text-sm md:text-base gap-2">
+                                                <svg
+                                                    width="20"
+                                                    height="20"
+                                                    viewBox="0 0 20 20"
+                                                    fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    xmlnsXlink="http://www.w3.org/1999/xlink"
+                                                >
+                                                    <rect width="20" height="20" fill="url(#pattern0_286_6480)"/>
+                                                    <defs>
+                                                        <pattern
+                                                            id="pattern0_286_6480"
+                                                            patternContentUnits="objectBoundingBox"
+                                                            width="1"
+                                                            height="1"
+                                                        >
+                                                            <use xlinkHref="#image0_286_6480" transform="scale(0.01)"/>
+                                                        </pattern>
+                                                        <image
+                                                            id="image0_286_6480"
+                                                            width="100"
+                                                            height="100"
+                                                            preserveAspectRatio="none"
+                                                            xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFGElEQVR4nO2dSYgdVRSGn0NwAFEU52GhKKI4EIelC0XQ7NxoHBZicEAXQqsJQhYiBBUJziBils5xoyIiaIMiiD7I0HX+/1SZtrFDBkSMbbcYg1hyXzetUYlV71XVqXfr/HA2ock75//q1q07VN1ez+VyuVwul8vlcrlcLpfL5eqo8jw/fEr1qoS8HdAJQNdFFhOhNpJXhlp7bRXJMwB9HtQ9oOZdCKHuBvQ5AKf32qI8zw8D8Ciov1gbBLtYCK0neGEKY3Z29hhA326BIXkrAnwreGICI1wNQr5hbgLbFQLdbNJSlm5T5gagjQFd13wHHu6b1oWztbHQaEe/9DRlXXTe6oA+2wiM8OzdpUdbDB97GxmnJGl6dQuKzcchwuCxdiCieod1oRiXAG6tHwj5sHmhHI8g+VATQB6zLhRjEsGrmIBkQm4U0etIHtfv91ckSXr54N/A/dZmdwXIgpAvJkl20aFyCJ2lUH+wNjxuIOBX27LsrMJ5qN5obXi0QAT66czMzNFlcwH4ibXpMQLZkyTJaUPlou1uJWMJRMgHR8kH4FZr46MBIuCvSZKcOEo+JO+0Nj4aICA/GzWffr+/QsCd1uZHAUSoL1SU03pr86MAkpD3VpGTql5qbX4UQET15ipympycPNLa/DiASLqqipymp6ePtzY/CiAArq8iJyC9ydr8KICI6C2j5pPn+REAP7c2PwoggN4/aj6APm1tfExANoy4L2yjtelRARHyg6FvU+Sr1obHBwTcWfb3syw7KuwOtDY7SiAhwqa7MtMkaPmU+9gDEfKuEr99n7XJ0QMB9J2ivw3oJmuTowci4E+hXygIZIO1ydEDKTOnJZKusja5E0AAflhiEnGvtdHRAxHw96I7TkA+ZW109ECWkn+iEBDgJAHnrM2OHwg4F6bRC+bwuLXZ0QMZFCC6tsT6R+vfURl/INTd/X7/2HFeA4kKCBaLWF80l/AasrXp8QMB57IsO7lILuHvBPzW2viogaDk9iAROV/A7w/9f3KfQN8Li1lCvgTySwdSDsoBkpcUhTKVppcJNf1HS5sW8plE9dowS/xvkOk14W+8hRS+dekXZd5iDQ8DQLpaRNeIyMWFQE59c7ZAZ/yWVRAKyXt6NSu8/APqb96HFIPyY5kFrLa9yBpNp46DO/iP634Bf3HDhL7vQIqCgU70atbWHTtOGXyQzFtIkQ6e+wGsrBtKonqDAyl+RX63ffv2U+uGItCPvA8p8SicFVzuHVZAercDKdPJQ1+rs5Ov8rYV5VMW/ruT31QXlPDBGAcyHJSX6/i2YZVbjbrTQrh8+9pcdP2kiABcEN4MdiCjQfk6TdMzqxiHAESlF0zXWgiWg/tGmfdKkuQcgWrlLbi7QHTJAH03TdNzy9SjqheGMU49+XQcCBbjgJCvTGXZef9bi+gaUOfru0AcSL5sBvhHGEgC+kCYYt+yZeaE8BmP8E57+L6KgNvqb7EOJG9BC20ciH8Eky36CCbJ26yvPIxLIF1dO5Bweo55oRyPIHlF7UDCHFLVCzkxhkB3NXZsxeCYnxYUjRZH2ILUa0qD5U7oz9ZFo70xP+x3JIfW4MQy+8LzNoaQj/Sa1tJOjdeti0fLwuzIo78OBWv3DnQ0GnzT7FCwg1qK6NqOH4E0HwbM5sfm/V3hzKVwzE+XHokFumuwobvpDrzsOCUMiAYjeuiEkE/GFIBOLNaGla1qES6Xy+VyuVwul8vlcrlcLlevWf0Jiy07qx8TG6IAAAAASUVORK5CYII="
+                                                        />
+                                                    </defs>
+                                                </svg>
+                                                <span className="volkhov">Contact Us - {offer.contact}</span>
+                                            </div>
+                                        )
+                                    }
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        );
+                        return (
+                            <React.Fragment key={index}>
+                                {type === "home" ? (
+                                    cardContent
+                                ) : (
+                                    <Link href={`${offer.link}#inquiry`}>
+                                        {cardContent}
+                                    </Link>
+                                )}
+                            </React.Fragment>
+                        );
+                    })}
                 </div>
             </div>
         </div>
