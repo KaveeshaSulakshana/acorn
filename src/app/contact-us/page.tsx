@@ -323,8 +323,8 @@ const ContactUsPage = async () => {
             image: contactUsData.hero?.image?.asset?.url || "/default-hero.png",
             title: contactUsData.hero?.title || "Seamless Flight Bookings",
             description:
-                contactUsData.hero?.description ||
-                "Book flights effortlessly with competitive fares and expert assistance.",
+                contactUsData.hero?.description || "",
+                // "Book flights effortlessly with competitive fares and expert assistance.",
             buttonText: Array.isArray(contactUsData.hero?.buttonText)
                 ? contactUsData.hero.buttonText.map((btn:{title: string, link: string}) => ({
                     title: btn?.title || "Explore Now",
