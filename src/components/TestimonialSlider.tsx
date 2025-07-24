@@ -402,7 +402,7 @@ const TestimonialSlider: React.FC<TestimonialSliderProps> = ({ testimonials }) =
                             aria-label="Previous testimonial"
                         >
                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 sm:w-10 sm:h-10">
+                                 xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 sm:w-10 sm:h-10">
                                 <rect width="40" height="40" rx="20" fill="#2B5597"/>
                                 <path
                                     d="M19.9999 15.5532L15.3333 20.2199M15.3333 20.2199L19.9999 24.8866M15.3333 20.2199H24.6666"
@@ -415,7 +415,7 @@ const TestimonialSlider: React.FC<TestimonialSliderProps> = ({ testimonials }) =
                             aria-label="Next testimonial"
                         >
                             <svg width="41" height="40" viewBox="0 0 41 40" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 sm:w-10 sm:h-10">
+                                 xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 sm:w-10 sm:h-10">
                                 <rect x="0.810059" width="40" height="40" rx="20" fill="#2B5597"/>
                                 <path
                                     d="M20.81 24.8866L25.4767 20.2199M25.4767 20.2199L20.81 15.5532M25.4767 20.2199H16.1433"
