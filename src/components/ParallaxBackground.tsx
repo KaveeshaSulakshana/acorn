@@ -118,7 +118,7 @@ const ParallaxBackground = ({parallax, formFields, pageSource}: ParallaxProps) =
                 <div className="xl:hidden block">
                     <div className="container mx-auto relative z-10">
                         <div className="flex flex-col items-center gap-6 sm:gap-8 mt-0 sm:mt-6">
-                            <div className="w-full flex flex-col items-center text-center mb-8 sm:mb-10">
+                            <div className={`w-full flex flex-col items-center text-center ${parallax.title.length > 0 && parallax.description.length > 0 ? "mb-8 sm:mb-10" : ""}`}>
                                 <h2
                                     className="text-2xl sm:text-3xl font-bold text-[#3C3C3C] my-3 sm:my-4"
                                 >
