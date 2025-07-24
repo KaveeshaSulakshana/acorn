@@ -536,6 +536,87 @@ const LeisureTravel = async () => {
         <div className="min-h-screen relative bg-white lato">
             <Nav/>
             <Hero hero={hero}/>
+            {/*<div className="mx-auto">*/}
+            {/*    {sections.map((section, index) => (*/}
+            {/*        <div*/}
+            {/*            id={section.sectionLink}*/}
+            {/*            key={index}*/}
+            {/*            className="flex flex-col md:flex-row md:odd:flex-row md:even:flex-row-reverse gap-6 sm:gap-12 md:gap-20 p-4 sm:p-6 md:p-8 lg:p-12 xl:p-16 odd:bg-[#F6F6F6] even:bg-white m-0"*/}
+            {/*        >*/}
+            {/*            <div className="w-full md:w-3/5 mb-6 md:mb-0 flex flex-col justify-between">*/}
+            {/*                <div>*/}
+            {/*                    <h2 className="font-bold text-xl sm:text-2xl md:text-[32px] lg:text-[40px] leading-10 text-[#3C3C3C] max-w-2xl">*/}
+            {/*                        {section.title}*/}
+            {/*                    </h2>*/}
+            {/*                    <p className="text-sm sm:text-base md:text-xl font-normal mt-4 sm:mt-6 text-[#737373] max-w-2xl leading-relaxed">*/}
+            {/*                        {section.description}*/}
+            {/*                    </p>*/}
+            {/*                    <div className="mx-auto">*/}
+            {/*                        <TravelFeaturesGrid featuresSection={section} isBigger={false}/>*/}
+            {/*                    </div>*/}
+            {/*                </div>*/}
+            {/*                {section.logo ? (*/}
+            {/*                    <div*/}
+            {/*                        className={`mt-6 sm:mt-8 items-center content-end flex flex-row ${index % 2 == 0 ? "sm:flex-row" : "sm:flex-row-reverse"} sm:items-center justify-between max-w-2xl gap-4`}>*/}
+            {/*                        <Image*/}
+            {/*                            src={section.logo}*/}
+            {/*                            alt="Section Logo"*/}
+            {/*                            height={40}*/}
+            {/*                            width={160}*/}
+            {/*                            className="object-contain w-32 sm:w-40 md:w-48"*/}
+            {/*                        />*/}
+            {/*                        <div className="flex justify-end right-0 content-end self-end">*/}
+            {/*                            <Link href={section.buttonLink}>*/}
+            {/*                                <button*/}
+            {/*                                    className="bg-[#2B5597] cursor-pointer text-white text-xs sm:text-sm font-bold px-3 sm:px-4 py-2 sm:py-3 rounded-md hover:bg-blue-950 transition-colors lato"*/}
+            {/*                                >*/}
+            {/*                                    {section.buttonText}*/}
+            {/*                                </button>*/}
+            {/*                            </Link>*/}
+            {/*                        </div>*/}
+            {/*                    </div>*/}
+            {/*                ) : (*/}
+            {/*                    <div className="mt-6 sm:mt-8 flex justify-end">*/}
+            {/*                        /!*<Link href="" className="items-end self-end justify-end">*!/*/}
+            {/*                        /!*    <button*!/*/}
+            {/*                        /!*        className="bg-[#2B5597] cursor-pointer items-end self-end text-white text-xs sm:text-sm font-bold px-3 sm:px-4 py-2 sm:py-3 rounded-md hover:bg-blue-950 transition-colors lato"*!/*/}
+            {/*                        /!*    >*!/*/}
+            {/*                        /!*        {section.buttonText}*!/*/}
+            {/*                        /!*    </button>*!/*/}
+            {/*                        /!*</Link>*!/*/}
+            {/*                        <Link href={section.buttonLink} className="inline-block">*/}
+            {/*                            <button*/}
+            {/*                                className="bg-[#2B5597] cursor-pointer text-white text-xs sm:text-sm font-bold px-3 sm:px-4 py-2 sm:py-3 rounded-md hover:bg-blue-950 transition-colors lato"*/}
+            {/*                            >*/}
+            {/*                                {section.buttonText}*/}
+            {/*                            </button>*/}
+            {/*                        </Link>*/}
+            {/*                    </div>*/}
+            {/*                )}*/}
+            {/*                /!*<div className="mt-6 sm:mt-8 justify-center lg:justify-start">*!/*/}
+            {/*                /!*    <div className="grid grid-cols-2 sm:grid-cols-3  gap-4 sm:gap-6">*!/*/}
+            {/*                /!*        {section.travelServices.map((service, index) => (*!/*/}
+            {/*                /!*            <TravelFeatures key={index} url={service.url} title={service.title}*!/*/}
+            {/*                /!*                            isBigger={service.isBigger}/>*!/*/}
+            {/*                /!*        ))}*!/*/}
+            {/*                /!*    </div>*!/*/}
+            {/*                /!*</div>*!/*/}
+
+            {/*                /!*<TravelFeaturesGrid featuresSection={section} isBigger={false}/>*!/*/}
+            {/*            </div>*/}
+            {/*            <div className="w-full md:w-2/5">*/}
+            {/*                <Image*/}
+            {/*                    src={section.image}*/}
+            {/*                    alt="Section Image"*/}
+            {/*                    width={400}*/}
+            {/*                    height={600}*/}
+            {/*                    className="rounded-lg object-cover w-full h-full md:h-[400px] lg:h-[600px]"*/}
+            {/*                />*/}
+            {/*            </div>*/}
+            {/*        </div>*/}
+            {/*    ))}*/}
+            {/*</div>*/}
+
             <div className="mx-auto">
                 {sections.map((section, index) => (
                     <div
@@ -543,30 +624,60 @@ const LeisureTravel = async () => {
                         key={index}
                         className="flex flex-col md:flex-row md:odd:flex-row md:even:flex-row-reverse gap-6 sm:gap-12 md:gap-20 p-4 sm:p-6 md:p-8 lg:p-12 xl:p-16 odd:bg-[#F6F6F6] even:bg-white m-0"
                     >
-                        <div className="w-full md:w-3/5 mb-6 md:mb-0 flex flex-col justify-between">
-                            <div>
-                                <h2 className="font-bold text-xl sm:text-2xl md:text-[32px] lg:text-[40px] leading-10 text-[#3C3C3C] max-w-2xl">
+                        <div className="w-full md:w-3/5 flex flex-col justify-between">
+                            {/* Mobile order: title, image, description, TravelFeaturesGrid, logo & button */}
+                            <div className="flex flex-col space-y-6 sm:space-y-8">
+                                {/* Title */}
+                                <h2 className="font-bold text-xl sm:text-2xl md:text-[32px] lg:text-[40px] leading-10 text-[#3C3C3C] max-w-2xl order-1">
                                     {section.title}
                                 </h2>
-                                <p className="text-sm sm:text-base md:text-xl font-normal mt-4 sm:mt-6 text-[#737373] max-w-2xl leading-relaxed">
+
+                                {/* Image (moved here for mobile) */}
+                                <div className="order-2 md:hidden">
+                                    <Image
+                                        src={section.image}
+                                        alt="Section Image"
+                                        width={400}
+                                        height={600}
+                                        className="rounded-lg object-cover w-full h-full md:h-[400px] lg:h-[600px]"
+                                    />
+                                </div>
+
+                                {/* Description */}
+                                <p className="text-sm sm:text-base md:text-xl font-normal text-[#737373] max-w-2xl leading-relaxed order-3">
                                     {section.description}
                                 </p>
-                                <div className="mx-auto">
-                                    <TravelFeaturesGrid featuresSection={section} isBigger={false}/>
+
+                                {/* TravelFeaturesGrid */}
+                                <div className="order-4">
+                                    <TravelFeaturesGrid featuresSection={section} isBigger={false} />
                                 </div>
-                            </div>
-                            {section.logo ? (
-                                <div
-                                    className={`mt-6 sm:mt-8 items-center content-end flex flex-row ${index % 2 == 0 ? "sm:flex-row" : "sm:flex-row-reverse"} sm:items-center justify-between max-w-2xl gap-4`}>
-                                    <Image
-                                        src={section.logo}
-                                        alt="Section Logo"
-                                        height={40}
-                                        width={160}
-                                        className="object-contain w-32 sm:w-40 md:w-48"
-                                    />
-                                    <div className="flex justify-end right-0 content-end self-end">
-                                        <Link href={section.buttonLink}>
+
+                                {/* Logo & Button */}
+                                {section.logo ? (
+                                    <div
+                                        className={`items-center flex flex-row ${index % 2 === 0 ? "sm:flex-row" : "sm:flex-row-reverse"} sm:items-center justify-between max-w-2xl gap-4 order-5`}
+                                    >
+                                        <Image
+                                            src={section.logo}
+                                            alt="Section Logo"
+                                            height={40}
+                                            width={160}
+                                            className="object-contain w-32 sm:w-40 md:w-48"
+                                        />
+                                        <div className="flex justify-end right-0 content-end self-end">
+                                            <Link href={section.buttonLink}>
+                                                <button
+                                                    className="bg-[#2B5597] cursor-pointer text-white text-xs sm:text-sm font-bold px-3 sm:px-4 py-2 sm:py-3 rounded-md hover:bg-blue-950 transition-colors lato"
+                                                >
+                                                    {section.buttonText}
+                                                </button>
+                                            </Link>
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <div className="flex justify-end order-5">
+                                        <Link href={section.buttonLink} className="inline-block">
                                             <button
                                                 className="bg-[#2B5597] cursor-pointer text-white text-xs sm:text-sm font-bold px-3 sm:px-4 py-2 sm:py-3 rounded-md hover:bg-blue-950 transition-colors lato"
                                             >
@@ -574,37 +685,12 @@ const LeisureTravel = async () => {
                                             </button>
                                         </Link>
                                     </div>
-                                </div>
-                            ) : (
-                                <div className="mt-6 sm:mt-8 flex justify-end">
-                                    {/*<Link href="" className="items-end self-end justify-end">*/}
-                                    {/*    <button*/}
-                                    {/*        className="bg-[#2B5597] cursor-pointer items-end self-end text-white text-xs sm:text-sm font-bold px-3 sm:px-4 py-2 sm:py-3 rounded-md hover:bg-blue-950 transition-colors lato"*/}
-                                    {/*    >*/}
-                                    {/*        {section.buttonText}*/}
-                                    {/*    </button>*/}
-                                    {/*</Link>*/}
-                                    <Link href={section.buttonLink} className="inline-block">
-                                        <button
-                                            className="bg-[#2B5597] cursor-pointer text-white text-xs sm:text-sm font-bold px-3 sm:px-4 py-2 sm:py-3 rounded-md hover:bg-blue-950 transition-colors lato"
-                                        >
-                                            {section.buttonText}
-                                        </button>
-                                    </Link>
-                                </div>
-                            )}
-                            {/*<div className="mt-6 sm:mt-8 justify-center lg:justify-start">*/}
-                            {/*    <div className="grid grid-cols-2 sm:grid-cols-3  gap-4 sm:gap-6">*/}
-                            {/*        {section.travelServices.map((service, index) => (*/}
-                            {/*            <TravelFeatures key={index} url={service.url} title={service.title}*/}
-                            {/*                            isBigger={service.isBigger}/>*/}
-                            {/*        ))}*/}
-                            {/*    </div>*/}
-                            {/*</div>*/}
-
-                            {/*<TravelFeaturesGrid featuresSection={section} isBigger={false}/>*/}
+                                )}
+                            </div>
                         </div>
-                        <div className="w-full md:w-2/5">
+
+                        {/* Image for md and larger screens */}
+                        <div className="hidden md:block w-full md:w-2/5">
                             <Image
                                 src={section.image}
                                 alt="Section Image"
@@ -616,6 +702,7 @@ const LeisureTravel = async () => {
                     </div>
                 ))}
             </div>
+
             <div id="inquiry">
                 <ParallaxBackground parallax={parallax} formFields={parallax.formFields}
                                     pageSource={parallax.pageSource}/>
