@@ -157,23 +157,67 @@ const AboutUs = async () => {
         <div className="min-h-screen lato">
             <Nav/>
             <Hero hero={hero}/>
+            {/*<div id="about-explore" className="py-8 sm:py-12 bg-white">*/}
+            {/*    <div className="container mx-auto px-4 sm:px-6 lg:px-15">*/}
+            {/*        <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">*/}
+            {/*            <div className="lg:w-1/2">*/}
+            {/*                <h2 className="text-2xl sm:text-3xl md:text-[52px] font-bold text-[#3C3C3C] mb-4">*/}
+            {/*                    {aboutContent.title}*/}
+            {/*                </h2>*/}
+            {/*                <p className="text-[#737373] text-sm sm:text-base md:text-xl whitespace-pre-line leading-6 sm:leading-8 md:leading-10 font-normal mb-6 sm:mb-8">*/}
+            {/*                    {aboutContent.description}*/}
+            {/*                </p>*/}
+
+            {/*            </div>*/}
+
+            {/*            <div className="lg:w-1/2">*/}
+            {/*                {aboutContent.image && (*/}
+            {/*                    <Image*/}
+            {/*                        // src={aboutContent.image || fallbackAboutContent.image}*/}
+            {/*                        src={aboutContent.image}*/}
+            {/*                        alt="Traveler with suitcase"*/}
+            {/*                        width={800}*/}
+            {/*                        height={800}*/}
+            {/*                        className="w-full h-auto object-cover"*/}
+            {/*                    />*/}
+            {/*                )}*/}
+            {/*            </div>*/}
+            {/*        </div>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
+
             <div id="about-explore" className="py-8 sm:py-12 bg-white">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-15">
-                    <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
-                        <div className="lg:w-1/2">
-                            <h2 className="text-2xl sm:text-3xl md:text-[52px] font-bold text-[#3C3C3C] mb-4">
+                    <div className="flex flex-col xl:flex-row gap-6 lg:gap-8">
+                        <div className="xl:w-1/2 flex flex-col space-y-6 sm:space-y-8">
+                            {/* Title */}
+                            <h2 className="text-2xl sm:text-3xl md:text-[52px] font-bold text-[#3C3C3C] mb-4 order-1">
                                 {aboutContent.title}
                             </h2>
-                            <p className="text-[#737373] text-sm sm:text-base md:text-xl whitespace-pre-line leading-6 sm:leading-8 md:leading-10 font-normal mb-6 sm:mb-8">
+
+                            {/* Image (moved here for mobile) */}
+                            <div className="order-2 xl:hidden xl:order-none">
+                                {aboutContent.image && (
+                                    <Image
+                                        src={aboutContent.image}
+                                        alt="Traveler with suitcase"
+                                        width={800}
+                                        height={800}
+                                        className="w-full h-auto object-cover"
+                                    />
+                                )}
+                            </div>
+
+                            {/* Description */}
+                            <p className="text-[#737373] text-sm sm:text-base md:text-xl whitespace-pre-line leading-6 sm:leading-8 md:leading-10 font-normal mb-6 sm:mb-8 order-3">
                                 {aboutContent.description}
                             </p>
-
                         </div>
 
-                        <div className="lg:w-1/2">
+                        {/* Image for lg and larger screens */}
+                        <div className="hidden xl:block xl:w-1/2">
                             {aboutContent.image && (
                                 <Image
-                                    // src={aboutContent.image || fallbackAboutContent.image}
                                     src={aboutContent.image}
                                     alt="Traveler with suitcase"
                                     width={800}
