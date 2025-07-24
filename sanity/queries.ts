@@ -57,13 +57,6 @@ export const homePageQuery = `
         title,
         description,
         name,
-        image {
-          asset-> {
-            url,
-            _id
-          },
-          alt
-        },
         rate
       }
     }
