@@ -170,11 +170,13 @@ import Carousel from "@/components/Carousel";
 import Partners from "@/components/Partners";
 import Services from "@/components/Services";
 import Offers from "@/components/Offers";
-import {getHomePageData} from "../../sanity/api";
+import {getHomePageData, getMetadata} from "../../sanity/api";
 import Image from "next/image";
 import React from "react";
 import TestimonialSlider from "@/components/TestimonialSlider";
 import Nav from "@/components/Nav";
+import {urlFor} from "../../sanity/sanity";
+import {Metadata} from "next";
 
 interface Slide {
     image: string;
@@ -409,3 +411,24 @@ export default async function Home() {
 }
 
 export const revalidate = 60;
+
+
+export async function generateMetadata(): Promise<Metadata> {
+    const mdata = await getMetadata("home");
+
+    return {
+        title: mdata?.title || "Acorn Travel - Home",
+        description: mdata?.description || "Embark on unforgettable adventures with Acorn Travels. We offer tailored corporate and leisure travel, flight bookings, visa assistance, and more for seamless experiences.",
+        keywords: mdata?.keywords?.join(", ") || "Acorn Travels, travel agency, corporate travel, leisure travel, flight booking, visa services, MICE tours, student travel, travel insurance, foreign currency exchange, hotel booking, Sri Lanka travel, international travel",
+        openGraph: {
+            title: mdata?.ogTitle || mdata?.title || "Acorn Travels - Your Journey Starts Here",
+            description: mdata?.ogDescription || mdata?.description || "Discover inspiring journeys, effortless flight bookings, and reliable visa assistance with Acorn Travels. Your trusted partner for seamless travel experiences since 1973.",
+            images: mdata?.ogImage ? urlFor(mdata.ogImage).url() : "/nav_logo.png",
+            url: mdata?.canonicalUrl || "https://acorn-omega.vercel.app/",
+            type: "website",
+        },
+        alternates: {
+            canonical: mdata?.canonicalUrl || "https://acorn-omega.vercel.app/",
+        },
+    };
+}

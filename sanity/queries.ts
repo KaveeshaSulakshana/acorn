@@ -514,3 +514,15 @@ export const offerDetailsQuery = `
     topRated
   }
 `;
+
+
+export const GET_SEO = `*[_type == "seo" && page == $page][0] {
+    title,
+    description,
+    keywords,
+    ogTitle,
+    ogDescription,
+    ogImage,
+    canonicalUrl
+  }`
+;

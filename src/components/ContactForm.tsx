@@ -285,21 +285,21 @@ const createSchema = (fields: FormField[]) => {
                 .regex(/^[a-zA-Z\s]*$/, "Only letters and spaces are allowed")
             : z.string().regex(/^[a-zA-Z\s]*$/, "Only letters and spaces are allowed").optional();
 
-        schemaShape["company"] = field.required
-            ? z
-                .string()
-                .min(1, `Company is required`)
-                .max(50, `Company must not exceed 50 characters`)
-                .regex(/^[a-zA-Z0-9 !@#$%^&*()_+{}\[\]:;<>,.?~\\/-]*$/, "Only letters and spaces are allowed")
-            : z.string().regex(/^[a-zA-Z0-9 !@#$%^&*()_+{}\[\]:;<>,.?~\\/-]*$/, "Only letters and spaces are allowed").optional();
-
-        schemaShape["requirement"] = field.required
-            ? z
-                .string()
-                .min(1, `Requirement is required`)
-                .max(50, `Requirement must not exceed 50 characters`)
-                .regex(/^[a-zA-Z0-9 !@#$%^&*()_+{}\[\]:;<>,.?~\\/-]*$/, "Only letters and spaces are allowed")
-            : z.string().regex(/^[a-zA-Z0-9 !@#$%^&*()_+{}\[\]:;<>,.?~\\/-]*$/, "Only letters and spaces are allowed").optional();
+        // schemaShape["company"] = field.required
+        //     ? z
+        //         .string()
+        //         .min(1, `Company is required`)
+        //         .max(50, `Company must not exceed 50 characters`)
+        //         .regex(/^[a-zA-Z0-9 !@#$%^&*()_+{}\[\]:;<>,.?~\\/-]*$/, "Only letters and spaces are allowed")
+        //     : z.string().regex(/^[a-zA-Z0-9 !@#$%^&*()_+{}\[\]:;<>,.?~\\/-]*$/, "Only letters and spaces are allowed").optional();
+        //
+        // schemaShape["requirement"] = field.required
+        //     ? z
+        //         .string()
+        //         .min(1, `Requirement is required`)
+        //         .max(50, `Requirement must not exceed 50 characters`)
+        //         .regex(/^[a-zA-Z0-9 !@#$%^&*()_+{}\[\]:;<>,.?~\\/-]*$/, "Only letters and spaces are allowed")
+        //     : z.string().regex(/^[a-zA-Z0-9 !@#$%^&*()_+{}\[\]:;<>,.?~\\/-]*$/, "Only letters and spaces are allowed").optional();
     });
 
     schemaShape["recaptchaToken"] = z.string().min(1, "Please complete the reCAPTCHA");

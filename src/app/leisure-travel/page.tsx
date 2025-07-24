@@ -290,11 +290,13 @@ import Hero from "@/components/Hero";
 import Image from "next/image";
 import ParallaxBackground from "@/components/ParallaxBackground";
 import {FormField} from "@/components/ContactForm";
-import {getLeisurePageData} from "../../../sanity/api";
+import {getLeisurePageData, getMetadata} from "../../../sanity/api";
 import Link from "next/link";
 import React from "react";
 import TravelFeaturesGrid from "@/components/ServiceIcon";
 import Nav from "@/components/Nav";
+import {Metadata} from "next";
+import {urlFor} from "../../../sanity/sanity";
 
 // interface HeroButton {
 //     title: string;
@@ -723,3 +725,24 @@ const LeisureTravel = async () => {
 export default LeisureTravel;
 
 export const revalidate = 60;
+
+
+export async function generateMetadata(): Promise<Metadata> {
+    const mdata = await getMetadata("leisure");
+
+    return {
+        title: mdata?.title || "Acorn Travel - Leisure Travels",
+        description: mdata?.description || "Embark on unforgettable adventures with Acorn Travels. We offer tailored corporate and leisure travel, flight bookings, visa assistance, and more for seamless experiences.",
+        keywords: mdata?.keywords?.join(", ") || "Acorn Travels, travel agency, corporate travel, leisure travel, flight booking, visa services, MICE tours, student travel, travel insurance, foreign currency exchange, hotel booking, Sri Lanka travel, international travel",
+        openGraph: {
+            title: mdata?.ogTitle || mdata?.title || "Acorn Travels - Your Journey Starts Here",
+            description: mdata?.ogDescription || mdata?.description || "Discover inspiring journeys, effortless flight bookings, and reliable visa assistance with Acorn Travels. Your trusted partner for seamless travel experiences since 1973.",
+            images: mdata?.ogImage ? urlFor(mdata.ogImage).url() : "/nav_logo.png",
+            url: mdata?.canonicalUrl || "https://acorn-omega.vercel.app/",
+            type: "website",
+        },
+        alternates: {
+            canonical: mdata?.canonicalUrl || "https://acorn-omega.vercel.app/",
+        },
+    };
+}

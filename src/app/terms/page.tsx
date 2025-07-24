@@ -1,7 +1,9 @@
 import {PortableText} from 'next-sanity'
-import {getTermsData} from "../../../sanity/api";
+import {getMetadata, getTermsData} from "../../../sanity/api";
 import Nav from "@/components/Nav";
 import React from "react";
+import {Metadata} from "next";
+import {urlFor} from "../../../sanity/sanity";
 
 
 // interface TermsAndConditionsData {
@@ -21,10 +23,32 @@ const TermsAndConditions = async () => {
             <h1 className="lato mt-15 md:mt-20 lg:mt-30 font-bold text-[#3C3C3C] text-[20px] text-center mb-6 md:text-[35px] lg:text-[45px] sm:text-[30px] xs:text-[25px]">{termsData.title || "Term & Condition"}</h1>
             <div
                 className="font-light justify-left leading-12 px-4 sm:px-6 md:px-15 mt-6 text-sm md:text-base lg:text-lg">
-                <PortableText value={termsData.body || "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id ante eros. Donec congue eu mi non efficitur. Nunc vitae ultricies augue, at blandit tellus. Mauris eget sapien sed nisi bibendum convallis non eget leo. Curabitur vehicula a est quis commodo. Vestibulum faucibus a purus ac laoreet. Morbi tincidunt aliquam facilisis. Phasellus eget lobortis lorem. Proin quis semper ex. Pellentesque dignissim nulla tellus, lacinia porttitor tellus aliquam vitae. Fusce nec urna sit amet metus ullamcorper volutpat. Curabitur dapibus dolor ex, non gravida dui congue sed. Cras varius consectetur enim at mollis. Integer feugiat ex non vestibulum mollis."}/>
+                <PortableText
+                    value={termsData.body || "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id ante eros. Donec congue eu mi non efficitur. Nunc vitae ultricies augue, at blandit tellus. Mauris eget sapien sed nisi bibendum convallis non eget leo. Curabitur vehicula a est quis commodo. Vestibulum faucibus a purus ac laoreet. Morbi tincidunt aliquam facilisis. Phasellus eget lobortis lorem. Proin quis semper ex. Pellentesque dignissim nulla tellus, lacinia porttitor tellus aliquam vitae. Fusce nec urna sit amet metus ullamcorper volutpat. Curabitur dapibus dolor ex, non gravida dui congue sed. Cras varius consectetur enim at mollis. Integer feugiat ex non vestibulum mollis."}/>
             </div>
         </div>
     );
 }
 
 export default TermsAndConditions;
+
+
+export async function generateMetadata(): Promise<Metadata> {
+    const mdata = await getMetadata("terms");
+
+    return {
+        title: mdata?.title || "Acorn Travel - Terms & Conditions",
+        description: mdata?.description || "Embark on unforgettable adventures with Acorn Travels. We offer tailored corporate and leisure travel, flight bookings, visa assistance, and more for seamless experiences.",
+        keywords: mdata?.keywords?.join(", ") || "Acorn Travels, travel agency, corporate travel, leisure travel, flight booking, visa services, MICE tours, student travel, travel insurance, foreign currency exchange, hotel booking, Sri Lanka travel, international travel",
+        openGraph: {
+            title: mdata?.ogTitle || mdata?.title || "Acorn Travels - Your Journey Starts Here",
+            description: mdata?.ogDescription || mdata?.description || "Discover inspiring journeys, effortless flight bookings, and reliable visa assistance with Acorn Travels. Your trusted partner for seamless travel experiences since 1973.",
+            images: mdata?.ogImage ? urlFor(mdata.ogImage).url() : "/nav_logo.png",
+            url: mdata?.canonicalUrl || "https://acorn-omega.vercel.app/",
+            type: "website",
+        },
+        alternates: {
+            canonical: mdata?.canonicalUrl || "https://acorn-omega.vercel.app/",
+        },
+    };
+}
