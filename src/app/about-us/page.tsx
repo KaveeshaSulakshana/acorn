@@ -193,7 +193,7 @@ const AboutUs = async () => {
                     <div className="flex flex-col xl:flex-row gap-6 lg:gap-8">
                         <div className="xl:w-1/2 flex flex-col space-y-6 sm:space-y-8">
                             {/* Title */}
-                            <h2 className="text-2xl sm:text-3xl md:text-[52px] font-bold text-[#3C3C3C] mb-4 order-1">
+                            <h2 className="text-[28px] sm:text-[38px] lg:text-[52px] font-bold text-[#3C3C3C] mb-4 order-1">
                                 {aboutContent.title}
                             </h2>
 
@@ -211,7 +211,7 @@ const AboutUs = async () => {
                             </div>
 
                             {/* Description */}
-                            <p className="text-[#737373] text-sm sm:text-base md:text-xl whitespace-pre-line leading-6 sm:leading-8 md:leading-10 font-normal mb-6 sm:mb-8 order-3">
+                            <p className="text-[#737373] text-[14px] sm:text-[16px] lg:text-[20px] whitespace-pre-line leading-6 md:leading-10 font-normal mb-6 sm:mb-8 order-3">
                                 {aboutContent.description}
                             </p>
                         </div>
@@ -234,10 +234,10 @@ const AboutUs = async () => {
 
             <div className="py-8 sm:py-12 bg-[#F6F6F6]">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-15">
-                    <h2 className="text-2xl justify-center text-center sm:text-3xl md:text-[52px] font-bold text-[#3C3C3C] mb-4">
+                    <h2 className="justify-center text-center text-[28px] sm:text-[38px] lg:text-[52px] font-bold text-[#3C3C3C] mb-4">
                         {brandPromise.title}
                     </h2>
-                    <p className="text-[#737373] text-sm sm:text-base md:text-xl font-normal leading-6 sm:leading-8 md:leading-10 mb-6">
+                    <p className="text-[#737373] text-[14px] sm:text-[16px] lg:text-[20px] font-normal leading-6 sm:leading-8 md:leading-10 mb-6">
                         {/*As a pioneer in the travel industry, Acorn Travels prides itself in creating Inspiring*/}
                         {/*Journeys’ for every person who travels with us, for our employees and everyone that*/}
                         {/*interacts with us.*/}
@@ -261,7 +261,7 @@ const AboutUs = async () => {
                             )}
                         </div>
                         <div className="lg:w-1/2 md:px-10">
-                            <p className="text-[#000000] text-sm sm:text-base md:text-xl leading-6 sm:leading-8 md:leading-10 font-bold mb-6 sm:mb-8">
+                            <p className="text-[#000000] text-[14px] sm:text-[16px] lg:text-[20px] leading-6 sm:leading-8 md:leading-10 font-bold mb-6 sm:mb-8">
                                 Here’s a glimpse of how we make it happen:
                             </p>
                             {aboutContent.features.length > 0 && (
@@ -290,7 +290,7 @@ const AboutUs = async () => {
                                                 <path d="M20 6 9 17l-5-5"></path>
                                             </svg>
                                             <span
-                                                className="text-[#737373] text-sm sm:text-base md:text-xl leading-6 sm:leading-8 md:leading-10 font-normal">
+                                                className="text-[#737373] text-[14px] sm:text-[16px] lg:text-[20px] leading-6 sm:leading-8 md:leading-10 font-normal">
                                           {feature}
                                         </span>
                                         </li>
@@ -308,14 +308,14 @@ const AboutUs = async () => {
 
             <div className="py-8 sm:py-12 lg:py-15 bg-white">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-15">
-                    <h2 className="text-2xl sm:text-3xl md:text-[52px] text-center font-bold text-[#3C3C3C] mb-8 sm:mb-12">
+                    <h2 className="text-[28px] sm:text-[38px] lg:text-[52px] text-center font-bold text-[#3C3C3C] mb-8 sm:mb-12">
                         Our Branches
                     </h2>
 
                     <div className="grid grid-cols-1 max-w-7xl mx-auto sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                         {branches.map((branch, index) => (
                             <div key={index} className="bg-[#F6F6F6] rounded-2xl shadow-md p-4 sm:p-6">
-                                <h3 className="text-xl sm:text-2xl font-bold text-black mb-4 sm:mb-6">{branch.title}</h3>
+                                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-black mb-4 sm:mb-6">{branch.title}</h3>
                                 <div className="space-y-3 sm:space-y-4">
                                     <div className="flex gap-3 sm:gap-4 items-start">
                                         <svg width="26" height="26" viewBox="0 0 26 26" fill="none"

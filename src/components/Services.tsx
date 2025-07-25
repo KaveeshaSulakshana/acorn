@@ -886,13 +886,13 @@ const Services = ({ services }: ServicesProps) => {
         <div className="relative py-6 sm:py-8 md:py-10 lg:py-12 xl:py-16 bg-[#F6F6F6]">
             <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
                 <h2
-                    className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-[52px] font-bold
+                    className="text-[28px] sm:text-[38px] lg:text-[52px] font-bold
                      text-[#3C3C3C] text-center mb-4 sm:mb-6 md:mb-8 lato"
                 >
                     Our Services
                 </h2>
                 <p
-                    className="text-[#737373] text-base sm:text-lg md:text-xl md:leading-8
+                    className="text-[#737373] text-[14px] sm:text-[16px] lg:text-[20px] md:leading-8
                      text-center mb-4 sm:mb-6 md:mb-8 max-w-2xl sm:max-w-3xl mx-auto lato"
                 >
                     At Acorn Travels, we deliver tailored corporate and leisure travel solutions for seamless
@@ -946,7 +946,7 @@ const Services = ({ services }: ServicesProps) => {
                                                     </div>
                                                     <div className="p-3 sm:p-4 md:p-5 lg:p-6 text-center">
                                                         <h3
-                                                            className="text-lg sm:text-xl md:text-xl lg:text-2xl min-h-16 font-bold
+                                                            className="text-lg sm:text-xl md:text-xl lg:text-2xl min-h-8 md:min-h-16 font-bold
                                                    text-[#3C3C3C] mb-2 sm:mb-3 md:mb-4 lato"
                                                         >
                                                             {service.title}

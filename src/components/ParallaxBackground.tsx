@@ -80,7 +80,7 @@ const ParallaxBackground = ({parallax, formFields, pageSource}: ParallaxProps) =
                                 {
                                     parallax.title.length > 0 && parallax.description.length > 0 ? (
                                         <div>
-                                            <h2 className="text-3xl md:text-[45px] font-bold text-[#3C3C3C] my-4">
+                                            <h2 className="text-[22px] sm:text-[30px] lg:text-[45px] font-bold text-[#3C3C3C] my-4">
                                                 {parallax.title}
                                             </h2>
                                             <p className="text-[#737373] font-normal text-base md:text-xl leading-10">
@@ -120,12 +120,12 @@ const ParallaxBackground = ({parallax, formFields, pageSource}: ParallaxProps) =
                         <div className="flex flex-col items-center gap-6 sm:gap-8 mt-0 sm:mt-6">
                             <div className={`w-full flex flex-col items-center text-center ${parallax.title.length > 0 && parallax.description.length > 0 ? "mb-8 sm:mb-10" : ""}`}>
                                 <h2
-                                    className="text-2xl sm:text-3xl font-bold text-[#3C3C3C] my-3 sm:my-4"
+                                    className="text-[22px] sm:text-[30px] lg:text-[45px] font-bold text-[#3C3C3C] my-3 sm:my-4"
                                 >
                                     {parallax.title}
                                 </h2>
                                 <p
-                                    className="text-[#737373] font-normal text-sm sm:text-base leading-7 sm:leading-8 max-w-lg"
+                                    className="text-[#737373] font-normal text-[14px] sm:text-[16px] lg:text-[20px] leading-6 md:leading-10 max-w-lg"
                                 >
                                     {parallax.description}
                                 </p>

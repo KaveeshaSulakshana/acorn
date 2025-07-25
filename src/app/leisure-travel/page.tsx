@@ -543,11 +543,11 @@ const LeisureTravel = async () => {
                     <div
                         id={section.sectionLink}
                         key={index}
-                        className="flex flex-col md:flex-row md:odd:flex-row md:even:flex-row-reverse gap-6 sm:gap-12 md:gap-20 p-4 sm:p-6 md:p-8 lg:p-12 xl:p-16 odd:bg-[#F6F6F6] even:bg-white m-0"
+                        className="flex flex-col md:flex-row md:odd:flex-row md:even:flex-row-reverse gap-6 sm:gap-12 md:gap-20 py-6 px-4 sm:p-6 md:p-8 lg:p-12 xl:p-16 odd:bg-[#F6F6F6] even:bg-white m-0"
                     >
                         <div className="w-full md:w-3/5 mb-6 md:mb-0 flex flex-col justify-between">
                             <div>
-                                <h2 className="font-bold text-xl sm:text-2xl md:text-[32px] lg:text-[40px] md:leading-10 text-[#3C3C3C] max-w-2xl">
+                                <h2 className="font-bold text-[20px] sm:text-[30px] lg:text-[45px] leading-6 md:leading-10 text-[#3C3C3C] max-w-2xl">
                                     {section.title}
                                 </h2>
                                 <div className="w-full block my-3 md:hidden md:w-2/5">
@@ -556,10 +556,10 @@ const LeisureTravel = async () => {
                                         alt="Section Image"
                                         width={400}
                                         height={600}
-                                        className="rounded-lg object-cover w-full h-full md:h-[400px] lg:h-[600px]"
+                                        className="rounded-lg object-cover py-2 w-full h-full md:h-[400px] lg:h-[600px]"
                                     />
                                 </div>
-                                <p className="text-sm sm:text-[15px] md:text-xl font-normal mt-4 sm:mt-6 text-[#737373] max-w-2xl leading-relaxed">
+                                <p className="text-[14px] sm:text-[16px] lg:text-[20px] font-normal mt-4 sm:mt-6 text-[#737373] max-w-2xl leading-relaxed">
                                     {section.description}
                                 </p>
                                 <div className="mx-auto">

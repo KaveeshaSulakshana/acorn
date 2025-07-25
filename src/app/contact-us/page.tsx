@@ -326,9 +326,9 @@ const ContactUsPage = async () => {
             title: contactUsData.hero?.title || "Seamless Flight Bookings",
             description:
                 contactUsData.hero?.description || "",
-                // "Book flights effortlessly with competitive fares and expert assistance.",
+            // "Book flights effortlessly with competitive fares and expert assistance.",
             buttonText: Array.isArray(contactUsData.hero?.buttonText)
-                ? contactUsData.hero.buttonText.map((btn:{title: string, link: string}) => ({
+                ? contactUsData.hero.buttonText.map((btn: { title: string, link: string }) => ({
                     title: btn?.title || "Explore Now",
                     link: btn?.link || "#",
                 }))
@@ -450,13 +450,13 @@ const ContactUsPage = async () => {
                     >
                         <div className="w-full md:w-1/2 mb-8 md:mb-0 md:pr-6 lg:pr-8 xl:pr-12">
                             <h2
-                                className="font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-[45px]
+                                className="font-bold text-[22px] sm:text-[30px] lg:text-[45px]
                            leading-tight text-[#3C3C3C] mb-4 sm:mb-6 md:mb-8"
                             >
                                 {intro.title || fallbackIntro.title}
                             </h2>
                             <p
-                                className="text-sm sm:text-base md:text-lg font-normal text-[#737373]
+                                className="text-[14px] sm:text-[16px] lg:text-lg font-normal text-[#737373]
                            max-w-xl leading-relaxed mb-6 sm:mb-8"
                             >
                                 {intro.description || fallbackIntro.description}

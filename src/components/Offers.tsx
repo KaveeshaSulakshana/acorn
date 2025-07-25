@@ -208,10 +208,10 @@ const Offers = ({offersPack, type}: { offersPack: OfferProps, type: string }) =>
     return (
         <div className="py-6 sm:py-8 md:py-16 lato">
             <div className="container mx-auto px-4 sm:px-6">
-                <h2 className="text-xl sm:text-2xl md:text-[52px] font-bold text-[#3C3C3C] text-center mb-4 sm:mb-6 lato">
+                <h2 className="text-[28px] sm:text-[38px] lg:text-[52px] font-bold text-[#3C3C3C] text-center mb-4 sm:mb-6 lato">
                     {offersPack.title}
                 </h2>
-                <p className="text-[#737373] text-sm sm:text-base md:text-xl text-center mb-4 sm:mb-6 md:mb-8 md:leading-8 max-w-2xl mx-auto lato">
+                <p className="text-[#737373] text-[14px] sm:text-[16px] lg:text-[20px] text-center mb-4 sm:mb-6 md:mb-8 md:leading-8 max-w-2xl mx-auto lato">
                     {offersPack.description}
                 </p>
 
@@ -249,7 +249,7 @@ const Offers = ({offersPack, type}: { offersPack: OfferProps, type: string }) =>
 
                                 <div
                                     className="p-6 sm:p-8">
-                                    <h3 className="text-xl sm:text-3xl font-bold text-gray-900 mb-2 sm:mb-6 min-h-6 sm:min-h-30 lg:min-h-18"
+                                    <h3 className="text-lg sm:text-3xl font-bold text-gray-900 mb-2 sm:mb-6 min-h-6 sm:min-h-30 lg:min-h-18"
                                         style={{opacity: 1, transform: "none"}}>
                                         {offer.title}
                                     </h3>
@@ -265,7 +265,7 @@ const Offers = ({offersPack, type}: { offersPack: OfferProps, type: string }) =>
                                                     <div className="flex items-baseline gap-2 mb-4"
                                                          style={{opacity: 1}}>
                                                     <span
-                                                        className="text-lg sm:text-xl font-bold text-gray-900">{offer.price}</span>
+                                                        className="text-base sm:text-xl font-bold text-gray-900">{offer.price}</span>
                                                         <span
                                                             className="text-sm sm:text-base text-gray-400"> / per person</span>
                                                     </div>
@@ -318,7 +318,7 @@ const Offers = ({offersPack, type}: { offersPack: OfferProps, type: string }) =>
                                                 </div>
                                                 <Link href={`${offer.link}#inquiry`}>
                                                     <button
-                                                        className="w-full bg-blue-900 text-white py-3 sm:py-4 rounded-lg cursor-pointer sm:rounded-xl font-semibold hover:bg-blue-800 hover:scale-105 transition-all duration-300 uppercase tracking-wide text-sm sm:text-base"
+                                                        className="w-full bg-blue-900 text-white py-3 sm:py-4 rounded-lg cursor-pointer sm:rounded-xl font-semibold hover:bg-blue-800 hover:scale-105 transition-all duration-300 uppercase tracking-wide text-xs sm:text-base"
                                                         style={{
                                                             boxShadow: "rgba(0, 0, 0, 0) 0px 0px 0px",
                                                             transform: "none"

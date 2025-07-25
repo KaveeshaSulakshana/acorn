@@ -185,12 +185,12 @@ const StudentTravelPage = async () => {
         <div className="min-h-screen lato">
             <Nav/>
             <Hero hero={hero}/>
-            <div id="student-explore" className="py-12 my-8 bg-white relative overflow-hidden lato">
+            <div id="student-explore" className="py-12 bg-white relative overflow-hidden lato">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-3xl md:text-[45px] font-bold text-[#3C3C3C] text-center mb-8">
+                    <h2 className="text-[22px] sm:text-[30px] lg:text-[45px] font-bold leading-6 md:leading-10 text-[#3C3C3C] text-center mb-8">
                         {featuresSection.title}
                     </h2>
-                    <p className="text-[#737373] text-base md:text-xl text-center mb-8 max-w-4xl mx-auto">
+                    <p className="text-[#737373] text-[14px] sm:text-[16px] lg:text-[20px] text-center mb-8 max-w-4xl mx-auto">
                         {featuresSection.description}
                     </p>
 

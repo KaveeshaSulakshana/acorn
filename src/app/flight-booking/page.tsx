@@ -343,10 +343,10 @@ const FlightBookingPage = async () => {
                     className="flex flex-col items-start md:flex-row-reverse sm:gap-20 p-8 sm:p-6 md:p-8 lg:py-12 xl:py-16 lg:px-18 xl:px-20 bg-[#F6F6F6] m-0 sm:m-0 md:m-8 lg:m-0 xl:m-0"
                 >
                     <div className="w-full md:w-3/5 justify-between mb-6 md:mb-0">
-                        <h2 className="font-bold text-[24px] sm:text-[28px] md:text-[32px] lg:text-[45px] leading-tight text-[#3C3C3C] max-w-2xl">
+                        <h2 className="font-bold text-[22px] sm:text-[30px] lg:text-[45px] leading-tight text-[#3C3C3C] max-w-2xl">
                             {travelAgentSection.title}
                         </h2>
-                        <p className="text-base sm:text-lg md:text-xl font-normal mt-4 sm:mt-6 whitespace-pre-line text-[#737373] max-w-2xl leading-relaxed">
+                        <p className="text-[14px] sm:text-[16px] lg:text-[20px] font-normal mt-4 sm:mt-6 whitespace-pre-line text-[#737373] max-w-2xl leading-relaxed">
                             {travelAgentSection.description}
                         </p>
                     </div>

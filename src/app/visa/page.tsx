@@ -69,6 +69,7 @@ interface ParallaxProps {
     formFields: FormField[];
     pageSource: string;
 }
+
 const VisaPage = async () => {
     let hero: Hero = {
         image: "",
@@ -135,8 +136,8 @@ const VisaPage = async () => {
                     type: "toggle",
                     name: "travelType",
                     options: [
-                        { value: "corporate", label: "Corporate Travel" },
-                        { value: "mice", label: "MICE Travel" },
+                        {value: "corporate", label: "Corporate Travel"},
+                        {value: "mice", label: "MICE Travel"},
                     ],
                     required: true,
                 },
@@ -145,22 +146,22 @@ const VisaPage = async () => {
                     name: "title",
                     placeholder: "Title",
                     options: [
-                        { value: "Mr", label: "Mr" },
-                        { value: "Mrs", label: "Mrs" },
-                        { value: "Miss", label: "Miss" },
-                        { value: "Rev", label: "Rev" },
-                        { value: "Dr", label: "Dr" },
+                        {value: "Mr", label: "Mr"},
+                        {value: "Mrs", label: "Mrs"},
+                        {value: "Miss", label: "Miss"},
+                        {value: "Rev", label: "Rev"},
+                        {value: "Dr", label: "Dr"},
                     ],
                     required: true,
                 },
-                { type: "text", name: "name", placeholder: "Name", required: true },
+                {type: "text", name: "name", placeholder: "Name", required: true},
                 {
                     type: "text",
                     name: "contactNumber",
                     placeholder: "Contact Number",
                     required: true,
                 },
-                { type: "email", name: "email", placeholder: "Email", required: true },
+                {type: "email", name: "email", placeholder: "Email", required: true},
                 {
                     type: "text",
                     name: "company",
@@ -201,13 +202,14 @@ const VisaPage = async () => {
             <Hero hero={hero}/>
             <div className="py-6 my-0 lg:py-12 lg:my-8 bg-white relative overflow-hidden lato">
                 <div id="visa-explore" className="container mx-auto px-4">
-                    <h2 className="text-3xl md:text-[45px] font-bold text-[#3C3C3C] text-center mb-8">
-                        Visa Solutions for Tourist Visa and Business Visa
+                    <h2 className="text-[22px] sm:text-[30px] lg:text-[45px] leading-6 md:leading-10 font-bold text-[#3C3C3C] text-center mb-4 md:mb-8">
+                        {visaSection.title}
                     </h2>
-                    <p className="text-[#737373] text-base md:text-xl text-center mb-8 max-w-4xl mx-auto">
-                        Navigate the visa process with ease through our expert assistance. Contact Acorn Travels today
-                        via our inquiry form, and we&#39;ll guide you through every step to ensure a smooth and
-                        stress-free visa application experience.
+                    <p className="text-[#737373] text-[14px] sm:text-[16px] lg:text-[20px] text-center mb-8 max-w-4xl mx-auto">
+                        {/*Navigate the visa process with ease through our expert assistance. Contact Acorn Travels today*/}
+                        {/*via our inquiry form, and we&#39;ll guide you through every step to ensure a smooth and*/}
+                        {/*stress-free visa application experience.*/}
+                        {visaSection.description}
                     </p>
 
                     {/*<div className="mt-6 sm:mt-10 max-w-2xl mx-auto justify-center">*/}
@@ -225,7 +227,7 @@ const VisaPage = async () => {
                     {/*</div>*/}
 
                     {/*<div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 justify-items-center">*/}
-                        <TravelFeaturesGrid featuresSection={visaSection} isBigger={true}/>
+                    <TravelFeaturesGrid featuresSection={visaSection} isBigger={true}/>
                     {/*</div>*/}
 
                 </div>

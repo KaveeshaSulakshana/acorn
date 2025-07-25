@@ -223,14 +223,14 @@ const CorporateTravel = async () => {
                 <Hero hero={heroProps}/>
                 <div id="corporate-travel" className="py-12 bg-white relative overflow-hidden lato">
                     <div className="container mx-auto px-4">
-                        <h2 className="text-3xl md:text-[52px] font-bold text-[#3C3C3C] text-center mb-4">
+                        <h2 className="text-[28px] sm:text-[38px] lg:text-[52px] font-bold text-[#3C3C3C] text-center mb-4">
                             {corporateData.corporateTravel?.title}
                         </h2>
-                        <p className="text-[#737373] text-base md:text-xl leading-10 text-center mb-8 max-w-5xl mx-auto">
+                        <p className="text-[#737373] text-[14px] sm:text-[16px] lg:text-[20px] leading-6 md:leading-10 text-center mb-8 max-w-5xl mx-auto">
                             {corporateData?.corporateTravel?.description}
                         </p>
 
-                        <div className="py-4 relative max-w-5xl mx-auto">
+                        <div className="md:py-4 relative max-w-5xl mx-auto">
                             {/*<div className="flex flex-row justify-center mt-8">*/}
                             {/*{travelServices.map((service, index) => (*/}
                             {/*    <div key={index}>*/}
@@ -251,10 +251,10 @@ const CorporateTravel = async () => {
                 />
                 <div id="mice-travel" className="py-12 bg-white relative overflow-hidden lato">
                     <div className="container mx-auto px-4">
-                        <h2 className="text-3xl md:text-[52px] font-bold text-[#3C3C3C] text-center mb-8">
+                        <h2 className="text-[28px] sm:text-[38px] lg:text-[52px] font-bold text-[#3C3C3C] text-center mb-8">
                             {corporateData?.miceTravel?.title}
                         </h2>
-                        <p className="text-[#737373] text-base md:text-xl leading-10 text-center mb-4 max-w-5xl mx-auto">
+                        <p className="text-[#737373] text-[14px] sm:text-[16px] lg:text-[20px] leading-6 md:leading-10 text-center mb-4 max-w-5xl mx-auto">
                             {corporateData?.miceTravel?.description}
                         </p>
 

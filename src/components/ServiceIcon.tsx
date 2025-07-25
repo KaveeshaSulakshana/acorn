@@ -96,7 +96,7 @@ export const TravelFeatures = ({url, title, isBigger, isHovered}: FeatureProps) 
                     <Image src={url} alt="doc" width={45} height={45}
                            className={`${isBigger ? "w-10 h-10 lg:w-18 lg:h-18" : "sm:w-14 sm:h-14"}`}/>
                 </div>
-                <p className="mt-2 text-[#000000] text-sm sm:text-base md:text-lg font-normal lato max-w-[120px] sm:max-w-[180px]">
+                <p className="mt-2 text-[#000000] text-[12px] sm:text-[15px] lg:text-lg font-normal lato max-w-[120px] sm:max-w-[180px]">
                     {title}
                 </p>
             </div>

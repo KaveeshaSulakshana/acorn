@@ -77,7 +77,7 @@ const Partners = async () => {
     return (
         <div className="py-8 sm:py-12 bg-[#F6F6F6]">
             <div className="container mx-auto px-4">
-                <h2 className="text-2xl sm:text-3xl md:text-[52px] font-bold text-[#3C3C3C] text-center mb-6 sm:mb-8 lato">
+                <h2 className="text-[28px] sm:text-[38px] lg:text-[52px] font-bold text-[#3C3C3C] text-center mb-6 sm:mb-8 lato">
                     {title}
                 </h2>
 

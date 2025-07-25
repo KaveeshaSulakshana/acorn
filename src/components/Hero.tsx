@@ -31,10 +31,10 @@ const Hero = ({hero}: HeroProps) => {
                 <div className="absolute inset-0 bg-black/30"></div>
                 <div
                     className="absolute inset-0 flex flex-col justify-center items-center text-center px-4 sm:px-6 md:px-12 lg:px-16">
-                    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-semibold text-white mb-3 md:mb-4 lg:mb-6 max-w-5xl leading-tight">
+                    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-semibold text-white mb-3 md:mb-4 lg:mb-6 max-w-5xl leading-6 md:leading-10">
                         {hero.title}
                     </h1>
-                    <p className="text-base sm:text-xl text-[#D3D1D1] font-medium mb-4 md:mb-6 lg:mb-8 max-w-xl md:leading-7 lg:max-w-2xl">
+                    <p className="text-sm sm:text-base md:text-xl text-[#D3D1D1] font-medium mb-4 md:mb-6 lg:mb-8 max-w-xl leading-5 md:leading-7 lg:max-w-2xl">
                         {hero.description}
                     </p>
                     {hero.buttonText && hero.buttonText.length > 0 && (

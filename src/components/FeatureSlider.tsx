@@ -766,7 +766,7 @@ const ServiceSlider: React.FC<FeatureSliderProps> = ({slides}) => {
                                 className="object-contain"
                             />
                         </div>
-                        <p className="mt-2 text-[#000000] text-base md:text-lg font-normal lato max-w-[200px]">
+                        <p className="mt-2 text-[#000000] text-[14px] sm:text-[16px] lg:text-[20px] font-normal lato max-w-[200px]">
                             {service.title}
                         </p>
                     </div>
@@ -786,7 +786,7 @@ const ServiceSlider: React.FC<FeatureSliderProps> = ({slides}) => {
                     <button
                         key={index}
                         onClick={() => handleDotClick(index)}
-                        className={`w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 xl:w-8 xl:h-2 2xl:w-10 2xl:h-2 
+                        className={`w-3 h-2 sm:w-4 sm:h-2 md:w-5 md:h-2 lg:w-6 lg:h-6 xl:w-8 xl:h-2 2xl:w-10 2xl:h-2 
                        rounded-full transition-all duration-300 ${
                             index === currentIndex ? "bg-[#2B5597]" : "bg-[#DDDDDD] hover:bg-gray-400"
                         }`}
@@ -802,7 +802,7 @@ const ServiceSlider: React.FC<FeatureSliderProps> = ({slides}) => {
     }
 
     return (
-        <div className="relative max-w-7xl mx-auto py-8 md:py-16">
+        <div className="relative max-w-7xl mx-auto py-4 md:py-16">
             {/* Mobile View - 1 card per slide */}
             <div className="block sm:hidden">
                 {renderSlides(itemsPerView.mobile, 'grid-cols-1')}

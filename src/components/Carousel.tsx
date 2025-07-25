@@ -141,16 +141,16 @@ const Carousel = ({
                        text-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20"
                     >
                         <h1
-                            className="text-lg sm:text-2xl md:text-3xl lg:text-4xl xl:text-6xl
+                            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl
                          font-semibold text-white
                          mb-2 sm:mb-3 md:mb-4 lg:mb-5 xl:mb-6 2xl:mb-8
                          max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-3xl 2xl:max-w-4xl
-                         leading-tight lg:leading-15"
+                         leading-6 lg:leading-15"
                         >
                             {slide.title}
                         </h1>
                         <p
-                            className="text-[10px] sm:text-xs md:text-xl
+                            className="text-sm sm:text-base md:text-xl
                          text-[#D3D1D1] font-medium
                          mb-3 sm:mb-4 md:mb-5 lg:mb-6 xl:mb-7 2xl:mb-8
                          max-w-xs sm:max-w-sm md:max-w-md lg:max-w-2xl md:leading-6 2xl:max-w-3xl"

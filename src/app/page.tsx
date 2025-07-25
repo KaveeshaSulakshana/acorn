@@ -384,10 +384,10 @@ export default async function Home() {
             <section className="py-8 sm:py-10 md:py-12 bg-white lato">
                 <div className="container mx-auto px-4 sm:px-6 flex flex-col lg:flex-row justify-between items-center">
                     <div className="w-full lg:w-1/2 mb-6 sm:mb-8 md:mb-0">
-                        <h2 className="text-3xl sm:text-4xl md:text-[52px] font-bold lato max-w-xl px-4 sm:px-6 md:px-8 text-black mb-3 sm:mb-4">
+                        <h2 className="text-[28px] sm:text-[38px] lg:text-[52px] font-bold lato max-w-xl px-4 sm:px-6 md:px-8 text-black mb-3 sm:mb-4">
                             {homeData.testimonials.title}
                         </h2>
-                        <p className="text-[#737373] px-4 sm:px-6 md:px-8 max-w-xl font-normal text-base sm:text-lg md:text-lg lato mb-4 sm:mb-6">
+                        <p className="text-[#737373] px-4 sm:px-6 md:px-8 max-w-xl font-normal text-[14px] sm:text-[16px] lg:text-[18px] lato mb-4 sm:mb-6">
                             {homeData.testimonials.description}
                         </p>
                         <div className="relative">

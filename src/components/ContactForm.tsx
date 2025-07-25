@@ -519,7 +519,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
         <div className="bg-white lato rounded-[10px] shadow-md">
             <div className="container px-4">
                 <div className="w-full max-w-md md:max-w-lg mx-auto p-4 md:p-6 lg:p-8">
-                    <h2 className="text-xl md:text-2xl lg:text-[45px] font-bold text-[#3C3C3C] mb-4 md:mb-6 lg:mb-8">
+                    <h2 className="text-[22px] sm:text-[30px] lg:text-[45px] font-bold text-[#3C3C3C] mb-4 md:mb-6 lg:mb-8">
                         {title}
                     </h2>
                     {notification && (

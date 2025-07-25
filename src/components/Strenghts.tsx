@@ -221,12 +221,12 @@ export default function Strengths({strengths}: StrengthsProps) {
     // ];
 
     return (
-        <div className="py-12 my-8 bg-white relative overflow-hidden lato">
+        <div className="py-6 my-4 md:py-12 md:my-8 bg-white relative overflow-hidden lato">
             <div className="container mx-auto px-4">
-                <h2 className="text-3xl md:text-[52px] font-bold text-[#3C3C3C] text-center mb-8">
+                <h2 className="text-[28px] sm:text-[38px] lg:text-[52px] font-bold text-[#3C3C3C] text-center mb-8">
                     Our Strengths
                 </h2>
-                <p className="text-[#737373] text-base md:text-xl text-center mb-8 max-w-4xl mx-auto">
+                <p className="text-[#737373] text-[14px] sm:text-[16px] lg:text-[20px] text-center mb-8 max-w-4xl mx-auto">
                     With a commitment to excellence, personalized service, and extensive global expertise, we ensure
                     every journey is seamless, memorable, and tailored to your unique needs
                 </p>
@@ -255,10 +255,10 @@ export default function Strengths({strengths}: StrengthsProps) {
                                         />
                                     </div>
                                     <div className="flex-1">
-                                        <h3 className="text-xl font-bold text-[#3C3C3C] mb-2">
+                                        <h3 className="text-[14px] sm:text-[16px] lg:text-[20px] font-bold text-[#3C3C3C] mb-2">
                                             {strength.title}
                                         </h3>
-                                        <p className="text-[#737373] text-sm mb-4 md:min-h-40 lg:min-h-36">
+                                        <p className="text-[#737373] text-[10px] lg:text-sm mb-4 md:min-h-40 lg:min-h-36">
                                             {strength.description}
                                         </p>
                                     </div>
@@ -282,10 +282,10 @@ export default function Strengths({strengths}: StrengthsProps) {
                                         />
                                     </div>
                                     <div className="flex-1">
-                                        <h3 className="text-xl font-bold text-[#3C3C3C] mb-2">
+                                        <h3 className="text-[14px] sm:text-[16px] lg:text-[20px] font-bold text-[#3C3C3C] mb-2">
                                             {strength.title}
                                         </h3>
-                                        <p className="text-[#737373] text-sm mb-4 md:min-h-40 lg:min-h-36">
+                                        <p className="text-[#737373] text-[10px] lg:text-sm mb-4 md:min-h-40 lg:min-h-36">
                                             {strength.description}
                                         </p>
                                         {/*<Link href={strength.link}>*/}
@@ -316,10 +316,10 @@ export default function Strengths({strengths}: StrengthsProps) {
                                     />
                                 </div>
                                 <div className="flex-1">
-                                    <h3 className="text-lg font-bold text-[#3C3C3C] mb-2">
+                                    <h3 className="text-[14px] sm:text-[16px] lg:text-[20px] font-bold text-[#3C3C3C] mb-2">
                                         {strength.title}
                                     </h3>
-                                    <p className="text-[#737373] text-sm mb-3">
+                                    <p className="text-[#737373] text-[10px] lg:text-sm mb-3">
                                         {strength.description}
                                     </p>
                                     {/*<Link href={strength.link}>*/}
