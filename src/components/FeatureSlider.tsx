@@ -711,7 +711,7 @@ interface FeatureSliderProps {
     slides: Slide[];
 }
 
-const ServiceSlider: React.FC<FeatureSliderProps> = ({slides}) => {
+const FeatureSlider: React.FC<FeatureSliderProps> = ({slides}) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isClient, setIsClient] = useState(false);
     const ref = useRef(null);
@@ -753,11 +753,15 @@ const ServiceSlider: React.FC<FeatureSliderProps> = ({slides}) => {
     };
 
     const slideVariants: Variants = {
-        hidden: {opacity: 0, y: 20},
+        hidden: {opacity: 0, y: 50},
         visible: (i: number) => ({
             opacity: 1,
-            y: 0,
-            transition: {duration: 0.6, ease: "easeOut" as const, delay: i * 0.1},
+            y: 0, // Animate to original position
+            transition: {
+                duration: 0.6,
+                ease: "easeOut",
+                delay: i * 0.15,
+            },
         }),
     };
 
@@ -766,12 +770,12 @@ const ServiceSlider: React.FC<FeatureSliderProps> = ({slides}) => {
         return (
             <motion.div className={`grid ${gridCols} gap-4 md:gap-8 px-4`}
                         initial="hidden"
-                        animate={isInView ? "visible" : "hidden"}
+                        animate={isInView ? "hidden" : "visible"}
                         key={`slides-${currentIndex}-${itemsPerSlide}`}
             >
                 {getCurrentSlides(itemsPerSlide).map((service, index) => (
                     <motion.div className="flex flex-col items-center text-center"
-                                key={`slide-${itemsPerSlide}-${currentIndex}-${index}`}
+                                key={service._key || `slide-${itemsPerSlide}-${currentIndex}-${index}`}
                                 custom={index}
                                 variants={slideVariants}
                     >
@@ -804,7 +808,7 @@ const ServiceSlider: React.FC<FeatureSliderProps> = ({slides}) => {
             <motion.div className="flex justify-center gap-2 md:gap-4 mt-4 md:mt-8"
                         initial={{opacity: 0}}
                         animate={isInView ? {opacity: 1} : {opacity: 0}}
-                        transition={{duration: 0.5}}
+                        transition={{duration: 0.5, delay: 0.5}}
             >
                 {Array.from({length: total}).map((_, index) => (
                     <button
@@ -848,4 +852,4 @@ const ServiceSlider: React.FC<FeatureSliderProps> = ({slides}) => {
     );
 };
 
-export default ServiceSlider;
+export default FeatureSlider;

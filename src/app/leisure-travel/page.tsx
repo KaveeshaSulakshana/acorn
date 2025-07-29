@@ -285,19 +285,18 @@
 //
 // export const revalidate = 60;
 
-
 import Hero from "@/components/Hero";
-// import Image from "next/image";
+import Image from "next/image";
 import ParallaxBackground from "@/components/ParallaxBackground";
 import {FormField} from "@/components/ContactForm";
 import {getLeisurePageData, getMetadata} from "../../../sanity/api";
-// import Link from "next/link";
+import Link from "next/link";
 import React from "react";
-// import TravelFeaturesGrid from "@/components/ServiceIcon";
+import TravelFeaturesGrid from "@/components/ServiceIcon";
 import Nav from "@/components/Nav";
 import {Metadata} from "next";
 import {urlFor} from "../../../sanity/sanity";
-import LeisureWithAnimation from "@/components/LeisureWithAnimation";
+import AnimatedSection from "@/components/AnimatedSection";
 
 // interface HeroButton {
 //     title: string;
@@ -539,103 +538,107 @@ const LeisureTravel = async () => {
         <div className="min-h-screen relative bg-white lato">
             <Nav/>
             <Hero hero={hero}/>
-            {/*<div className="mx-auto">*/}
-            {/*    {sections.map((section, index) => (*/}
-            {/*        <div*/}
-            {/*            id={section.sectionLink}*/}
-            {/*            key={index}*/}
-            {/*            className="flex flex-col md:flex-row md:odd:flex-row md:even:flex-row-reverse gap-6 sm:gap-12 md:gap-20 py-6 px-4 sm:p-6 md:p-8 lg:p-12 xl:p-16 odd:bg-[#F6F6F6] even:bg-white m-0"*/}
-            {/*        >*/}
-            {/*            <div className="w-full md:w-3/5 mb-6 md:mb-0 flex flex-col justify-between">*/}
-            {/*                <div>*/}
-            {/*                    <h2 className="font-bold text-[20px] sm:text-[30px] lg:text-[45px] leading-6 md:leading-10 text-[#3C3C3C] max-w-2xl">*/}
-            {/*                        {section.title}*/}
-            {/*                    </h2>*/}
-            {/*                    <div className="w-full block my-3 md:hidden md:w-2/5">*/}
-            {/*                        <Image*/}
-            {/*                            src={section.image}*/}
-            {/*                            alt="Section Image"*/}
-            {/*                            width={400}*/}
-            {/*                            height={600}*/}
-            {/*                            className="rounded-lg object-cover py-2 w-full h-full md:h-[400px] lg:h-[600px]"*/}
-            {/*                        />*/}
-            {/*                    </div>*/}
-            {/*                    <p className="text-[14px] sm:text-[16px] lg:text-[20px] font-normal mt-4 sm:mt-6 text-[#737373] max-w-2xl leading-relaxed">*/}
-            {/*                        {section.description}*/}
-            {/*                    </p>*/}
-            {/*                    <div className="mx-auto">*/}
-            {/*                        <TravelFeaturesGrid featuresSection={section} isBigger={false}/>*/}
-            {/*                    </div>*/}
-            {/*                </div>*/}
-            {/*                {section.logo ? (*/}
-            {/*                    <div*/}
-            {/*                        className={`mt-6 sm:mt-8 items-center content-end flex flex-row ${index % 2 == 0 ? "sm:flex-row" : "sm:flex-row-reverse"} sm:items-center justify-between max-w-2xl gap-4`}>*/}
-            {/*                        <Image*/}
-            {/*                            src={section.logo}*/}
-            {/*                            alt="Section Logo"*/}
-            {/*                            height={40}*/}
-            {/*                            width={160}*/}
-            {/*                            className="object-contain w-32 sm:w-40 md:w-48"*/}
-            {/*                        />*/}
-            {/*                        <div className="flex justify-end right-0 content-end self-end">*/}
-            {/*                            <Link href={section.buttonLink}>*/}
-            {/*                                <button*/}
-            {/*                                    className="bg-[#2B5597] cursor-pointer text-white text-xs sm:text-sm font-bold px-3 sm:px-4 py-2 sm:py-3 rounded-md hover:bg-blue-950 transition-colors lato"*/}
-            {/*                                >*/}
-            {/*                                    {section.buttonText}*/}
-            {/*                                </button>*/}
-            {/*                            </Link>*/}
-            {/*                        </div>*/}
-            {/*                    </div>*/}
-            {/*                ) : (*/}
-            {/*                    <div className="mt-6 sm:mt-8 flex justify-end">*/}
-            {/*                        /!*<Link href="" className="items-end self-end justify-end">*!/*/}
-            {/*                        /!*    <button*!/*/}
-            {/*                        /!*        className="bg-[#2B5597] cursor-pointer items-end self-end text-white text-xs sm:text-sm font-bold px-3 sm:px-4 py-2 sm:py-3 rounded-md hover:bg-blue-950 transition-colors lato"*!/*/}
-            {/*                        /!*    >*!/*/}
-            {/*                        /!*        {section.buttonText}*!/*/}
-            {/*                        /!*    </button>*!/*/}
-            {/*                        /!*</Link>*!/*/}
-            {/*                        <Link href={section.buttonLink} className="inline-block">*/}
-            {/*                            <button*/}
-            {/*                                className="bg-[#2B5597] cursor-pointer text-white text-xs sm:text-sm font-bold px-3 sm:px-4 py-2 sm:py-3 rounded-md hover:bg-blue-950 transition-colors lato"*/}
-            {/*                            >*/}
-            {/*                                {section.buttonText}*/}
-            {/*                            </button>*/}
-            {/*                        </Link>*/}
-            {/*                    </div>*/}
-            {/*                )}*/}
-            {/*                /!*<div className="mt-6 sm:mt-8 justify-center lg:justify-start">*!/*/}
-            {/*                /!*    <div className="grid grid-cols-2 sm:grid-cols-3  gap-4 sm:gap-6">*!/*/}
-            {/*                /!*        {section.travelServices.map((service, index) => (*!/*/}
-            {/*                /!*            <TravelFeatures key={index} url={service.url} title={service.title}*!/*/}
-            {/*                /!*                            isBigger={service.isBigger}/>*!/*/}
-            {/*                /!*        ))}*!/*/}
-            {/*                /!*    </div>*!/*/}
-            {/*                /!*</div>*!/*/}
+            <div className="mx-auto">
+                {sections.map((section, index) => (
+                    <div
+                        id={section.sectionLink}
+                        key={index}
+                        className="flex flex-col md:flex-row md:odd:flex-row md:even:flex-row-reverse gap-6 sm:gap-12 md:gap-20 py-6 px-4 sm:p-6 md:p-8 lg:p-12 xl:p-16 odd:bg-[#F6F6F6] even:bg-white m-0"
+                    >
+                        <div className="w-full md:w-3/5 mb-6 md:mb-0 flex flex-col justify-between">
+                            <div>
+                                <AnimatedSection direction="up" delay={0.2} threshold={0.1}>
+                                    <h2 className="font-bold text-[20px] sm:text-[30px] lg:text-[45px] leading-6 md:leading-10 text-[#3C3C3C] max-w-2xl">
+                                        {section.title}
+                                    </h2>
+                                </AnimatedSection>
+                                <div className="w-full block my-3 md:hidden md:w-2/5">
+                                    <AnimatedSection direction="up" delay={0.4}>
+                                        <Image
+                                            src={section.image}
+                                            alt="Section Image"
+                                            width={400}
+                                            height={600}
+                                            className="rounded-lg object-cover py-2 w-full h-full md:h-[400px] lg:h-[600px]"
+                                        />
+                                    </AnimatedSection>
+                                </div>
+                                <AnimatedSection direction="up" delay={0.3} threshold={0.1}>
+                                    <p className="text-[14px] sm:text-[16px] lg:text-[20px] font-normal mt-4 sm:mt-6 text-[#737373] max-w-2xl leading-relaxed">
+                                        {section.description}
+                                    </p>
+                                </AnimatedSection>
+                                <div className="mx-auto">
+                                    <TravelFeaturesGrid featuresSection={section} isBigger={false}/>
+                                </div>
+                            </div>
+                            {section.logo ? (
+                                <AnimatedSection direction="up" delay={0.5} threshold={0.1}>
+                                    <div
+                                        className={`mt-6 sm:mt-8 items-center content-end flex flex-row ${index % 2 == 0 ? "sm:flex-row" : "sm:flex-row-reverse"} sm:items-center justify-between max-w-2xl gap-4`}>
+                                        <Image
+                                            src={section.logo}
+                                            alt="Section Logo"
+                                            height={40}
+                                            width={160}
+                                            className="object-contain w-32 sm:w-40 md:w-48"
+                                        />
+                                        <div className="flex justify-end right-0 content-end self-end">
+                                            <Link href={section.buttonLink}>
+                                                <button
+                                                    className="bg-[#2B5597] cursor-pointer text-white text-xs sm:text-sm font-bold px-3 sm:px-4 py-2 sm:py-3 rounded-md hover:bg-blue-950 transition-colors lato"
+                                                >
+                                                    {section.buttonText}
+                                                </button>
+                                            </Link>
+                                        </div>
+                                    </div>
+                                </AnimatedSection>
+                            ) : (
+                                <AnimatedSection direction="up" delay={0.5} threshold={0.1}>
+                                    <div className="mt-6 sm:mt-8 flex justify-end">
+                                        {/*<Link href="" className="items-end self-end justify-end">*/}
+                                        {/*    <button*/}
+                                        {/*        className="bg-[#2B5597] cursor-pointer items-end self-end text-white text-xs sm:text-sm font-bold px-3 sm:px-4 py-2 sm:py-3 rounded-md hover:bg-blue-950 transition-colors lato"*/}
+                                        {/*    >*/}
+                                        {/*        {section.buttonText}*/}
+                                        {/*    </button>*/}
+                                        {/*</Link>*/}
+                                        <Link href={section.buttonLink} className="inline-block">
+                                            <button
+                                                className="bg-[#2B5597] cursor-pointer text-white text-xs sm:text-sm font-bold px-3 sm:px-4 py-2 sm:py-3 rounded-md hover:bg-blue-950 transition-colors lato"
+                                            >
+                                                {section.buttonText}
+                                            </button>
+                                        </Link>
+                                    </div>
+                                </AnimatedSection>
+                            )}
+                            {/*<div className="mt-6 sm:mt-8 justify-center lg:justify-start">*/}
+                            {/*    <div className="grid grid-cols-2 sm:grid-cols-3  gap-4 sm:gap-6">*/}
+                            {/*        {section.travelServices.map((service, index) => (*/}
+                            {/*            <TravelFeatures key={index} url={service.url} title={service.title}*/}
+                            {/*                            isBigger={service.isBigger}/>*/}
+                            {/*        ))}*/}
+                            {/*    </div>*/}
+                            {/*</div>*/}
 
-            {/*                /!*<TravelFeaturesGrid featuresSection={section} isBigger={false}/>*!/*/}
-            {/*            </div>*/}
-            {/*            <div className="w-full hidden my-3 md:block md:w-2/5">*/}
-            {/*                <Image*/}
-            {/*                    src={section.image}*/}
-            {/*                    alt="Section Image"*/}
-            {/*                    width={400}*/}
-            {/*                    height={600}*/}
-            {/*                    className="rounded-lg object-cover w-full h-full md:h-[400px] lg:h-[600px]"*/}
-            {/*                />*/}
-            {/*            </div>*/}
-            {/*        </div>*/}
-            {/*    ))}*/}
-            {/*</div>*/}
-
-            {sections.map((section, index) => (
-                <LeisureWithAnimation
-                    key={index}
-                    id={section.sectionLink || `section-${index}`}
-                    section={section}
-                />
-            ))}
+                            {/*<TravelFeaturesGrid featuresSection={section} isBigger={false}/>*/}
+                        </div>
+                        <div className="w-full hidden my-3 md:block md:w-2/5">
+                            <AnimatedSection direction={index % 2 === 0 ? "right" : "left"} delay={0.4} threshold={0.1}>
+                                <Image
+                                    src={section.image}
+                                    alt="Section Image"
+                                    width={400}
+                                    height={600}
+                                    className="rounded-lg object-cover w-full h-full md:h-[400px] lg:h-[600px]"
+                                />
+                            </AnimatedSection>
+                        </div>
+                    </div>
+                ))}
+            </div>
 
             {/*<div className="mx-auto">*/}
             {/*    {sections.map((section, index) => (*/}

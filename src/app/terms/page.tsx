@@ -4,6 +4,7 @@ import Nav from "@/components/Nav";
 import React from "react";
 import {Metadata} from "next";
 import {urlFor} from "../../../sanity/sanity";
+import AnimatedSection from "@/components/AnimatedSection";
 
 
 // interface TermsAndConditionsData {
@@ -20,12 +21,16 @@ const TermsAndConditions = async () => {
     return (
         <div className="min-h-screen py-16 bg-white lato">
             <Nav/>
-            <h1 className="lato mt-15 md:mt-20 lg:mt-30 font-bold text-[#3C3C3C] text-center mb-6 text-[22px] sm:text-[30px] lg:text-[45px]">{termsData.title || "Term & Condition"}</h1>
-            <div
-                className="font-light justify-left leading-12 px-4 sm:px-6 md:px-15 mt-6 text-[14px] sm:text-[16px] lg:text-[20px]">
-                <PortableText
-                    value={termsData.body || "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id ante eros. Donec congue eu mi non efficitur. Nunc vitae ultricies augue, at blandit tellus. Mauris eget sapien sed nisi bibendum convallis non eget leo. Curabitur vehicula a est quis commodo. Vestibulum faucibus a purus ac laoreet. Morbi tincidunt aliquam facilisis. Phasellus eget lobortis lorem. Proin quis semper ex. Pellentesque dignissim nulla tellus, lacinia porttitor tellus aliquam vitae. Fusce nec urna sit amet metus ullamcorper volutpat. Curabitur dapibus dolor ex, non gravida dui congue sed. Cras varius consectetur enim at mollis. Integer feugiat ex non vestibulum mollis."}/>
-            </div>
+            <AnimatedSection direction="up" delay={0.2}>
+                <h1 className="lato mt-15 md:mt-20 lg:mt-30 font-bold text-[#3C3C3C] text-center mb-6 text-[22px] sm:text-[30px] lg:text-[45px]">{termsData.title || "Term & Condition"}</h1>
+            </AnimatedSection>
+            <AnimatedSection direction="up" delay={0.4}>
+                <div
+                    className="font-light justify-left leading-12 px-4 sm:px-6 md:px-15 mt-6 text-[14px] sm:text-[16px] lg:text-[20px]">
+                    <PortableText
+                        value={termsData.body || "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id ante eros. Donec congue eu mi non efficitur. Nunc vitae ultricies augue, at blandit tellus. Mauris eget sapien sed nisi bibendum convallis non eget leo. Curabitur vehicula a est quis commodo. Vestibulum faucibus a purus ac laoreet. Morbi tincidunt aliquam facilisis. Phasellus eget lobortis lorem. Proin quis semper ex. Pellentesque dignissim nulla tellus, lacinia porttitor tellus aliquam vitae. Fusce nec urna sit amet metus ullamcorper volutpat. Curabitur dapibus dolor ex, non gravida dui congue sed. Cras varius consectetur enim at mollis. Integer feugiat ex non vestibulum mollis."}/>
+                </div>
+            </AnimatedSection>
         </div>
     );
 }

@@ -49,9 +49,9 @@
 // export default TravelFeatures;
 
 "use client"
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 import Image from 'next/image';
-import {motion, AnimatePresence} from 'framer-motion';
+import {motion, AnimatePresence, useInView, Variants} from 'framer-motion';
 
 interface FeatureProps {
     url: string;
@@ -106,26 +106,41 @@ export const TravelFeatures = ({url, title, isBigger, isHovered}: FeatureProps) 
 
 
 const TravelFeaturesGrid = ({featuresSection, isBigger}: TravelFeaturesGridProps) => {
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true, amount: 0.3 });
+
+    const featureVariants: Variants = {
+        hidden: { opacity: 0, scale: 0.8 },
+        visible: (i: number) => ({
+            opacity: 1,
+            scale: 1,
+            transition: { duration: 0.6, ease: "easeOut", delay: i * 0.15 },
+        }),
+    };
+
     const [isHovered, setIsHovered] = useState(false);
 
     return (
         <AnimatePresence>
             {featuresSection.travelServices.length > 0 && (
                 <motion.div
+                    ref={ref}
                     className={`${isBigger ? "mt-6 sm:mt-10 max-w-2xl mx-auto justify-center" : "mt-6 sm:mt-8 justify-center lg:justify-start"}`}
                     onHoverStart={() => setIsHovered(true)}
                     onHoverEnd={() => setIsHovered(false)}
+                    initial="hidden"
+                    animate={isInView ? "visible" : "hidden"}
                 >
                     <div className={`grid grid-cols-2 sm:grid-cols-3 ${isBigger ? "gap-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 justify-items-center" : "gap-4 sm:gap-6"}`}>
                         {featuresSection.travelServices.map((service, index) => (
-                            <div key={index}>
+                            <motion.div key={index} custom={index} variants={featureVariants}>
                                 <TravelFeatures
                                     url={service.url}
                                     title={service.title}
                                     isBigger={isBigger}
                                     isHovered={isHovered}
                                 />
-                            </div>
+                            </motion.div>
                         ))}
                     </div>
                 </motion.div>

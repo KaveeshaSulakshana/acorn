@@ -177,6 +177,7 @@ import TestimonialSlider from "@/components/TestimonialSlider";
 import Nav from "@/components/Nav";
 import {urlFor} from "../../sanity/sanity";
 import {Metadata} from "next";
+import AnimatedSection from "@/components/AnimatedSection";
 
 interface Slide {
     image: string;
@@ -384,12 +385,16 @@ export default async function Home() {
             <section className="py-8 sm:py-10 md:py-12 bg-white lato">
                 <div className="container mx-auto px-4 sm:px-6 flex flex-col lg:flex-row justify-between items-center">
                     <div className="w-full lg:w-2/3 mb-6 sm:mb-8 md:mb-0">
-                        <h2 className="text-[28px] sm:text-[38px] lg:text-[52px] font-bold lato max-w-2xl px-4 sm:px-6 md:px-8 text-black mb-3 sm:mb-4">
-                            {homeData.testimonials.title}
-                        </h2>
-                        <p className="text-[#737373] px-4 sm:px-6 md:px-8 max-w-xl font-normal text-[14px] sm:text-[16px] lg:text-[18px] lato mb-4 sm:mb-6">
-                            {homeData.testimonials.description}
-                        </p>
+                        <AnimatedSection direction="up" delay={0.2} threshold={0.1}>
+                            <h2 className="text-[28px] sm:text-[38px] lg:text-[52px] font-bold lato max-w-2xl px-4 sm:px-6 md:px-8 text-black mb-3 sm:mb-4">
+                                {homeData.testimonials.title}
+                            </h2>
+                        </AnimatedSection>
+                        <AnimatedSection direction="up" delay={0.3} threshold={0.1}>
+                            <p className="text-[#737373] px-4 sm:px-6 md:px-8 max-w-xl font-normal text-[14px] sm:text-[16px] lg:text-[18px] lato mb-4 sm:mb-6">
+                                {homeData.testimonials.description}
+                            </p>
+                        </AnimatedSection>
                         <div className="relative">
                             <div className="w-full h-full">
                                 <Image
@@ -406,8 +411,7 @@ export default async function Home() {
                 </div>
             </section>
         </div>
-    )
-        ;
+    );
 }
 
 export const revalidate = 60;
