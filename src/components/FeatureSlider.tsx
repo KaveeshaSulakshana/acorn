@@ -697,8 +697,9 @@
 
 
 "use client";
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import Image from "next/image";
+import {motion, useInView, Variants} from "framer-motion";
 
 interface Slide {
     _key: string;
@@ -713,6 +714,8 @@ interface FeatureSliderProps {
 const ServiceSlider: React.FC<FeatureSliderProps> = ({slides}) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isClient, setIsClient] = useState(false);
+    const ref = useRef(null);
+    const isInView = useInView(ref, {once: true, amount: 0.3});
 
     // Items per view for different screen sizes
     const itemsPerView = {
@@ -749,13 +752,29 @@ const ServiceSlider: React.FC<FeatureSliderProps> = ({slides}) => {
         return slides.slice(startIndex, endIndex);
     };
 
+    const slideVariants: Variants = {
+        hidden: {opacity: 0, y: 20},
+        visible: (i: number) => ({
+            opacity: 1,
+            y: 0,
+            transition: {duration: 0.6, ease: "easeOut" as const, delay: i * 0.1},
+        }),
+    };
+
     // Render slide group for a specific view
     const renderSlides = (itemsPerSlide: number, gridCols: string) => {
         return (
-            <div className={`grid ${gridCols} gap-4 md:gap-8 px-4`}>
+            <motion.div className={`grid ${gridCols} gap-4 md:gap-8 px-4`}
+                        initial="hidden"
+                        animate={isInView ? "visible" : "hidden"}
+                        key={`slides-${currentIndex}-${itemsPerSlide}`}
+            >
                 {getCurrentSlides(itemsPerSlide).map((service, index) => (
-                    <div className="flex flex-col items-center text-center"
-                         key={`slide-${itemsPerSlide}-${currentIndex}-${index}`}>
+                    <motion.div className="flex flex-col items-center text-center"
+                                key={`slide-${itemsPerSlide}-${currentIndex}-${index}`}
+                                custom={index}
+                                variants={slideVariants}
+                    >
                         <div
                             className="lg:w-35 lg:h-35 w-18 h-18 sm:w-25 sm:h-25 bg-white transition-all duration-300 rounded-full hover:bg-[#64646F33]/60 flex items-center justify-center shadow-2xl">
                             <Image
@@ -764,14 +783,15 @@ const ServiceSlider: React.FC<FeatureSliderProps> = ({slides}) => {
                                 width={60}
                                 height={60}
                                 className="object-contain"
+                                loading="lazy"
                             />
                         </div>
                         <p className="mt-2 text-[#000000] text-[14px] sm:text-[16px] lg:text-[20px] font-normal lato max-w-[200px]">
                             {service.title}
                         </p>
-                    </div>
+                    </motion.div>
                 ))}
-            </div>
+            </motion.div>
         );
     };
 
@@ -781,19 +801,23 @@ const ServiceSlider: React.FC<FeatureSliderProps> = ({slides}) => {
         if (slides.length <= itemsPerSlide) return null;
 
         return (
-            <div className="flex justify-center gap-2 md:gap-4 mt-4 md:mt-8">
+            <motion.div className="flex justify-center gap-2 md:gap-4 mt-4 md:mt-8"
+                        initial={{opacity: 0}}
+                        animate={isInView ? {opacity: 1} : {opacity: 0}}
+                        transition={{duration: 0.5}}
+            >
                 {Array.from({length: total}).map((_, index) => (
                     <button
                         key={index}
                         onClick={() => handleDotClick(index)}
-                        className={`w-3 h-2 sm:w-4 sm:h-2 md:w-5 md:h-2 lg:w-6 lg:h-6 xl:w-8 xl:h-2 2xl:w-10 2xl:h-2 
+                        className={`w-3 h-2 sm:w-4 sm:h-2 md:w-5 md:h-2 lg:w-6 lg:h-6 xl:w-8 xl:h-2 2xl:w-10 2xl:h-2
                        rounded-full transition-all duration-300 ${
                             index === currentIndex ? "bg-[#2B5597]" : "bg-[#DDDDDD] hover:bg-gray-400"
                         }`}
                         aria-label={`Go to slide group ${index + 1}`}
                     />
                 ))}
-            </div>
+            </motion.div>
         );
     };
 

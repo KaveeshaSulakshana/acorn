@@ -7,6 +7,7 @@ import FeatureSlider from "@/components/FeatureSlider";
 import Nav from "@/components/Nav";
 import {Metadata} from "next";
 import {urlFor} from "../../../sanity/sanity";
+import SectionWithAnimation from "@/components/SectionWithAnimation";
 
 // interface Slide {
 //     _key: string;
@@ -216,62 +217,129 @@ const CorporateTravel = async () => {
         ];
         const contactFormPageSource = "Corporate Travel Inquiry";
 
+        // const SectionWithAnimation = ({
+        //                                   id,
+        //                                   title,
+        //                                   description,
+        //                                   children,
+        //                               }: {
+        //     id: string;
+        //     title: string;
+        //     description: string;
+        //     children: React.ReactNode;
+        // }) => {
+        //     const ref = useRef(null);
+        //     const isInView = useInView(ref, {once: true, amount: 0.3});
+        //
+        //     const sectionVariants = {
+        //         hidden: {opacity: 0, y: 20},
+        //         visible: {opacity: 1, y: 0, transition: {duration: 0.6, ease: "easeOut" as const}},
+        //     };
+        //
+        //     return (
+        //         <motion.div
+        //             id={id}
+        //             className="py-12 bg-white relative overflow-hidden lato"
+        //             ref={ref}
+        //             initial="hidden"
+        //             animate={isInView ? "visible" : "hidden"}
+        //             variants={sectionVariants}
+        //         >
+        //             <div className="container mx-auto px-4">
+        //                 <motion.h2
+        //                     className="text-[28px] sm:text-[38px] lg:text-[52px] font-bold text-[#3C3C3C] text-center mb-4"
+        //                     variants={sectionVariants}
+        //                 >
+        //                     {title}
+        //                 </motion.h2>
+        //                 <motion.p
+        //                     className="text-[#737373] text-[14px] sm:text-[16px] lg:text-[20px] leading-6 md:leading-10 text-center mb-8 max-w-5xl mx-auto"
+        //                     variants={sectionVariants}
+        //                 >
+        //                     {description}
+        //                 </motion.p>
+        //                 <div className="relative py-4 max-w-5xl mx-auto">{children}</div>
+        //             </div>
+        //         </motion.div>
+        //     );
+        // };
+
 
         return (
             <div className="lato bg-[#F6F6F6]">
                 <Nav/>
                 <Hero hero={heroProps}/>
-                <div id="corporate-travel" className="py-12 bg-white relative overflow-hidden lato">
-                    <div className="container mx-auto px-4">
-                        <h2 className="text-[28px] sm:text-[38px] lg:text-[52px] font-bold text-[#3C3C3C] text-center mb-4">
-                            {corporateData.corporateTravel?.title}
-                        </h2>
-                        <p className="text-[#737373] text-[14px] sm:text-[16px] lg:text-[20px] leading-6 md:leading-10 text-center mb-8 max-w-5xl mx-auto">
-                            {corporateData?.corporateTravel?.description}
-                        </p>
+                {/*<div id="corporate-travel" className="py-12 bg-white relative overflow-hidden lato">*/}
+                {/*    <div className="container mx-auto px-4">*/}
+                {/*        <h2 className="text-[28px] sm:text-[38px] lg:text-[52px] font-bold text-[#3C3C3C] text-center mb-4">*/}
+                {/*            {corporateData.corporateTravel?.title}*/}
+                {/*        </h2>*/}
+                {/*        <p className="text-[#737373] text-[14px] sm:text-[16px] lg:text-[20px] leading-6 md:leading-10 text-center mb-8 max-w-5xl mx-auto">*/}
+                {/*            {corporateData?.corporateTravel?.description}*/}
+                {/*        </p>*/}
 
-                        <div className="md:py-4 relative max-w-5xl mx-auto">
-                            {/*<div className="flex flex-row justify-center mt-8">*/}
-                            {/*{travelServices.map((service, index) => (*/}
-                            {/*    <div key={index}>*/}
-                            {/*        <TravelFeatures url={service.url} title={service.title}*/}
-                            {/*                        isBorder={service.isBorder}/>*/}
-                            {/*    </div>*/}
-                            {/*))}*/}
-                            <FeatureSlider slides={corporateTravelSlides} />
-                            {/*</div>*/}
-                        </div>
-                    </div>
-                </div>
-                {/*<ParallaxBackground parallax={parallax}/>*/}
+                {/*        <div className="md:py-4 relative max-w-5xl mx-auto">*/}
+                {/*            /!*<div className="flex flex-row justify-center mt-8">*!/*/}
+                {/*            /!*{travelServices.map((service, index) => (*!/*/}
+                {/*            /!*    <div key={index}>*!/*/}
+                {/*            /!*        <TravelFeatures url={service.url} title={service.title}*!/*/}
+                {/*            /!*                        isBorder={service.isBorder}/>*!/*/}
+                {/*            /!*    </div>*!/*/}
+                {/*            /!*))}*!/*/}
+                {/*            <FeatureSlider slides={corporateTravelSlides}/>*/}
+                {/*            /!*</div>*!/*/}
+                {/*        </div>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
+
+                <SectionWithAnimation
+                    id="corporate-travel"
+                    title={corporateData.corporateTravel?.title || "Corporate Travel"}
+                    description={
+                        corporateData.corporateTravel?.description ||
+                        "Tailored travel solutions for your business needs."
+                    }
+                >
+                    <FeatureSlider slides={corporateTravelSlides} />
+                </SectionWithAnimation>
                 <ParallaxBackground
                     parallax={parallaxProps}
                     formFields={contactFormFields}
                     pageSource={contactFormPageSource}
                 />
-                <div id="mice-travel" className="py-12 bg-white relative overflow-hidden lato">
-                    <div className="container mx-auto px-4">
-                        <h2 className="text-[28px] sm:text-[38px] lg:text-[52px] font-bold text-[#3C3C3C] text-center mb-8">
-                            {corporateData?.miceTravel?.title}
-                        </h2>
-                        <p className="text-[#737373] text-[14px] sm:text-[16px] lg:text-[20px] leading-6 md:leading-10 text-center mb-4 max-w-5xl mx-auto">
-                            {corporateData?.miceTravel?.description}
-                        </p>
+                {/*<div id="mice-travel" className="py-12 bg-white relative overflow-hidden lato">*/}
+                {/*    <div className="container mx-auto px-4">*/}
+                {/*        <h2 className="text-[28px] sm:text-[38px] lg:text-[52px] font-bold text-[#3C3C3C] text-center mb-8">*/}
+                {/*            {corporateData?.miceTravel?.title}*/}
+                {/*        </h2>*/}
+                {/*        <p className="text-[#737373] text-[14px] sm:text-[16px] lg:text-[20px] leading-6 md:leading-10 text-center mb-4 max-w-5xl mx-auto">*/}
+                {/*            {corporateData?.miceTravel?.description}*/}
+                {/*        </p>*/}
 
-                        <div className="relative py-4 max-w-5xl mx-auto">
-                            {/*<div className="flex flex-row justify-center mt-8">*/}
-                            {/*{travelServices.map((service, index) => (*/}
-                            {/*    <div key={index}>*/}
-                            {/*        <TravelFeatures url={service.url} title={service.title}*/}
-                            {/*                        isBorder={service.isBorder}/>*/}
-                            {/*    </div>*/}
-                            {/*))}*/}
+                {/*        <div className="relative py-4 max-w-5xl mx-auto">*/}
+                {/*            /!*<div className="flex flex-row justify-center mt-8">*!/*/}
+                {/*            /!*{travelServices.map((service, index) => (*!/*/}
+                {/*            /!*    <div key={index}>*!/*/}
+                {/*            /!*        <TravelFeatures url={service.url} title={service.title}*!/*/}
+                {/*            /!*                        isBorder={service.isBorder}/>*!/*/}
+                {/*            /!*    </div>*!/*/}
+                {/*            /!*))}*!/*/}
+                {/*            /!*    <FeatureSlider slides={miceTravelSlides}/>*!/*/}
+                {/*            /!*</div>*!/*/}
+                {/*        </div>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
 
-                            <FeatureSlider slides={miceTravelSlides}/>
-                            {/*</div>*/}
-                        </div>
-                    </div>
-                </div>
+                <SectionWithAnimation
+                    id="mice-travel"
+                    title={corporateData.miceTravel?.title || "MICE Travel"}
+                    description={
+                        corporateData.miceTravel?.description ||
+                        "Exceptional MICE travel experiences for your organization."
+                    }
+                >
+                    <FeatureSlider slides={miceTravelSlides} />
+                </SectionWithAnimation>
             </div>
         );
     }

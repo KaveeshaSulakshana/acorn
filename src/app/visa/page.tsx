@@ -6,7 +6,8 @@ import React from "react";
 import TravelFeaturesGrid from "@/components/ServiceIcon";
 import Nav from "@/components/Nav";
 import {Metadata} from "next";
-import {urlFor} from "../../../sanity/sanity";
+import {urlFor} from "../../../sanity/sanity"
+import SectionWithAnimation from "@/components/SectionWithAnimation";
 
 interface HeroButton {
     title: string;
@@ -200,38 +201,44 @@ const VisaPage = async () => {
         <div className="min-h-screen bg-white lato">
             <Nav/>
             <Hero hero={hero}/>
-            <div className="py-6 my-0 lg:py-12 lg:my-8 bg-white relative overflow-hidden lato">
-                <div id="visa-explore" className="container mx-auto px-4">
-                    <h2 className="text-[22px] sm:text-[30px] lg:text-[45px] leading-6 md:leading-10 font-bold text-[#3C3C3C] text-center mb-4 md:mb-8">
-                        {visaSection.title}
-                    </h2>
-                    <p className="text-[#737373] text-[14px] sm:text-[16px] lg:text-[20px] text-center mb-8 max-w-4xl mx-auto">
-                        {/*Navigate the visa process with ease through our expert assistance. Contact Acorn Travels today*/}
-                        {/*via our inquiry form, and we&#39;ll guide you through every step to ensure a smooth and*/}
-                        {/*stress-free visa application experience.*/}
-                        {visaSection.description}
-                    </p>
+            {/*<div className="py-6 my-0 lg:py-12 lg:my-8 bg-white relative overflow-hidden lato">*/}
+            {/*    <div id="visa-explore" className="container mx-auto px-4">*/}
+            {/*        <h2 className="text-[22px] sm:text-[30px] lg:text-[45px] leading-6 md:leading-10 font-bold text-[#3C3C3C] text-center mb-4 md:mb-8">*/}
+            {/*            {visaSection.title}*/}
+            {/*        </h2>*/}
+            {/*        <p className="text-[#737373] text-[14px] sm:text-[16px] lg:text-[20px] text-center mb-8 max-w-4xl mx-auto">*/}
+            {/*            /!*Navigate the visa process with ease through our expert assistance. Contact Acorn Travels today*!/*/}
+            {/*            /!*via our inquiry form, and we&#39;ll guide you through every step to ensure a smooth and*!/*/}
+            {/*            /!*stress-free visa application experience.*!/*/}
+            {/*            {visaSection.description}*/}
+            {/*        </p>*/}
 
-                    {/*<div className="mt-6 sm:mt-10 max-w-2xl mx-auto justify-center">*/}
-                    {/*    /!*<div className="grid grid-cols-2 sm:grid-cols-3 4 mx-auto gap-2">                        *!/*/}
-                    {/*        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 justify-items-center">*/}
-                    {/*        {visaSection.travelServices.map((service, index) => (*/}
-                    {/*            <TravelFeatures*/}
-                    {/*                key={index}*/}
-                    {/*                url={service.url}*/}
-                    {/*                title={service.title}*/}
-                    {/*                isBigger={service.isBigger}*/}
-                    {/*            />*/}
-                    {/*        ))}*/}
-                    {/*    </div>*/}
-                    {/*</div>*/}
+            {/*        /!*<div className="mt-6 sm:mt-10 max-w-2xl mx-auto justify-center">*!/*/}
+            {/*        /!*    /!*<div className="grid grid-cols-2 sm:grid-cols-3 4 mx-auto gap-2">                        *!/*!/*/}
+            {/*        /!*        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 justify-items-center">*!/*/}
+            {/*        /!*        {visaSection.travelServices.map((service, index) => (*!/*/}
+            {/*        /!*            <TravelFeatures*!/*/}
+            {/*        /!*                key={index}*!/*/}
+            {/*        /!*                url={service.url}*!/*/}
+            {/*        /!*                title={service.title}*!/*/}
+            {/*        /!*                isBigger={service.isBigger}*!/*/}
+            {/*        /!*            />*!/*/}
+            {/*        /!*        ))}*!/*/}
+            {/*        /!*    </div>*!/*/}
+            {/*        /!*</div>*!/*/}
 
-                    {/*<div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 justify-items-center">*/}
-                    <TravelFeaturesGrid featuresSection={visaSection} isBigger={true}/>
-                    {/*</div>*/}
+            {/*        /!*<div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 justify-items-center">*!/*/}
+            {/*        <TravelFeaturesGrid featuresSection={visaSection} isBigger={true}/>*/}
+            {/*        /!*</div>*!/*/}
 
-                </div>
-            </div>
+            {/*    </div>*/}
+            {/*</div>*/}
+            <SectionWithAnimation
+                id="visa-explore"
+                title={visaSection.title}
+                description={visaSection.description}>
+                <TravelFeaturesGrid featuresSection={visaSection} isBigger={true}/>
+            </SectionWithAnimation>
             <ParallaxBackground
                 parallax={parallax}
                 formFields={parallax.formFields}
@@ -242,6 +249,8 @@ const VisaPage = async () => {
 }
 
 export default VisaPage;
+
+export const revalidate = 300;
 
 
 export async function generateMetadata(): Promise<Metadata> {

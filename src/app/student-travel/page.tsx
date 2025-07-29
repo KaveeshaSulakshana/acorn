@@ -7,6 +7,7 @@ import TravelFeaturesGrid from "@/components/ServiceIcon";
 import Nav from "@/components/Nav";
 import {Metadata} from "next";
 import {urlFor} from "../../../sanity/sanity";
+import SectionWithAnimation from "@/components/SectionWithAnimation";
 
 interface HeroButton {
     title: string;
@@ -185,33 +186,42 @@ const StudentTravelPage = async () => {
         <div className="min-h-screen lato">
             <Nav/>
             <Hero hero={hero}/>
-            <div id="student-explore" className="py-12 bg-white relative overflow-hidden lato">
-                <div className="container mx-auto px-4">
-                    <h2 className="text-[22px] sm:text-[30px] lg:text-[45px] font-bold leading-6 md:leading-10 text-[#3C3C3C] text-center mb-8">
-                        {featuresSection.title}
-                    </h2>
-                    <p className="text-[#737373] text-[14px] sm:text-[16px] lg:text-[20px] text-center mb-8 max-w-4xl mx-auto">
-                        {featuresSection.description}
-                    </p>
+            {/*<div id="student-explore" className="py-12 bg-white relative overflow-hidden lato">*/}
+            {/*    <div className="container mx-auto px-4">*/}
+            {/*        <h2 className="text-[22px] sm:text-[30px] lg:text-[45px] font-bold leading-6 md:leading-10 text-[#3C3C3C] text-center mb-8">*/}
+            {/*            {featuresSection.title}*/}
+            {/*        </h2>*/}
+            {/*        <p className="text-[#737373] text-[14px] sm:text-[16px] lg:text-[20px] text-center mb-8 max-w-4xl mx-auto">*/}
+            {/*            {featuresSection.description}*/}
+            {/*        </p>*/}
 
-                    <TravelFeaturesGrid featuresSection={featuresSection} isBigger={true}/>
+            {/*        <TravelFeaturesGrid featuresSection={featuresSection} isBigger={true}/>*/}
 
-                    {/*<div className="mt-6 sm:mt-10 max-w-2xl mx-auto justify-center">*/}
-                    {/*    /!*<div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 justify-items-center">*!/*/}
-                    {/*        /!*{featuresSection.travelServices.map((service, index) => (*!/*/}
-                    {/*        /!*    // <TravelFeaturesGrid*!/*/}
-                    {/*        /!*    //     key={index}*!/*/}
-                    {/*        /!*    //     url={service.url}*!/*/}
-                    {/*        /!*    //     title={service.title}*!/*/}
-                    {/*        /!*    //     isBigger={service.isBigger}*!/*/}
-                    {/*        /!*    // />*!/*/}
-                    {/*        /!*    <TravelFeaturesGrid tra />*!/*/}
-                    {/*        /!*))}*!/*/}
-                    {/*        <TravelFeaturesGrid featuresSection={featuresSection}/>*/}
-                    {/*    /!*</div>*!/*/}
-                    {/*</div>*/}
-                </div>
-            </div>
+            {/*        /!*<div className="mt-6 sm:mt-10 max-w-2xl mx-auto justify-center">*!/*/}
+            {/*        /!*    /!*<div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 justify-items-center">*!/*!/*/}
+            {/*        /!*        /!*{featuresSection.travelServices.map((service, index) => (*!/*!/*/}
+            {/*        /!*        /!*    // <TravelFeaturesGrid*!/*!/*/}
+            {/*        /!*        /!*    //     key={index}*!/*!/*/}
+            {/*        /!*        /!*    //     url={service.url}*!/*!/*/}
+            {/*        /!*        /!*    //     title={service.title}*!/*!/*/}
+            {/*        /!*        /!*    //     isBigger={service.isBigger}*!/*!/*/}
+            {/*        /!*        /!*    // />*!/*!/*/}
+            {/*        /!*        /!*    <TravelFeaturesGrid tra />*!/*!/*/}
+            {/*        /!*        /!*))}*!/*!/*/}
+            {/*        /!*        <TravelFeaturesGrid featuresSection={featuresSection}/>*!/*/}
+            {/*        /!*    /!*</div>*!/*!/*/}
+            {/*        /!*</div>*!/*/}
+            {/*    </div>*/}
+            {/*</div>*/}
+
+            <SectionWithAnimation
+                id="student-explore"
+                title={featuresSection.title}
+                description={featuresSection.description}
+            >
+                <TravelFeaturesGrid featuresSection={featuresSection} isBigger={true}/>
+            </SectionWithAnimation>
+
             <div className="bg-[#F6F6F6]">
                 <ParallaxBackground
                     parallax={parallax}
@@ -225,6 +235,8 @@ const StudentTravelPage = async () => {
 }
 
 export default StudentTravelPage;
+
+export const revalidate = 300;
 
 
 export async function generateMetadata(): Promise<Metadata> {

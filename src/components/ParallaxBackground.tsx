@@ -1,8 +1,9 @@
 "use client";
 
-import React from "react";
+import React, {useRef} from "react";
 import ContactForm, {FormField} from "@/components/ContactForm";
 import {Parallax} from "react-parallax";
+import {motion, useInView} from "framer-motion";
 
 // interface ParallaxBackgroundProps {
 //     imageUrl: string;
@@ -21,12 +22,19 @@ interface ParallaxProps {
 }
 
 const ParallaxBackground = ({parallax, formFields, pageSource}: ParallaxProps) => {
+    const ref = useRef(null);
+    const isInView = useInView(ref, {once: true, amount: 0.3});
 
     const recaptchaSiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "";
 
+    const contentVariants = {
+        hidden: {opacity: 0, y: 20},
+        visible: {opacity: 1, y: 0, transition: {duration: 0.6, ease: "easeOut" as const}},
+    };
+
     return (
         <>
-            <div className="py-6 mx-4 lg:py-18 lg:mx-12">
+            <div className="py-6 mx-4 lg:py-18 lg:mx-12" ref={ref}>
                 <div className="hidden xl:block container mx-auto">
                     <div className="min-h-screen block items-center justify-center relative"
                     >
@@ -60,32 +68,50 @@ const ParallaxBackground = ({parallax, formFields, pageSource}: ParallaxProps) =
                         {/*<div className="top-50 left-1/2 xl:top-70 absolute z-50">*/}
                         {
                             parallax.title.length > 0 && parallax.description.length > 0 ? (
-                                <div className="-bottom-85 left-1/2 absolute z-50">
+                                <motion.div className="-bottom-85 left-1/2 absolute z-50"
+                                            initial="hidden"
+                                            animate={isInView ? "visible" : "hidden"}
+                                            variants={contentVariants}
+                                >
                                     <ContactForm fields={formFields} pageSource={pageSource}
                                                  reCaptchaSiteKey={recaptchaSiteKey}/>
-                                </div>
+                                </motion.div>
                             ) : (
-                                <div className="-bottom-85 left-1/2 transform -translate-x-1/2 absolute z-50">
+                                <motion.div className="-bottom-85 left-1/2 transform -translate-x-1/2 absolute z-50"
+                                            initial="hidden"
+                                            animate={isInView ? "visible" : "hidden"}
+                                            variants={contentVariants}
+                                >
                                     <ContactForm fields={formFields} pageSource={pageSource}
                                                  reCaptchaSiteKey={recaptchaSiteKey}/>
-                                </div>
+                                </motion.div>
                             )
                         }
                     </div>
 
                     <div className="container mx-auto">
                         <div className="flex flex-col lg:flex-row items-center gap-8 mt-4">
-                            <div
-                                className="lg:w-1/2 flex max-w-xl flex-col items-center lg:items-start text-center lg:text-left">
+                            <motion.div
+                                className="lg:w-1/2 flex max-w-xl flex-col items-center lg:items-start text-center lg:text-left"
+                                initial="hidden"
+                                animate={isInView ? "visible" : "hidden"}
+                                variants={contentVariants}
+                            >
                                 {
                                     parallax.title.length > 0 && parallax.description.length > 0 ? (
                                         <div>
-                                            <h2 className="text-[22px] sm:text-[30px] lg:text-[45px] font-bold text-[#3C3C3C] my-4">
+                                            <motion.h2
+                                                className="text-[22px] sm:text-[30px] lg:text-[45px] font-bold text-[#3C3C3C] my-4"
+                                                variants={contentVariants}
+                                            >
                                                 {parallax.title}
-                                            </h2>
-                                            <p className="text-[#737373] font-normal text-base md:text-xl leading-10">
+                                            </motion.h2>
+                                            <motion.p
+                                                className="text-[#737373] font-normal text-base md:text-xl leading-10"
+                                                variants={contentVariants}
+                                            >
                                                 {parallax.description}
-                                            </p>
+                                            </motion.p>
                                         </div>
                                     ) : (
                                         <div>
@@ -111,30 +137,41 @@ const ParallaxBackground = ({parallax, formFields, pageSource}: ParallaxProps) =
                                         </div>
                                     )
                                 }
-                            </div>
+                            </motion.div>
                         </div>
                     </div>
                 </div>
                 <div className="xl:hidden block">
                     <div className="container mx-auto relative z-10">
                         <div className="flex flex-col items-center gap-6 sm:gap-8 mt-0 sm:mt-6">
-                            <div className={`w-full flex flex-col items-center text-center ${parallax.title.length > 0 && parallax.description.length > 0 ? "mb-8 sm:mb-10" : ""}`}>
-                                <h2
+                            <motion.div
+                                className={`w-full flex flex-col items-center text-center ${parallax.title.length > 0 && parallax.description.length > 0 ? "mb-8 sm:mb-10" : ""}`}
+                                initial="hidden"
+                                animate={isInView ? "visible" : "hidden"}
+                                variants={contentVariants}
+                            >
+                                <motion.h2
                                     className="text-[22px] sm:text-[30px] lg:text-[45px] font-bold text-[#3C3C3C] my-3 sm:my-4"
+                                    variants={contentVariants}
                                 >
                                     {parallax.title}
-                                </h2>
-                                <p
+                                </motion.h2>
+                                <motion.p
                                     className="text-[#737373] font-normal text-[14px] sm:text-[16px] lg:text-[20px] leading-6 md:leading-10 max-w-lg"
+                                    variants={contentVariants}
                                 >
                                     {parallax.description}
-                                </p>
-                            </div>
+                                </motion.p>
+                            </motion.div>
 
-                            <div className="w-full flex justify-center">
+                            <motion.div className="w-full flex justify-center"
+                                 initial="hidden"
+                                 animate={isInView ? "visible" : "hidden"}
+                                 variants={contentVariants}
+                            >
                                 <ContactForm fields={formFields} pageSource={pageSource}
                                              reCaptchaSiteKey={recaptchaSiteKey}/>
-                            </div>
+                            </motion.div>
                         </div>
                     </div>
                 </div>

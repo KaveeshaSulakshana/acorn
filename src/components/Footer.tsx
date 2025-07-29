@@ -291,7 +291,7 @@ const Footer = () => {
                         </div>
 
                         <div className="md:-ml-6">
-                            <h3 className="text-[15px] sm:text-[16px] font-bold mb-2 sm:mb-3 md:mb-4">CONTACT
+                            <h3 className="text-sm lg:text-base font-bold mb-2 sm:mb-3 md:mb-4">CONTACT
                                 US</h3>
                             <ul className="space-y-2 sm:space-y-3 md:space-y-4 text-[#E2E2E2] text-[13px] sm:text-[14px] md:text-[15px]">
                                 <li className="flex items-start gap-2 sm:gap-3 md:gap-4 font-normal">

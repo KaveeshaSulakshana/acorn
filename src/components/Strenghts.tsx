@@ -166,8 +166,10 @@
 //     );
 // }
 
+"use client"
 import Image from "next/image";
-import React from "react";
+import React, {useRef} from "react";
+import {motion, useInView, Variants} from "framer-motion";
 
 
 interface Strength {
@@ -182,6 +184,22 @@ interface StrengthsProps {
 }
 
 export default function Strengths({strengths}: StrengthsProps) {
+    const ref = useRef(null);
+    const isInView = useInView(ref, {once: true, amount: 0.3});
+
+    const contentVariants: Variants = {
+        hidden: {opacity: 0, y: 20},
+        visible: {opacity: 1, y: 0, transition: {duration: 0.6, ease: "easeOut"}},
+    };
+
+    const strengthVariants: Variants = {
+        hidden: {opacity: 0, scale: 0.8},
+        visible: (i: number) => ({
+            opacity: 1,
+            scale: 1,
+            transition: {duration: 0.6, ease: "easeOut", delay: i * 0.15},
+        }),
+    };
 
     const strengthOne = strengths.slice(0, Math.ceil(strengths.length / 2));
     const strengthTwo = strengths.slice(Math.ceil(strengths.length / 2));
@@ -221,15 +239,25 @@ export default function Strengths({strengths}: StrengthsProps) {
     // ];
 
     return (
-        <div className="py-6 my-4 md:py-12 md:my-8 bg-white relative overflow-hidden lato">
+        <div className="py-6 my-4 md:py-12 md:my-8 bg-white relative overflow-hidden lato" ref={ref}>
             <div className="container mx-auto px-4">
-                <h2 className="text-[28px] sm:text-[38px] lg:text-[52px] font-bold text-[#3C3C3C] text-center mb-8">
+                <motion.h2
+                    className="text-[28px] sm:text-[38px] lg:text-[52px] font-bold text-[#3C3C3C] text-center mb-8"
+                    initial="hidden"
+                    animate={isInView ? "visible" : "hidden"}
+                    variants={contentVariants}
+                >
                     Our Strengths
-                </h2>
-                <p className="text-[#737373] text-[14px] sm:text-[16px] lg:text-[20px] text-center mb-8 max-w-4xl mx-auto">
+                </motion.h2>
+                <motion.p
+                    className="text-[#737373] text-[14px] sm:text-[16px] lg:text-[20px] text-center mb-8 max-w-4xl mx-auto"
+                    initial="hidden"
+                    animate={isInView ? "visible" : "hidden"}
+                    variants={contentVariants}
+                >
                     With a commitment to excellence, personalized service, and extensive global expertise, we ensure
                     every journey is seamless, memorable, and tailored to your unique needs
-                </p>
+                </motion.p>
 
                 <div className="relative py-8 md:py-16">
                     <div className="w-full absolute bottom-10 bg-cover h-80">
@@ -240,7 +268,12 @@ export default function Strengths({strengths}: StrengthsProps) {
                     <div className="hidden md:grid md:grid-cols-2 xl:gap-130 gap-8 max-w-6xl mx-auto">
                         <div className="space-y-12 relative">
                             {strengthOne.map((strength, index) => (
-                                <div key={index} className="flex items-start space-x-6">
+                                <motion.div key={index} className="flex items-start space-x-6"
+                                            custom={index}
+                                            initial="hidden"
+                                            animate={isInView ? "visible" : "hidden"}
+                                            variants={strengthVariants}
+                                >
                                     <div className="flex-shrink-0 rounded-lg bg-white shadow-lg p-4">
                                         <Image
                                             src={strength.icon?.asset?.url || "/default-icon.png"}
@@ -249,6 +282,7 @@ export default function Strengths({strengths}: StrengthsProps) {
                                             height={48}
                                             className="w-12 h-12"
                                             sizes="48px"
+                                            loading="lazy"
                                             // srcSet={`${strength.icon} 1x,
                                             //          ${strength.icon.replace('.png', '@2x.png')} 2x,
                                             //          ${strength.icon.replace('.png', '@4x.png')} 4x`}
@@ -262,12 +296,17 @@ export default function Strengths({strengths}: StrengthsProps) {
                                             {strength.description}
                                         </p>
                                     </div>
-                                </div>
+                                </motion.div>
                             ))}
                         </div>
                         <div className="space-y-12 relative">
                             {strengthTwo.map((strength, index) => (
-                                <div key={index} className="flex items-start space-x-6">
+                                <motion.div key={index} className="flex items-start space-x-6"
+                                            custom={index}
+                                            initial="hidden"
+                                            animate={isInView ? "visible" : "hidden"}
+                                            variants={strengthVariants}
+                                >
                                     <div className="flex-shrink-0 rounded-lg bg-white shadow-lg p-4">
                                         <Image
                                             src={strength.icon?.asset?.url || "/default-icon.png"}
@@ -276,6 +315,7 @@ export default function Strengths({strengths}: StrengthsProps) {
                                             height={48}
                                             className="w-12 h-12"
                                             sizes="48px"
+                                            loading="lazy"
                                             // srcSet={`${strength.icon} 1x,
                                             //          ${strength.icon.replace('.png', '@2x.png')} 2x,
                                             //          ${strength.icon.replace('.png', '@4x.png')} 4x`}
@@ -294,14 +334,19 @@ export default function Strengths({strengths}: StrengthsProps) {
                                         {/*    </span>*/}
                                         {/*</Link>*/}
                                     </div>
-                                </div>
+                                </motion.div>
                             ))}
                         </div>
                     </div>
 
                     <div className="md:hidden space-y-8 px-4">
                         {[...strengthOne, ...strengthTwo].map((strength, index) => (
-                            <div key={index} className="flex items-start space-x-4">
+                            <motion.div key={index} className="flex items-start space-x-4"
+                                        custom={index}
+                                        initial="hidden"
+                                        animate={isInView ? "visible" : "hidden"}
+                                        variants={strengthVariants}
+                            >
                                 <div className="flex-shrink-0 rounded-lg bg-white shadow-lg p-3">
                                     <Image
                                         src={strength.icon?.asset?.url || "/default-icon.png"}
@@ -310,6 +355,7 @@ export default function Strengths({strengths}: StrengthsProps) {
                                         height={40}
                                         className="w-10 h-10"
                                         sizes="40px"
+                                        loading="lazy"
                                         // srcSet={`${strength.icon} 1x,
                                         //          ${strength.icon.replace('.png', '@2x.png')} 2x,
                                         //          ${strength.icon.replace('.png', '@4x.png')} 4x`}
@@ -328,12 +374,16 @@ export default function Strengths({strengths}: StrengthsProps) {
                                     {/*    </span>*/}
                                     {/*</Link>*/}
                                 </div>
-                            </div>
+                            </motion.div>
                         ))}
                     </div>
 
-                    <div
-                        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 hidden xl:block z-0">
+                    <motion.div
+                        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 hidden xl:block z-0"
+                        initial="hidden"
+                        animate={isInView ? "visible" : "hidden"}
+                        variants={contentVariants}
+                    >
                         <Image
                             src="/two-man.png"
                             alt="People shaking hands"
@@ -346,7 +396,7 @@ export default function Strengths({strengths}: StrengthsProps) {
                             //          /two-man@4x.png 4x`}
                             quality={85}
                         />
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </div>

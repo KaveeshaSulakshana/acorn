@@ -310,8 +310,9 @@
 // export default TestimonialSlider;
 
 "use client"
-import React, { useState } from 'react';
+import React, {useState, useRef} from 'react';
 // import Image from 'next/image';
+import {motion, useInView,Variants} from "framer-motion";
 
 interface Testimonial {
     _key: string;
@@ -326,8 +327,10 @@ interface TestimonialSliderProps {
     testimonials: Testimonial[];
 }
 
-const TestimonialSlider: React.FC<TestimonialSliderProps> = ({ testimonials }) => {
+const TestimonialSlider: React.FC<TestimonialSliderProps> = ({testimonials}) => {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const ref = useRef(null);
+    const isInView = useInView(ref, {once: true, amount: 0.3});
 
     const handleNext = () => {
         setCurrentIndex((prevIndex) =>
@@ -341,33 +344,49 @@ const TestimonialSlider: React.FC<TestimonialSliderProps> = ({ testimonials }) =
         );
     };
 
-    const { title, description, name, rate } = testimonials[currentIndex];
+    const {title, description, name, rate} = testimonials[currentIndex];
+
+    const contentVariants : Variants = {
+        hidden: {opacity: 0, y: 50},
+        visible: {opacity: 1, y: 0, transition: {duration: 0.6, ease: "easeOut" as const}},
+    };
 
     return (
-        <div
+        <motion.div
             className="flex flex-col w-full max-w-5xl mx-auto gap-4 p-4 rounded-lg shadow-lg bg-[#F6F6F6]
             sm:p-6 sm:gap-6
             md:flex-row-reverse md:p-8 md:gap-8 md:w-11/12
-            lg:p-10 lg:gap-10">
+            lg:p-10 lg:gap-10"
+            ref={ref}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            variants={contentVariants}
+        >
             <div className="w-full flex flex-col justify-between md:mb-0">
                 <div>
-                    <h2 className="font-bold text-sm leading-tight text-black max-w-2xl
+                    <motion.h2 className="font-bold text-sm leading-tight text-black max-w-2xl
                                   sm:text-base
                                   md:text-lg
-                                  lg:text-2xl">
+                                  lg:text-2xl"
+                               variants={contentVariants}
+                    >
                         {title}
-                    </h2>
-                    <p className="text-xs font-normal mt-3 text-[#626262] max-w-2xl leading-relaxed min-h-36 md:min-h-40
+                    </motion.h2>
+                    <motion.p className="text-xs font-normal mt-3 text-[#626262] max-w-2xl leading-relaxed min-h-36 md:min-h-40
                                  sm:text-sm sm:mt-4
                                  md:text-base
-                                 lg:text-lg">
+                                 lg:text-lg"
+                              variants={contentVariants}
+                    >
                         {description}
-                    </p>
+                    </motion.p>
                 </div>
 
-                <div className="flex flex-col justify-between items-start mt-4 gap-4
+                <motion.div className="flex flex-col justify-between items-start mt-4 gap-4
                                sm:flex-row sm:items-center sm:mt-6
-                               md:gap-6">
+                               md:gap-6"
+                            variants={contentVariants}
+                >
                     <div className="flex flex-col items-start mb-3 sm:mb-0">
                         <div className="flex flex-row">
                             {[...Array(5)].map((_, i) => (
@@ -423,7 +442,7 @@ const TestimonialSlider: React.FC<TestimonialSliderProps> = ({ testimonials }) =
                             </svg>
                         </button>
                     </div>
-                </div>
+                </motion.div>
             </div>
 
             {/*<div className="w-full*/}
@@ -438,7 +457,7 @@ const TestimonialSlider: React.FC<TestimonialSliderProps> = ({ testimonials }) =
             {/*                  lg:h-96"*/}
             {/*    />*/}
             {/*</div>*/}
-        </div>
+        </motion.div>
     );
 };
 
