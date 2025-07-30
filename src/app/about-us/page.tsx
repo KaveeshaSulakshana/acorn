@@ -192,10 +192,10 @@ const AboutUs = async () => {
             <div id="about-explore" className="py-8 sm:py-12 bg-white">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-15">
                     <div className="flex flex-col xl:flex-row gap-6 lg:gap-8">
-                        <div className="xl:w-1/2 flex flex-col space-y-6 sm:space-y-8">
+                        <div className="xl:w-1/2 flex flex-col space-y-4 sm:space-y-8">
                             {/* Title */}
                             <AnimatedSection direction="up" delay={0.2}>
-                                <h2 className="text-[28px] sm:text-[38px] lg:text-[52px] font-bold text-[#3C3C3C] mb-4 order-1">
+                                <h2 className="text-[28px] sm:text-[38px] lg:text-[52px] font-bold text-[#3C3C3C] mb-1 lg:mb-4 order-1">
                                     {aboutContent.title}
                                 </h2>
                             </AnimatedSection>
@@ -227,7 +227,7 @@ const AboutUs = async () => {
                         {/*<AnimatedSection direction="right" delay={0.4}>*/}
                         <div className="hidden xl:block xl:w-1/2">
                             {aboutContent.image && (
-                                <AnimatedSection direction="right" delay={0.4}>
+                                <AnimatedSection direction="up" delay={0.4}>
                                     <Image
                                         src={aboutContent.image}
                                         alt="Traveler with suitcase"
@@ -266,7 +266,7 @@ const AboutUs = async () => {
                         <div className="lg:w-1/2 flex flex-col lg:flex-row gap-4">
                             {brandPromise.image && (
                                 <div className="flex-1">
-                                    <AnimatedSection direction="left" delay={0.6}>
+                                    <AnimatedSection direction="up" delay={0.6}>
                                         <Image
                                             src={brandPromise.image}
                                             alt="brand promises"
@@ -280,7 +280,7 @@ const AboutUs = async () => {
                         </div>
                         {/*</AnimatedSection>*/}
                         <div className="lg:w-1/2 md:px-10">
-                            <AnimatedSection direction="right" delay={0.8}>
+                            <AnimatedSection direction="up" delay={0.8}>
                                 <p className="text-[#000000] text-[14px] sm:text-[16px] lg:text-[20px] leading-6 sm:leading-8 md:leading-10 font-bold mb-6 sm:mb-8">
                                     Here’s a glimpse of how we make it happen:
                                 </p>

@@ -239,10 +239,10 @@ export default function Strengths({strengths}: StrengthsProps) {
     // ];
 
     return (
-        <div className="py-6 my-4 md:py-12 md:my-8 bg-white relative overflow-hidden lato" ref={ref}>
+        <div className="py-6 my-2 md:py-12 md:my-8 bg-white relative overflow-hidden lato" ref={ref}>
             <div className="container mx-auto px-4">
                 <motion.h2
-                    className="text-[28px] sm:text-[38px] lg:text-[52px] font-bold text-[#3C3C3C] text-center mb-8"
+                    className="text-[28px] sm:text-[38px] lg:text-[52px] font-bold text-[#3C3C3C] text-center mb-4 sm:mb-8"
                     initial="hidden"
                     animate={isInView ? "visible" : "hidden"}
                     variants={contentVariants}
@@ -250,7 +250,7 @@ export default function Strengths({strengths}: StrengthsProps) {
                     Our Strengths
                 </motion.h2>
                 <motion.p
-                    className="text-[#737373] text-[14px] sm:text-[16px] lg:text-[20px] text-center mb-8 max-w-4xl mx-auto"
+                    className="text-[#737373] text-[14px] sm:text-[16px] lg:text-[20px] text-center mb-2 sm:mb-8 max-w-4xl mx-auto"
                     initial="hidden"
                     animate={isInView ? "visible" : "hidden"}
                     variants={contentVariants}

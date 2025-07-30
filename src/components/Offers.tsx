@@ -178,9 +178,10 @@
 
 "use client"
 import Image from "next/image";
-import React, {useRef} from "react";
+import React from "react";
 import Link from "next/link";
-import {motion, useInView, Variants} from "framer-motion";
+// import {motion, useInView, Variants} from "framer-motion";
+import AnimatedSection from "@/components/AnimatedSection";
 
 interface Offer {
     _key?: string;
@@ -204,40 +205,39 @@ interface OfferProps {
 
 const Offers = ({offersPack, type}: { offersPack: OfferProps, type: string }) => {
 
-    const ref = useRef(null);
-    const isInView = useInView(ref, { once: true, amount: 0.3 });
+    // const ref = useRef(null);
+    // const isInView = useInView(ref, {once: true, amount: 0.3});
 
-    const cardVariants : Variants = {
-        hidden: { opacity: 0, y: 50 },
-        visible: (i: number) => ({
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: 0.6,
-                ease: "easeOut" as const,
-                delay: i * 0.1 },
-        }),
-    };
+    // const cardVariants: Variants = {
+    //     hidden: {opacity: 0, y: 50},
+    //     visible: (i: number) => ({
+    //         opacity: 1,
+    //         y: 0,
+    //         transition: {
+    //             duration: 0.6,
+    //             ease: "easeOut" as const,
+    //             delay: i * 0.1
+    //         },
+    //     }),
+    // };
 
     console.log("offersss---", offersPack);
 
     return (
-        <div className="py-6 sm:py-8 md:py-16 lato" ref={ref}>
+        <div className="py-6 sm:py-8 md:py-16 lato">
             <div className="container mx-auto px-4 sm:px-6">
-                <motion.h2 className="text-[28px] sm:text-[38px] lg:text-[52px] font-bold text-[#3C3C3C] text-center mb-4 sm:mb-6 lato"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                    transition={{ duration: 0.5 }}
-                >
-                    {offersPack.title}
-                </motion.h2>
-                <motion.p className="text-[#737373] text-[14px] sm:text-[16px] lg:text-[20px] text-center mb-4 sm:mb-6 md:mb-8 md:leading-8 max-w-2xl mx-auto lato"
-                   initial={{ opacity: 0, y: 20 }}
-                   animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                   transition={{ duration: 0.5, delay: 0.2 }}
-                >
-                    {offersPack.description}
-                </motion.p>
+                <AnimatedSection direction="up" delay={0.1} threshold={0.1}>
+                    <h2 className="text-[28px] sm:text-[38px] lg:text-[52px] font-bold text-[#3C3C3C] text-center mb-4 sm:mb-6 lato"
+                    >
+                        {offersPack.title}
+                    </h2>
+                </AnimatedSection>
+                <AnimatedSection direction="up" delay={0.2} threshold={0.1}>
+                    <p className="text-[#737373] text-[14px] sm:text-[16px] lg:text-[20px] text-center mb-4 sm:mb-6 md:mb-8 md:leading-8 max-w-2xl mx-auto lato"
+                    >
+                        {offersPack.description}
+                    </p>
+                </AnimatedSection>
 
                 <div
                     className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 px-0 sm:px-4 md:px-8 lg:px-20">
@@ -247,13 +247,13 @@ const Offers = ({offersPack, type}: { offersPack: OfferProps, type: string }) =>
                         //     className="bg-white rounded-md w-full max-w-86 mx-auto sm:max-w-full border-2 border-[#E4E6E8] overflow-hidden shadow-lg transition-shadow duration-300 relative"
                         // >
                         const cardContent = (
-                            <motion.div
+                            <div
                                 className="bg-white rounded-3xl sm:rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
                                 style={{opacity: 1, transform: "none"}}
-                                custom={index}
-                                initial="hidden"
-                                animate={isInView ? "visible" : "hidden"}
-                                variants={cardVariants}
+                                // custom={index}
+                                // initial="hidden"
+                                // animate={isInView ? "visible" : "hidden"}
+                                // variants={cardVariants}
                             >
                                 <div className="relative m-5">
                                     <Image
@@ -389,10 +389,14 @@ const Offers = ({offersPack, type}: { offersPack: OfferProps, type: string }) =>
                                         )
                                     }
                                 </div>
-                            </motion.div>
+                            </div>
                         );
                         return (
-                            <React.Fragment key={index}>
+                            <AnimatedSection key={index}
+                                             direction="up"
+                                             delay={index * 0.1} // Stagger delay for each card
+                                             threshold={0.1}
+                            >
                                 {type === "home" ? (
                                     cardContent
                                 ) : (
@@ -400,7 +404,7 @@ const Offers = ({offersPack, type}: { offersPack: OfferProps, type: string }) =>
                                         {cardContent}
                                     </Link>
                                 )}
-                            </React.Fragment>
+                            </AnimatedSection>
                         );
                     })}
                 </div>

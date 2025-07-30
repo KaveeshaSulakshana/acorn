@@ -83,6 +83,7 @@
 import {useState, useEffect} from "react";
 import Link from "next/link";
 import Image from "next/image";
+import AnimatedSection from "@/components/AnimatedSection";
 
 const Carousel = ({
                       slides,
@@ -140,58 +141,66 @@ const Carousel = ({
                         className="absolute inset-0 flex flex-col justify-center items-center
                        text-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20"
                     >
-                        <h1
-                            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl
+                        <AnimatedSection direction="up" delay={0.1} threshold={0.1}>
+                            <h1
+                                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl
                          font-semibold text-white
                          mb-2 sm:mb-3 md:mb-4 lg:mb-5 xl:mb-6 2xl:mb-8
                          max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-3xl 2xl:max-w-4xl
                          leading-6 lg:leading-15"
-                        >
-                            {slide.title}
-                        </h1>
-                        <p
-                            className="text-sm sm:text-base md:text-xl
+                            >
+                                {slide.title}
+                            </h1>
+                        </AnimatedSection>
+                        <AnimatedSection direction="up" delay={0.2} threshold={0.1}>
+                            <p
+                                className="text-sm sm:text-base md:text-xl
                          text-[#D3D1D1] font-medium
                          mb-3 sm:mb-4 md:mb-5 lg:mb-6 xl:mb-7 2xl:mb-8
                          max-w-xs sm:max-w-sm md:max-w-md lg:max-w-2xl md:leading-6 2xl:max-w-3xl"
-                        >
-                            {slide.description}
-                        </p>
-                        <Link href={slide.buttonLink}>
-                            <button
-                                className="bg-[#2B5597] text-white
+                            >
+                                {slide.description}
+                            </p>
+                        </AnimatedSection>
+                        <AnimatedSection direction="up" delay={0.2} threshold={0.1}>
+                            <Link href={slide.buttonLink}>
+                                <button
+                                    className="bg-[#2B5597] text-white
                            text-xs sm:text-sm md:text-base
                            font-bold
                            px-3 sm:px-4 md:px-5 lg:px-6 xl:px-7 2xl:px-8
                            py-1.5 sm:py-2 md:py-2.5 lg:py-3 xl:py-3.5 2xl:py-4
                            rounded-md hover:bg-blue-950 cursor-pointer transition-colors duration-300"
-                            >
-                                {slide.buttonText}
-                            </button>
-                        </Link>
+                                >
+                                    {slide.buttonText}
+                                </button>
+                            </Link>
+                        </AnimatedSection>
                     </div>
                 </div>
             ))}
 
             {/* Navigation Dots */}
-            <div
-                className="absolute
+            <AnimatedSection direction="up" delay={0.2} threshold={0.1}>
+                <div
+                    className="absolute
                    bottom-4 sm:bottom-6 md:bottom-8 lg:bottom-12 xl:bottom-16 2xl:bottom-20
                    left-1/2 transform -translate-x-1/2
                    flex space-x-1 sm:space-x-1.5 md:space-x-2 lg:space-x-2.5 xl:space-x-3"
-            >
-                {slides.map((_, index) => (
-                    <button
-                        key={index}
-                        onClick={() => setCurrentIndex(index)}
-                        className={`w-2 h-1 sm:w-3 sm:h-1 md:w-4 md:h-1.5 lg:w-6 lg:h-1.5 xl:w-8 xl:h-2 2xl:w-10 2xl:h-2 
+                >
+                    {slides.map((_, index) => (
+                        <button
+                            key={index}
+                            onClick={() => setCurrentIndex(index)}
+                            className={`w-2 h-1 sm:w-3 sm:h-1 md:w-4 md:h-1.5 lg:w-6 lg:h-1.5 xl:w-8 xl:h-2 2xl:w-10 2xl:h-2 
                        rounded-full transition-all duration-300 ${
-                            index === currentIndex ? "bg-[#2B5597]" : "bg-[#DDDDDD] hover:bg-gray-400"
-                        }`}
-                        aria-label={`Go to slide ${index + 1}`}
-                    />
-                ))}
-            </div>
+                                index === currentIndex ? "bg-[#2B5597]" : "bg-[#DDDDDD] hover:bg-gray-400"
+                            }`}
+                            aria-label={`Go to slide ${index + 1}`}
+                        />
+                    ))}
+                </div>
+            </AnimatedSection>
         </div>
     );
 };

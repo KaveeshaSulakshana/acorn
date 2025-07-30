@@ -9,6 +9,7 @@ import TravelFeaturesGrid from "@/components/ServiceIcon";
 import Nav from "@/components/Nav";
 import {Metadata} from "next";
 import {urlFor} from "../../../sanity/sanity";
+import AnimatedSection from "@/components/AnimatedSection";
 
 interface HeroButton {
     title: string;
@@ -313,12 +314,16 @@ const FlightBookingPage = async () => {
             </div>
             <div className="py-12 my-8 bg-[#F6F6F6] relative overflow-hidden lato">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-3xl md:text-[45px] font-bold text-[#3C3C3C] text-center mb-8">
-                        {featuresSection.title}
-                    </h2>
-                    <p className="text-[#737373] text-base md:text-xl text-center mb-8 max-w-4xl mx-auto">
-                        {featuresSection.description}
-                    </p>
+                    <AnimatedSection direction="up" delay={0.2}>
+                        <h2 className="text-3xl md:text-[45px] font-bold text-[#3C3C3C] text-center mb-8">
+                            {featuresSection.title}
+                        </h2>
+                    </AnimatedSection>
+                    <AnimatedSection direction="up" delay={0.3}>
+                        <p className="text-[#737373] text-base md:text-xl text-center mb-8 max-w-4xl mx-auto">
+                            {featuresSection.description}
+                        </p>
+                    </AnimatedSection>
                     {/*{featuresSection.travelServices.length > 0 && (*/}
                     {/*    <div className="mt-6 sm:mt-10 max-w-2xl mx-auto justify-center">*/}
                     {/*        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">*/}
@@ -336,29 +341,36 @@ const FlightBookingPage = async () => {
                 </div>
             </div>
             <div className="bg-white">
-                <ParallaxBackground parallax={parallax} formFields={parallax.formFields} pageSource={parallax.pageSource}/>
+                <ParallaxBackground parallax={parallax} formFields={parallax.formFields}
+                                    pageSource={parallax.pageSource}/>
             </div>
             {travelAgentSection.image && (
                 <div
                     className="flex flex-col items-start md:flex-row-reverse sm:gap-20 p-8 sm:p-6 md:p-8 lg:py-12 xl:py-16 lg:px-18 xl:px-20 bg-[#F6F6F6] m-0 sm:m-0 md:m-8 lg:m-0 xl:m-0"
                 >
                     <div className="w-full md:w-3/5 justify-between mb-6 md:mb-0">
-                        <h2 className="font-bold text-[22px] sm:text-[30px] lg:text-[45px] leading-tight text-[#3C3C3C] max-w-2xl">
-                            {travelAgentSection.title}
-                        </h2>
-                        <p className="text-[14px] sm:text-[16px] lg:text-[20px] font-normal mt-4 sm:mt-6 whitespace-pre-line text-[#737373] max-w-2xl leading-relaxed">
-                            {travelAgentSection.description}
-                        </p>
+                        <AnimatedSection direction="up" delay={0.2}>
+                            <h2 className="font-bold text-[22px] sm:text-[30px] lg:text-[45px] leading-tight text-[#3C3C3C] max-w-2xl">
+                                {travelAgentSection.title}
+                            </h2>
+                        </AnimatedSection>
+                        <AnimatedSection direction="up" delay={0.3}>
+                            <p className="text-[14px] sm:text-[16px] lg:text-[20px] font-normal mt-4 sm:mt-6 whitespace-pre-line text-[#737373] max-w-2xl leading-relaxed">
+                                {travelAgentSection.description}
+                            </p>
+                        </AnimatedSection>
                     </div>
 
                     <div className="w-full md:w-2/5">
-                        <Image
-                            src={travelAgentSection.image}
-                            alt="Travel Agent Solutions"
-                            width={400}
-                            height={600}
-                            className="rounded-lg object-cover w-full h-auto"
-                        />
+                        <AnimatedSection direction="up" delay={0.2}>
+                            <Image
+                                src={travelAgentSection.image}
+                                alt="Travel Agent Solutions"
+                                width={400}
+                                height={600}
+                                className="rounded-lg object-cover w-full h-auto"
+                            />
+                        </AnimatedSection>
                     </div>
                 </div>
             )}

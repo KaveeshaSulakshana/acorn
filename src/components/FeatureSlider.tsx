@@ -806,8 +806,8 @@ const FeatureSlider: React.FC<FeatureSliderProps> = ({slides}) => {
 
         return (
             <motion.div className="flex justify-center gap-2 md:gap-4 mt-4 md:mt-8"
-                        initial={{opacity: 0}}
-                        animate={isInView ? {opacity: 1} : {opacity: 0}}
+                        initial="hidden"
+                        animate={isInView ? "hidden" : "visible"}
                         transition={{duration: 0.5, delay: 0.5}}
             >
                 {Array.from({length: total}).map((_, index) => (
