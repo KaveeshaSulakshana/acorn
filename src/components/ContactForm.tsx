@@ -225,7 +225,7 @@ const createSchema = (fields: FormField[]) => {
                         .string()
                         .min(1, `${field.placeholder || "This field"} is required`)
                         .max(50, `${field.placeholder || "This field"} must not exceed 50 characters`)
-                        .regex(/^[a-zA-Z0-9_.-]*$/, "Only letters and spaces are allowed")
+                        .regex(/^[a-zA-Z\s]*$/, "Only letters and spaces are allowed")
                     : z.string().regex(/^[a-zA-Z\s]*$/, "Only letters and spaces are allowed")
                         .max(50, `${field.placeholder || "This field"} must not exceed 50 characters`)
                         .optional();
@@ -274,32 +274,28 @@ const createSchema = (fields: FormField[]) => {
             ? z
                 .string()
                 .min(1, "Contact Number is required")
-                .regex(/^\d{10}$/, "Contact Number must be 10 digits")
+                .regex(/^\+?\d{7,20}$/, "Contact Number must be 7 - 20 digits")
             : z.string().regex(/^\d{10}$/, "Contact Number must be 10 digits").optional();
 
-        schemaShape["name"] = field.required
-            ? z
-                .string()
-                .min(1, `Name is required`)
-                .max(50, `Name must not exceed 50 characters`)
-                .regex(/^[a-zA-Z\s]*$/, "Only letters and spaces are allowed")
-            : z.string().regex(/^[a-zA-Z\s]*$/, "Only letters and spaces are allowed").optional();
+        schemaShape["name"] = z
+            .string()
+            .min(1, `Name is required`)
+            .max(50, `Name must not exceed 50 characters`)
+            .regex(/^[a-zA-Z\s]*$/, "Only letters and spaces are allowed");
+        //     : z.string().regex(/^[a-zA-Z\s]*$/, "Only letters and spaces are allowed").optional();
 
-        // schemaShape["company"] = field.required
-        //     ? z
-        //         .string()
-        //         .min(1, `Company is required`)
-        //         .max(50, `Company must not exceed 50 characters`)
-        //         .regex(/^[a-zA-Z0-9 !@#$%^&*()_+{}\[\]:;<>,.?~\\/-]*$/, "Only letters and spaces are allowed")
-        //     : z.string().regex(/^[a-zA-Z0-9 !@#$%^&*()_+{}\[\]:;<>,.?~\\/-]*$/, "Only letters and spaces are allowed").optional();
+        schemaShape["company"] = z
+            .string()
+            .max(50, `Company must not exceed 50 characters`)
+            .regex(/^[a-zA-Z0-9 !@#$%^&*()_+{}\[\]:;<>,.?~\\/-]*$/, "Only letters, numbers, spaces, and common special characters are allowed").optional();
+        // : z.string().regex(/^[a-zA-Z0-9 !@#$%^&*()_+{}\[\]:;<>,.?~\\/-]*$/, "Only letters and spaces are allowed").optional();
         //
-        // schemaShape["requirement"] = field.required
-        //     ? z
-        //         .string()
-        //         .min(1, `Requirement is required`)
-        //         .max(50, `Requirement must not exceed 50 characters`)
-        //         .regex(/^[a-zA-Z0-9 !@#$%^&*()_+{}\[\]:;<>,.?~\\/-]*$/, "Only letters and spaces are allowed")
-        //     : z.string().regex(/^[a-zA-Z0-9 !@#$%^&*()_+{}\[\]:;<>,.?~\\/-]*$/, "Only letters and spaces are allowed").optional();
+        schemaShape["requirement"] = z
+            .string()
+            .min(1, `Requirement is required`)
+            .max(50, `Requirement must not exceed 50 characters`)
+            .regex(/^[a-zA-Z0-9 !@#$%^&*()_+{}\[\]:;<>,.?~\\/-]*$/, "Only letters, numbers, spaces, and common special characters are allowed").optional();
+        // : z.string().regex(/^[a-zA-Z0-9 !@#$%^&*()_+{}\[\]:;<>,.?~\\/-]*$/, "Only letters and spaces are allowed").optional();
     });
 
     schemaShape["recaptchaToken"] = z.string().min(1, "Please complete the reCAPTCHA");

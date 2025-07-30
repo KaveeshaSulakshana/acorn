@@ -385,7 +385,7 @@ export default function Strengths({strengths}: StrengthsProps) {
                         variants={contentVariants}
                     >
                         <Image
-                            src="/two-man.png"
+                            src="/two-man1.png"
                             alt="People shaking hands"
                             width={400}
                             height={700}
