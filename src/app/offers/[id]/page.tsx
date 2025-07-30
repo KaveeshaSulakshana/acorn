@@ -147,7 +147,7 @@ const OfferDetailPage = async ({params}: Props) => {
                             </AnimatedSection>
 
                             <ul className="space-y-1 sm:space-y-2 mb-6 mt-5 sm:mb-8">
-                                {offer.inclusions.map((inclusion: string, index: string) => (
+                                {offer.inclusions.map((inclusion: string, index: number) => (
                                     <AnimatedSection key={index} direction="up" delay={0.1 * (index + 5)}
                                                      threshold={0.05}>
                                         <li className="flex items-center">
