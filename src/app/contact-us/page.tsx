@@ -772,7 +772,7 @@ const ContactUsPage = async () => {
                         </div>
 
                         <div id="inquiry" className="w-full md:w-1/2 md:pl-6 lg:pl-8 xl:pl-12">
-                            <AnimatedSection delay={0.3} direction="right">
+                            <AnimatedSection delay={0.3} direction="up">
                                 <ContactForm
                                     fields={formFields}
                                     title="Make an Inquiry"
