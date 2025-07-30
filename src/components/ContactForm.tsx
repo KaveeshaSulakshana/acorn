@@ -579,10 +579,10 @@ const ContactForm: React.FC<ContactFormProps> = ({
                         {/*    </div>*/}
                         {/*</div>*/}
 
-                        <div className="flex justify-center items-center w-full overflow-hidden">
+                        <div className="flex flex-col justify-center sm:items-center w-full overflow-hidden">
                             <div className="recaptcha-wrapper
                                             w-full
-                                            max-w-[300px]
+                                            max-w-[80px]
                                             sm:max-w-[260px]
                                             md:max-w-[304px]
                                             lg:max-w-[304px]
@@ -608,7 +608,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
                                 />
                             </div>
                             {errors.recaptchaToken && (
-                                <p className="text-red-500 text-xs mt-1 absolute -bottom-5 left-1/2 transform -translate-x-1/2 whitespace-nowrap">
+                                <p className="text-red-500 text-xs whitespace-nowrap">
                                     {errors.recaptchaToken.message as string}
                                 </p>
                             )}

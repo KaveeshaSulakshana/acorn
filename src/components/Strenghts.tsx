@@ -365,7 +365,7 @@ export default function Strengths({strengths}: StrengthsProps) {
                                     <h3 className="text-[14px] sm:text-[16px] lg:text-[20px] font-bold text-[#3C3C3C] mb-2">
                                         {strength.title}
                                     </h3>
-                                    <p className="text-[#737373] text-[10px] lg:text-sm mb-3">
+                                    <p className="text-[#737373] text-[12px] lg:text-sm mb-3">
                                         {strength.description}
                                     </p>
                                     {/*<Link href={strength.link}>*/}
