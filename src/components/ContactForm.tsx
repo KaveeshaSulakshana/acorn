@@ -440,7 +440,9 @@ const ContactForm: React.FC<ContactFormProps> = ({
                                 <select
                                     value={value || ""}
                                     onChange={onChange}
-                                    className={`w-full px-3 py-2 md:py-3 border ${errors[field.name] ? "border-red-500" : "border-gray-300"} rounded-md text-[#828282] text-sm focus:outline-none focus:ring-2 focus:ring-[#2B5597]`}
+                                    className={`w-full px-3 py-2 md:py-3 border ${errors[field.name] ? "border-red-500" : "border-gray-300"} rounded-md text-[#828282] text-sm focus:outline-none focus:ring-2 focus:ring-[#2B5597]
+                        -webkit-appearance-none
+                                    `}
                                 >
                                     <option value="" disabled>
                                         {field.placeholder}

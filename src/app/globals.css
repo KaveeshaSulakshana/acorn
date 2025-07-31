@@ -61,3 +61,51 @@
         width: 100%;
     }
 }
+
+
+select {
+    /* Reset default appearance for cross-browser consistency */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /* Ensure font consistency */
+    font-family: 'Lato', sans-serif;
+    /* Fallback for older browsers */
+    background-color: white;
+    /* Prevent text transformation issues in Safari */
+    text-transform: none;
+    /* Ensure consistent text color */
+    color: #828282;
+}
+
+/* Optional: Style for the options (limited support in Safari) */
+select option {
+    font-family: 'Lato', sans-serif;
+    color: #828282;
+    background-color: white;
+}
+
+/* Ensure focus styles are consistent */
+select:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #2B5597;
+}
+
+/* Prevent Safari from overriding border-radius */
+select {
+    border-radius: 0.375rem; /* Matches Tailwind's rounded-md */
+}
+
+/* Custom scrollbar for select dropdown in browsers that support it */
+select::-webkit-scrollbar {
+    width: 8px;
+}
+
+select::-webkit-scrollbar-thumb {
+    background-color: #828282;
+    border-radius: 4px;
+}
+
+select::-webkit-scrollbar-track {
+    background-color: #f4f4f4;
+}
