@@ -390,7 +390,7 @@ const AboutUs = async () => {
                         {branches.map((branch, index) => (
                             <AnimatedSection key={index} direction="up" delay={0.1 * (index + 1)}>
                                 <div className="bg-[#F6F6F6] rounded-2xl shadow-md p-4 sm:p-6">
-                                    <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-black mb-4 sm:mb-6">{branch.title}</h3>
+                                    <h3 className="text-lg sm:text-xl lg:text-2xl sm:min-h-15 2xl:min-h-0 font-bold text-black mb-4 sm:mb-6">{branch.title}</h3>
                                     <div className="space-y-3 sm:space-y-4">
                                         <div className="flex gap-3 sm:gap-4 items-start">
                                             <svg width="26" height="26" viewBox="0 0 26 26" fill="none"
@@ -403,9 +403,9 @@ const AboutUs = async () => {
                                                     fill="#E4E7EC"
                                                 />
                                             </svg>
-                                            <p className="text-[#737373] font-normal min-h-10 text-xs sm:text-sm whitespace-pre-line">{branch.address}</p>
+                                            <p className="text-[#737373] font-normal sm:min-h-16 md:min-h-15 2xl:min-h-0 text-xs sm:text-sm whitespace-pre-line">{branch.address}</p>
                                         </div>
-                                        <div className="flex gap-3 sm:gap-4 items-start">
+                                        <div className="flex gap-3 sm:gap-4 items-center">
                                             <svg width="26" height="26" viewBox="0 0 26 26" fill="none"
                                                  xmlns="http://www.w3.org/2000/svg">
                                                 <circle cx="13" cy="13" r="13" fill="#2B5597"/>
@@ -447,7 +447,7 @@ const AboutUs = async () => {
                                                 ))}
                                             </div>
                                         </div>
-                                        <div className="flex gap-3 sm:gap-4 items-start">
+                                        <div className="flex gap-3 sm:gap-4 items-center">
                                             <svg width="26" height="26" viewBox="0 0 26 26" fill="none"
                                                  xmlns="http://www.w3.org/2000/svg">
                                                 <circle cx="13" cy="13" r="13" fill="#2B5597"/>
