@@ -448,7 +448,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
                                         {field.placeholder}
                                     </option>
                                     {field.options.map((option) => (
-                                        <option key={option.value} value={option.value}>
+                                        <option key={option.value} value={option.value} className="-webkit-appearance-none">
                                             {option.label}
                                         </option>
                                     ))}

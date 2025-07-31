@@ -64,21 +64,14 @@
 
 
 select {
-    /* Reset default appearance for cross-browser consistency */
     -webkit-appearance: none;
     -moz-appearance: none;
-    appearance: none;
     /* Ensure font consistency */
     font-family: 'Lato', sans-serif;
-    /* Fallback for older browsers */
-    background-color: white;
-    /* Prevent text transformation issues in Safari */
     text-transform: none;
-    /* Ensure consistent text color */
     color: #828282;
 }
 
-/* Optional: Style for the options (limited support in Safari) */
 select option {
     font-family: 'Lato', sans-serif;
     color: #828282;
