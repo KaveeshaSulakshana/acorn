@@ -294,7 +294,6 @@ export const aboutUsQuery = `
     aboutContent {
       title,
       description,
-      features,
       image {
         asset-> {
           _id,
@@ -307,6 +306,7 @@ export const aboutUsQuery = `
       title,
       description,
       featuresTitle,
+      features,
       image {
         asset-> {
           _id,
@@ -322,16 +322,19 @@ export const aboutUsQuery = `
       emails,
       emergencyPhone
     },
-    strengths[] {
-      title,
-      description,
-      link,
-      icon {
-        asset-> {
-          _id,
-          url
+    strengthsSection {
+      strengthsTitle,
+      strengthsDescription,
+      strengths[] {
+        title,
+        description,
+        icon {
+          asset-> {
+            _id,
+            url
+          }
         }
-      }
+      }  
     }
   }
 `;
@@ -526,3 +529,55 @@ export const GET_SEO = `*[_type == "seo" && page == $page][0] {
     canonicalUrl
   }`
 ;
+
+
+export const FOOTER_QUERY = `
+  *[_type == "footer"][0] {
+    logo {
+      asset->{
+        _id,
+        url
+      },
+      alt
+    },
+    description,
+    certifications[] {
+      asset->{
+        _id,
+        url
+      },
+      alt
+    },
+    quickLinks[] {
+      label,
+      href
+    },
+    ourServices[] {
+      label,
+      href
+    },
+    contactInfo[] {
+      type,
+      icon {
+        asset->{
+          _id,
+          url
+        },
+        alt
+      },
+      value,
+      linkPrefix
+    },
+    socialLinks[] {
+      platform,
+      iconSvg,
+      url
+    },
+    copyrightText,
+    developedBy,
+    bottomLinks[] {
+      label,
+      href
+    }
+  }
+`;

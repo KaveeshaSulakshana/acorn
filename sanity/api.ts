@@ -1,7 +1,7 @@
 import {sanityClient} from "./sanity";
 import {
     aboutUsQuery, contactUsQuery,
-    corporateTravelQuery, flightBookingQuery, GET_SEO,
+    corporateTravelQuery, flightBookingQuery, FOOTER_QUERY, GET_SEO,
     homePageQuery,
     leisureTravelQuery, offerDetailsQuery, partnersQuery, privacyQuery,
     studentTravelQuery, termsQuery,
@@ -58,5 +58,9 @@ export async function getMetadata(page: string) {
 
 export async function getOfferDetailsData(slug: string) {
     return await sanityClient.fetch(offerDetailsQuery, {slug});
+}
+
+export async function getFooterData() {
+    return sanityClient.fetch(FOOTER_QUERY);
 }
 

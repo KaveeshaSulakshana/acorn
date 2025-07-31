@@ -467,7 +467,7 @@ const ContactUsPage = async () => {
                                 </p>
                             </AnimatedSection>
 
-                            {(branches.length > 0 ? branches : fallbackBranches).map((branch, index) => (
+                            {(branches.length > 0 ? branches : fallbackBranches).slice(0, 1).map((branch, index) => (
                                 <AnimatedSection key={index} delay={0.1 * (index + 3)}>
                                     <div className="mb-6 sm:mb-8">
                                         <h3
@@ -625,148 +625,152 @@ const ContactUsPage = async () => {
 
                             <div className="mb-6 sm:mb-8">
                                 <div className="flex flex-col sm:flex-row sm:gap-8 lg:gap-12">
-                                    <div className="flex flex-col mb-6 sm:mb-0">
-                                        <h3
-                                            className="font-bold text-base sm:text-lg md:text-xl lg:text-2xl
-                                 text-[#3C3C3C] mb-3 sm:mb-4"
-                                        >
-                                            Nawala Branch
-                                        </h3>
-                                        <div className="flex gap-3 sm:gap-4 items-start mb-3 sm:mb-4">
-                                            <svg
-                                                width="24"
-                                                height="24"
-                                                viewBox="0 0 26 26"
-                                                fill="none"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7"
-                                            >
-                                                <circle cx="13" cy="13" r="13" fill="#2B5597"/>
-                                                <path
-                                                    fillRule="evenodd"
-                                                    clipRule="evenodd"
-                                                    d="M12.6285 7.18097C15.0242 7.18097 16.9618 9.11859 16.9618 11.5143C16.9618 14.7643 12.6285 19.5619 12.6285 19.5619C12.6285 19.5619 8.29517 14.7643 8.29517 11.5143C8.29517 9.11859 10.2328 7.18097 12.6285 7.18097ZM9.53326 11.5143C9.53326 13.2786 11.3409 15.9776 12.6285 17.6305C13.9409 15.9653 15.7237 13.2972 15.7237 11.5143C15.7237 9.80573 14.3371 8.41906 12.6285 8.41906C10.9199 8.41906 9.53326 9.80573 9.53326 11.5143ZM12.6285 13.0619C11.7738 13.0619 11.0809 12.369 11.0809 11.5143C11.0809 10.6596 11.7738 9.96668 12.6285 9.96668C13.4832 9.96668 14.1761 10.6596 14.1761 11.5143C14.1761 12.369 13.4832 13.0619 12.6285 13.0619Z"
-                                                    fill="#E4E7EC"
-                                                />
-                                            </svg>
-                                            <p
-                                                className="text-[#737373] leading-relaxed font-normal
-                                   text-xs sm:text-sm md:text-base max-w-56 sm:max-w-64"
-                                            >
-                                                Hemas 162 A Nawala Rd, Nugegoda 10280
-                                            </p>
-                                        </div>
-                                        <div className="flex gap-3 sm:gap-4 items-center">
-                                            <svg
-                                                width="24"
-                                                height="24"
-                                                viewBox="0 0 26 26"
-                                                fill="none"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7"
-                                            >
-                                                <circle cx="13" cy="13" r="13" fill="#2B5597"/>
-                                                <rect
-                                                    x="5.94287"
-                                                    y="6.6857"
-                                                    width="13.3714"
-                                                    height="13.3714"
-                                                    fill="url(#pattern0_1090_6440)"
-                                                />
-                                                <defs>
-                                                    <pattern
-                                                        id="pattern0_1090_6440"
-                                                        patternContentUnits="objectBoundingBox"
-                                                        width="1"
-                                                        height="1"
+                                    {(branches.length > 0 ? branches : fallbackBranches)
+                                        .slice(1)
+                                        .map((branch, index) => (
+                                            <div key={index} className="flex flex-col mb-6 sm:mb-0">
+                                                <h3
+                                                    className="font-bold text-base sm:text-lg md:text-xl lg:text-2xl
+                                             text-[#3C3C3C] mb-3 sm:mb-4"
+                                                >
+                                                    {branch.title}
+                                                </h3>
+                                                <div className="flex gap-3 sm:gap-4 items-start mb-3 sm:mb-4">
+                                                    <svg
+                                                        width="24"
+                                                        height="24"
+                                                        viewBox="0 0 26 26"
+                                                        fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7"
                                                     >
-                                                        <use xlinkHref="#image0_1090_6440" transform="scale(0.01)"/>
-                                                    </pattern>
-                                                    <image
-                                                        id="image0_1090_6440"
-                                                        width="100"
-                                                        height="100"
-                                                        preserveAspectRatio="none"
-                                                        xlinkHref="data:image/png;base64,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"
-                                                    />
-                                                </defs>
-                                            </svg>
-                                            <p className="text-[#737373] font-normal text-xs sm:text-sm md:text-base">
-                                                011 4 704 700
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div className="flex flex-col">
-                                        <h3
-                                            className="font-bold text-base sm:text-lg md:text-xl lg:text-2xl
-                                 text-[#3C3C3C] mb-3 sm:mb-4"
-                                        >
-                                            Kandy Branch
-                                        </h3>
-                                        <div className="flex gap-3 sm:gap-4 items-start mb-3 sm:mb-4">
-                                            <svg
-                                                width="24"
-                                                height="24"
-                                                viewBox="0 0 26 26"
-                                                fill="none"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7"
-                                            >
-                                                <circle cx="13" cy="13" r="13" fill="#2B5597"/>
-                                                <path
-                                                    fillRule="evenodd"
-                                                    clipRule="evenodd"
-                                                    d="M12.6285 7.18097C15.0242 7.18097 16.9618 9.11859 16.9618 11.5143C16.9618 14.7643 12.6285 19.5619 12.6285 19.5619C12.6285 19.5619 8.29517 14.7643 8.29517 11.5143C8.29517 9.11859 10.2328 7.18097 12.6285 7.18097ZM9.53326 11.5143C9.53326 13.2786 11.3409 15.9776 12.6285 17.6305C13.9409 15.9653 15.7237 13.2972 15.7237 11.5143C15.7237 9.80573 14.3371 8.41906 12.6285 8.41906C10.9199 8.41906 9.53326 9.80573 9.53326 11.5143ZM12.6285 13.0619C11.7738 13.0619 11.0809 12.369 11.0809 11.5143C11.0809 10.6596 11.7738 9.96668 12.6285 9.96668C13.4832 9.96668 14.1761 10.6596 14.1761 11.5143C14.1761 12.369 13.4832 13.0619 12.6285 13.0619Z"
-                                                    fill="#E4E7EC"
-                                                />
-                                            </svg>
-                                            <p
-                                                className="text-[#737373] leading-relaxed font-normal
-                                   text-xs sm:text-sm md:text-base max-w-56 sm:max-w-64"
-                                            >
-                                                Hemas 45 DS Senanayake Veediya, Kandy 20000
-                                            </p>
-                                        </div>
-                                        <div className="flex gap-3 sm:gap-4 items-center">
-                                            <svg
-                                                width="24"
-                                                height="24"
-                                                viewBox="0 0 26 26"
-                                                fill="none"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7"
-                                            >
-                                                <circle cx="13" cy="13" r="13" fill="#2B5597"/>
-                                                <rect
-                                                    x="5.94287"
-                                                    y="6.6857"
-                                                    width="13.3714"
-                                                    height="13.3714"
-                                                    fill="url(#pattern0_1090_6440)"
-                                                />
-                                                <defs>
-                                                    <pattern
-                                                        id="pattern0_1090_6440"
-                                                        patternContentUnits="objectBoundingBox"
-                                                        width="1"
-                                                        height="1"
+                                                        <circle cx="13" cy="13" r="13" fill="#2B5597"/>
+                                                        <path
+                                                            fillRule="evenodd"
+                                                            clipRule="evenodd"
+                                                            d="M12.6285 7.18097C15.0242 7.18097 16.9618 9.11859 16.9618 11.5143C16.9618 14.7643 12.6285 19.5619 12.6285 19.5619C12.6285 19.5619 8.29517 14.7643 8.29517 11.5143C8.29517 9.11859 10.2328 7.18097 12.6285 7.18097ZM9.53326 11.5143C9.53326 13.2786 11.3409 15.9776 12.6285 17.6305C13.9409 15.9653 15.7237 13.2972 15.7237 11.5143C15.7237 9.80573 14.3371 8.41906 12.6285 8.41906C10.9199 8.41906 9.53326 9.80573 9.53326 11.5143ZM12.6285 13.0619C11.7738 13.0619 11.0809 12.369 11.0809 11.5143C11.0809 10.6596 11.7738 9.96668 12.6285 9.96668C13.4832 9.96668 14.1761 10.6596 14.1761 11.5143C14.1761 12.369 13.4832 13.0619 12.6285 13.0619Z"
+                                                            fill="#E4E7EC"
+                                                        />
+                                                    </svg>
+                                                    <p
+                                                        className="text-[#737373] leading-relaxed font-normal text-xs sm:text-sm md:text-base max-w-56 sm:max-w-64"
                                                     >
-                                                        <use xlinkHref="#image0_1090_6440" transform="scale(0.01)"/>
-                                                    </pattern>
-                                                    <image
-                                                        id="image0_1090_6440"
-                                                        width="100"
-                                                        height="100"
-                                                        preserveAspectRatio="none"
-                                                        xlinkHref="data:image/png;base64,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"
-                                                    />
-                                                </defs>
-                                            </svg>
-                                            <p className="text-[#737373] font-normal text-xs sm:text-sm md:text-base">
-                                                0814 501 444
-                                            </p>
-                                        </div>
-                                    </div>
+                                                        {branch.address}
+                                                    </p>
+                                                </div>
+                                                <div className="flex gap-3 sm:gap-4 items-center">
+                                                    <svg
+                                                        width="24"
+                                                        height="24"
+                                                        viewBox="0 0 26 26"
+                                                        fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7"
+                                                    >
+                                                        <circle cx="13" cy="13" r="13" fill="#2B5597"/>
+                                                        <rect
+                                                            x="5.94287"
+                                                            y="6.6857"
+                                                            width="13.3714"
+                                                            height="13.3714"
+                                                            fill="url(#pattern0_1090_6440)"
+                                                        />
+                                                        <defs>
+                                                            <pattern
+                                                                id="pattern0_1090_6440"
+                                                                patternContentUnits="objectBoundingBox"
+                                                                width="1"
+                                                                height="1"
+                                                            >
+                                                                <use xlinkHref="#image0_1090_6440"
+                                                                     transform="scale(0.01)"/>
+                                                            </pattern>
+                                                            <image
+                                                                id="image0_1090_6440"
+                                                                width="100"
+                                                                height="100"
+                                                                preserveAspectRatio="none"
+                                                                xlinkHref="data:image/png;base64,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"
+                                                            />
+                                                        </defs>
+                                                    </svg>
+                                                    <p className="text-[#737373] font-normal text-xs sm:text-sm md:text-base">
+                                                        {branch.phone}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    {/*   <div className="flex flex-col">*/}
+                                    {/*       <h3*/}
+                                    {/*           className="font-bold text-base sm:text-lg md:text-xl lg:text-2xl*/}
+                                    {/*text-[#3C3C3C] mb-3 sm:mb-4"*/}
+                                    {/*       >*/}
+                                    {/*           Kandy Branch*/}
+                                    {/*       </h3>*/}
+                                    {/*       <div className="flex gap-3 sm:gap-4 items-start mb-3 sm:mb-4">*/}
+                                    {/*           <svg*/}
+                                    {/*               width="24"*/}
+                                    {/*               height="24"*/}
+                                    {/*               viewBox="0 0 26 26"*/}
+                                    {/*               fill="none"*/}
+                                    {/*               xmlns="http://www.w3.org/2000/svg"*/}
+                                    {/*               className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7"*/}
+                                    {/*           >*/}
+                                    {/*               <circle cx="13" cy="13" r="13" fill="#2B5597"/>*/}
+                                    {/*               <path*/}
+                                    {/*                   fillRule="evenodd"*/}
+                                    {/*                   clipRule="evenodd"*/}
+                                    {/*                   d="M12.6285 7.18097C15.0242 7.18097 16.9618 9.11859 16.9618 11.5143C16.9618 14.7643 12.6285 19.5619 12.6285 19.5619C12.6285 19.5619 8.29517 14.7643 8.29517 11.5143C8.29517 9.11859 10.2328 7.18097 12.6285 7.18097ZM9.53326 11.5143C9.53326 13.2786 11.3409 15.9776 12.6285 17.6305C13.9409 15.9653 15.7237 13.2972 15.7237 11.5143C15.7237 9.80573 14.3371 8.41906 12.6285 8.41906C10.9199 8.41906 9.53326 9.80573 9.53326 11.5143ZM12.6285 13.0619C11.7738 13.0619 11.0809 12.369 11.0809 11.5143C11.0809 10.6596 11.7738 9.96668 12.6285 9.96668C13.4832 9.96668 14.1761 10.6596 14.1761 11.5143C14.1761 12.369 13.4832 13.0619 12.6285 13.0619Z"*/}
+                                    {/*                   fill="#E4E7EC"*/}
+                                    {/*               />*/}
+                                    {/*           </svg>*/}
+                                    {/*           <p*/}
+                                    {/*               className="text-[#737373] leading-relaxed font-normal*/}
+                                    {/*  text-xs sm:text-sm md:text-base max-w-56 sm:max-w-64"*/}
+                                    {/*           >*/}
+                                    {/*               Hemas 45 DS Senanayake Veediya, Kandy 20000*/}
+                                    {/*           </p>*/}
+                                    {/*       </div>*/}
+                                    {/*       <div className="flex gap-3 sm:gap-4 items-center">*/}
+                                    {/*           <svg*/}
+                                    {/*               width="24"*/}
+                                    {/*               height="24"*/}
+                                    {/*               viewBox="0 0 26 26"*/}
+                                    {/*               fill="none"*/}
+                                    {/*               xmlns="http://www.w3.org/2000/svg"*/}
+                                    {/*               className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7"*/}
+                                    {/*           >*/}
+                                    {/*               <circle cx="13" cy="13" r="13" fill="#2B5597"/>*/}
+                                    {/*               <rect*/}
+                                    {/*                   x="5.94287"*/}
+                                    {/*                   y="6.6857"*/}
+                                    {/*                   width="13.3714"*/}
+                                    {/*                   height="13.3714"*/}
+                                    {/*                   fill="url(#pattern0_1090_6440)"*/}
+                                    {/*               />*/}
+                                    {/*               <defs>*/}
+                                    {/*                   <pattern*/}
+                                    {/*                       id="pattern0_1090_6440"*/}
+                                    {/*                       patternContentUnits="objectBoundingBox"*/}
+                                    {/*                       width="1"*/}
+                                    {/*                       height="1"*/}
+                                    {/*                   >*/}
+                                    {/*                       <use xlinkHref="#image0_1090_6440" transform="scale(0.01)"/>*/}
+                                    {/*                   </pattern>*/}
+                                    {/*                   <image*/}
+                                    {/*                       id="image0_1090_6440"*/}
+                                    {/*                       width="100"*/}
+                                    {/*                       height="100"*/}
+                                    {/*                       preserveAspectRatio="none"*/}
+                                    {/*                       xlinkHref="data:image/png;base64,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"*/}
+                                    {/*                   />*/}
+                                    {/*               </defs>*/}
+                                    {/*           </svg>*/}
+                                    {/*           <p className="text-[#737373] font-normal text-xs sm:text-sm md:text-base">*/}
+                                    {/*               0814 501 444*/}
+                                    {/*           </p>*/}
+                                    {/*       </div>*/}
+                                    {/*   </div>*/}
                                 </div>
                             </div>
                         </div>

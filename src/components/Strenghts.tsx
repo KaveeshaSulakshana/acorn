@@ -176,14 +176,16 @@ interface Strength {
     icon: { asset?: { url: string } };
     title: string;
     description: string;
-    link: string;
+    link?: string;
 }
 
 interface StrengthsProps {
+    strengthsTitle: string;
+    strengthsDescription: string;
     strengths: Strength[];
 }
 
-export default function Strengths({strengths}: StrengthsProps) {
+export default function Strengths({ strengthsTitle, strengthsDescription, strengths }: StrengthsProps) {
     const ref = useRef(null);
     const isInView = useInView(ref, {once: true, amount: 0.3});
 
@@ -247,7 +249,7 @@ export default function Strengths({strengths}: StrengthsProps) {
                     animate={isInView ? "visible" : "hidden"}
                     variants={contentVariants}
                 >
-                    Our Strengths
+                    {strengthsTitle || "Our Strengths"}
                 </motion.h2>
                 <motion.p
                     className="text-[#737373] text-[14px] sm:text-[16px] lg:text-[20px] text-center mb-2 sm:mb-8 max-w-4xl mx-auto"
@@ -255,10 +257,8 @@ export default function Strengths({strengths}: StrengthsProps) {
                     animate={isInView ? "visible" : "hidden"}
                     variants={contentVariants}
                 >
-                    With a commitment to excellence, personalized service, and extensive global expertise, we ensure
-                    every journey is seamless, memorable, and tailored to your unique needs
+                    {strengthsDescription || "With a commitment to excellence, personalized service, and extensive global expertise, we ensure every journey is seamless, memorable, and tailored to your unique needs"}
                 </motion.p>
-
                 <div className="relative py-8 md:py-16">
                     <div className="w-full absolute bottom-10 bg-cover h-80">
                         <div

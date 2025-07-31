@@ -24,7 +24,7 @@ interface Hero {
 interface AboutContent {
     title: string;
     description: string;
-    features: string[];
+    // features: string[];
     image: string;
     alt: string;
 }
@@ -33,6 +33,7 @@ interface BrandPromise {
     title: string;
     description: string;
     featuresTitle: string;
+    features: string[];
     image: string;
     alt: string;
 }
@@ -49,7 +50,13 @@ interface Strength {
     icon: { asset?: { url: string } };
     title: string;
     description: string;
-    link: string;
+    link?: string;
+}
+
+interface StrengthsSection {
+    strengthsTitle: string;
+    strengthsDescription: string;
+    strengths: Strength[];
 }
 
 interface AboutUsData {
@@ -63,25 +70,46 @@ interface AboutUsData {
     aboutContent?: {
         title: string;
         description: string;
-        features: string[];
+        // features: string[];
         image?: { asset: { url: string }; alt: string };
     };
     brandPromise?: {
         title: string;
         description: string;
         featuresTitle: string;
+        features: string[];
         image?: { asset: { url: string }; alt: string };
     };
     branches?: Branch[];
-    strengths?: Strength[];
+    strengthsSection?:{
+        strengthsTitle: string;
+        strengthsDescription: string;
+        strengths?: Strength[];
+    }
 }
 
 const AboutUs = async () => {
     let hero: Hero = {image: "", title: "", description: "", buttonText: []};
-    let aboutContent: AboutContent = {title: "", description: "", features: [], image: "", alt: ""};
-    let brandPromise: BrandPromise = {title: "", description: "", featuresTitle: "", image: "", alt: ""};
+    // let aboutContent: AboutContent = {title: "", description: "", features: [], image: "", alt: ""};
+    let aboutContent: AboutContent = {title: "", description: "", image: "", alt: ""};
+    let brandPromise: BrandPromise = {title: "", description: "", featuresTitle: "", features: [], image: "", alt: ""};
     let branches: Branch[] = [];
-    let strengths: Strength[] = [];
+    // let strengths: Strength[] = [];
+    // let strengthsSection: StrengthsSection ={
+    //     strengthsTitle:"",
+    //     strengthsDescription:"",
+    //     strengths: {
+    //         icon: "",
+    //         title: "",
+    //         description: "",
+    //     }
+    // }
+
+    let strengthsSection: StrengthsSection = {
+        strengthsTitle: "",
+        strengthsDescription: "",
+        strengths: [],
+    };
 
     try {
         const aboutUsData: AboutUsData = await getAboutUsPageData();
@@ -108,7 +136,7 @@ const AboutUs = async () => {
             description:
                 aboutUsData?.aboutContent?.description ||
                 "We specialize in delivering exceptional travel solutions for corporate and leisure clients.",
-            features: Array.isArray(aboutUsData?.aboutContent?.features) ? aboutUsData.aboutContent.features : [],
+            // features: Array.isArray(aboutUsData?.aboutContent?.features) ? aboutUsData.aboutContent.features : [],
             image: aboutUsData?.aboutContent?.image?.asset?.url || "",
             alt: aboutUsData?.aboutContent?.image?.alt || "About content image",
         };
@@ -121,6 +149,7 @@ const AboutUs = async () => {
                 "We are committed to creating inspiring journeys with peace of mind for every traveler.",
             featuresTitle:
                 aboutUsData?.brandPromise?.featuresTitle || "How We Make It Happen",
+            features: Array.isArray(aboutUsData?.brandPromise?.features) ? aboutUsData.brandPromise.features : [],
             image: aboutUsData?.brandPromise?.image?.asset?.url || "",
             alt: aboutUsData?.brandPromise?.image?.alt || "Brand promise image",
         };
@@ -136,15 +165,30 @@ const AboutUs = async () => {
             }))
             : [];
 
+        strengthsSection = {
+            strengthsTitle: aboutUsData?.strengthsSection?.strengthsTitle || "Our Strengths",
+            strengthsDescription:
+                aboutUsData?.strengthsSection?.strengthsDescription ||
+                "With a commitment to excellence, personalized service, and extensive global expertise, we ensure every journey is seamless, memorable, and tailored to your unique needs",
+            strengths: Array.isArray(aboutUsData?.strengthsSection?.strengths)
+                ? aboutUsData.strengthsSection.strengths.map((strength) => ({
+                    icon: { asset: { url: strength?.icon?.asset?.url || "/clip.png" } },
+                    title: strength?.title || "Strength",
+                    description: strength?.description || "We provide exceptional service.",
+                    link: strength?.link || "#",
+                }))
+                : [],
+        };
+
         // Map strengths data
-        strengths = Array.isArray(aboutUsData?.strengths)
-            ? aboutUsData.strengths.map((strength) => ({
-                icon: {asset: {url: strength?.icon?.asset?.url || "/default-icon.png"}},
-                title: strength?.title || "Strength",
-                description: strength?.description || "We provide exceptional service.",
-                link: strength?.link || "#",
-            }))
-            : [];
+        // strengths = Array.isArray(aboutUsData?.strengths)
+        //     ? aboutUsData.strengths.map((strength) => ({
+        //         icon: {asset: {url: strength?.icon?.asset?.url || "/default-icon.png"}},
+        //         title: strength?.title || "Strength",
+        //         description: strength?.description || "We provide exceptional service.",
+        //         link: strength?.link || "#",
+        //     }))
+        //     : [];
     } catch (error) {
         console.error("Error fetching about us data:", error);
         return (
@@ -285,9 +329,9 @@ const AboutUs = async () => {
                                     Here’s a glimpse of how we make it happen:
                                 </p>
                             </AnimatedSection>
-                            {aboutContent.features.length > 0 && (
+                            {brandPromise.features.length > 0 && (
                                 <ul className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
-                                    {aboutContent.features.map((feature, index) => (
+                                    {brandPromise.features.map((feature, index) => (
                                         <AnimatedSection key={index} direction="up" delay={0.1 * (index + 1)}>
                                             <li className="flex items-start">
                                                 {/*<svg*/}
@@ -325,7 +369,10 @@ const AboutUs = async () => {
                 </div>
             </div>
 
-            <Strengths strengths={strengths}/>
+            {/*<Strengths strengths={strengths}/>*/}
+            <Strengths strengthsTitle={strengthsSection.strengthsTitle}
+                       strengthsDescription={strengthsSection.strengthsDescription}
+                       strengths={strengthsSection.strengths}/>
 
             <AnimatedSection direction="up" delay={0.3}>
                 <Partners/>
@@ -356,7 +403,7 @@ const AboutUs = async () => {
                                                     fill="#E4E7EC"
                                                 />
                                             </svg>
-                                            <p className="text-[#737373] font-normal text-xs sm:text-sm whitespace-pre-line">{branch.address}</p>
+                                            <p className="text-[#737373] font-normal min-h-10 text-xs sm:text-sm whitespace-pre-line">{branch.address}</p>
                                         </div>
                                         <div className="flex gap-3 sm:gap-4 items-start">
                                             <svg width="26" height="26" viewBox="0 0 26 26" fill="none"
