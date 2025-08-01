@@ -16,17 +16,47 @@ import nodemailer from "nodemailer";
 // }
 
 
+const pageSourceToFormType = (pageSource: string): { formType: string; detailType: string } => {
+    const source = pageSource.toLowerCase()
+    if (source.includes('leisure travel inquiry')) {
+        return {formType: 'Leisure Travel Inquiry', detailType: 'leisureFormDetails'}
+    }
+    if (source.includes('corporate travel inquiry')) {
+        return {formType: 'Corporate Travel Inquiry', detailType: 'corporateFormDetails'}
+    }
+    if (source.includes('visa inquiry')) {
+        return {formType: 'Visa Inquiry', detailType: 'visaFormDetails'}
+    }
+    if (source.includes('student inquiry')) {
+        return {formType: 'Student Inquiry', detailType: 'studentFormDetails'}
+    }
+    if (source.includes('flight booking inquiry')) {
+        return {formType: 'Flight Booking Inquiry', detailType: 'flightFormDetails'}
+    }
+    if (source.includes('contact us inquiry')) {
+        return {formType: 'Contact US Inquiry', detailType: 'contactFormDetails'}
+    }
+    return {formType: 'Other Booking Inquiry', detailType: 'otherFormDetails'}
+
+}
+
 export async function POST(req: NextRequest) {
     try {
         const {data, pageSource} = await req.json();
         console.log("-----------form payload: ", data);
 
-        const submission = {
-            _type: "submission",
-            ...data,
-            pageSource,
-            submittedAt: new Date().toISOString(),
-        };
+        const {formType, detailType} = pageSourceToFormType(pageSource)
+
+        const {recaptchaToken, ...sanitizedData} = data;
+        console.log("recaptcha :", recaptchaToken);
+
+        // const submission = {
+        //     _type: "submission",
+        //     ...data,
+        //     pageSource,
+        //     category: pageSourceToCategory(pageSource),
+        //     submittedAt: new Date().toISOString(),
+        // };
 
         const settingsQuery = `*[_type == "contactSettings"][0]{recipientEmail,email,password}`;
         const settings = await sanityClient.fetch(settingsQuery);
@@ -141,11 +171,40 @@ export async function POST(req: NextRequest) {
             html: emailTemplate,
         });
 
-        await sanityClient.create(submission);
+        const query = `*[_type == "formSubmission" && formType == $formType][0]`
+        const existing = await sanityClient.fetch(query, {formType})
+
+        const newSubmission = {
+            _type: detailType,
+            _key: new Date().toISOString(),
+            ...sanitizedData,
+            submittedAt: new Date().toISOString()
+        }
+
+        if (existing) {
+            await sanityClient
+                .patch(existing._id)
+                .setIfMissing({submissions: []})
+                .append('submissions', [newSubmission])
+                .commit()
+        } else {
+            await sanityClient.create({
+                _type: 'formSubmission',
+                formType,
+                submissions: [newSubmission]
+            })
+        }
+
         return NextResponse.json(
-            {message: "Form submission successful!"},
+            {message: 'Form submission successful!'},
             {status: 200}
-        );
+        )
+
+        // await sanityClient.create(submission);
+        // return NextResponse.json(
+        //     {message: "Form submission successful!"},
+        //     {status: 200}
+        // );
     } catch (error) {
         console.error("Error submitting to Sanity:", error);
         return NextResponse.json(

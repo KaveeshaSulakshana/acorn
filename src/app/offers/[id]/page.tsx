@@ -288,7 +288,7 @@ const OfferDetailPage = async ({params}: Props) => {
                                 <ContactForm
                                     fields={formFields}
                                     title="Make an Inquiry"
-                                    pageSource="Contact US Inquiry"
+                                    pageSource="Other Booking Inquiry"
                                     reCaptchaSiteKey={recaptchaSiteKey}
                                 />
                             </AnimatedSection>

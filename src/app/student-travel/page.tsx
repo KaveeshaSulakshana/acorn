@@ -169,7 +169,7 @@ const StudentTravelPage = async () => {
                     required: true,
                 },
             ],
-            pageSource: "Student Visa Inquiry",
+            pageSource: "Student Inquiry",
         };
     } catch (error) {
         console.error("Error fetching student travel data:", error);
