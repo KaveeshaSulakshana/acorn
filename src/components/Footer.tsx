@@ -231,7 +231,7 @@ import Link from "next/link";
 import Image from "next/image";
 import {getFooterData} from "../../sanity/api";
 import {urlFor} from "../../sanity/sanity";
-import { Key} from "react";
+import {Key} from "react";
 
 interface ImageAsset {
     url: string;
@@ -248,6 +248,13 @@ interface SocialLink {
     iconSvg: string;
 }
 
+interface Contact {
+    icon: string;
+    linkPrefix: string;
+    type: string;
+    value: string[];
+}
+
 interface FooterData {
     logo?: ImageAsset;
     description?: string;
@@ -258,13 +265,14 @@ interface FooterData {
     copyrightText?: string;
     developedBy?: string;
     bottomLinks?: LinkItem[];
+    contactInfo?: Contact[];
 }
 
 const Footer = async () => {
 
     const footerData: FooterData = await getFooterData();
 
-    // console.log("-----footer: ", footerData);
+    console.log("-----footer: ", footerData);
 
     return (
         <footer className="lato">
@@ -337,7 +345,7 @@ const Footer = async () => {
                                 SERVICES</h3>
                             <ul className="px-3 sm:px-5 list-disc space-y-1 sm:space-y-2 text-[#E2E2E2] text-[13px] sm:text-[14px] md:text-[15px]  lato font-normal">
                                 {footerData.ourServices && footerData.ourServices.map((service: {
-                                    href: string ;
+                                    href: string;
                                     label: string;
                                 }, index: Key) => (
                                     <li key={index}>
@@ -470,59 +478,97 @@ const Footer = async () => {
                                 {/*    }*/}
                                 {/*}}*/}
 
-                                <li className="flex items-start gap-2 sm:gap-3 md:gap-4 font-normal">
-                                    <Image
-                                        src="/location.png"
-                                        alt="Location"
-                                        width={24}
-                                        height={24}
-                                        className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 flex-shrink-0"
-                                    />
-                                    <span className="leading-tight">
-                                        Hemas Building, 36 Sir Razik Fareed Mawatha, Colombo 00100
-                                    </span>
-                                </li>
-                                <li className="flex items-center gap-2 sm:gap-3 md:gap-4 font-normal">
-                                    <Image
-                                        src="/email.png"
-                                        alt="Email"
-                                        width={24}
-                                        height={24}
-                                        className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 flex-shrink-0"
-                                    />
-                                    <a href="mailto:inquiries.travels@acorn.lk" className="hover:text-white break-all">
-                                        inquiries.travels@acorn.lk
-                                    </a>
-                                </li>
-                                <li className="flex items-center gap-2 sm:gap-3 md:gap-4 font-normal">
-                                    <Image
-                                        src="/phone.png"
-                                        alt="Phone"
-                                        width={24}
-                                        height={24}
-                                        className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 flex-shrink-0"
-                                    />
-                                    <div className="space-y-1">
-                                        <a href="tel:+94114704704" className="hover:text-white block">+94 114 704 704/5
-                                        </a>
-                                        <a href="tel:+94772775679" className="hover:text-white block">+94 772 775
-                                            679</a>
-                                        {/*<a href="https://wa.link/d1ikuv" className="hover:text-white block">+94 763 028 250</a>*/}
-                                    </div>
-                                </li>
-                                <li className="flex items-center gap-2 sm:gap-3 md:gap-4 font-normal">
-                                    <Image
-                                        src="/whatsapp.png"
-                                        alt="Phone"
-                                        width={24}
-                                        height={24}
-                                        className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 flex-shrink-0"
-                                    />
-                                    <div className="space-y-1">
-                                        <a href="https://wa.link/d1ikuv" className="hover:text-white block">+94 763 028
-                                            250</a>
-                                    </div>
-                                </li>
+                                {
+                                    footerData.contactInfo && footerData.contactInfo.map((contact, index) => (
+                                        <li key={index}
+                                            className={`flex ${contact.type === 'location' ? "items-start" : "items-center"} gap-2 sm:gap-3 md:gap-4 font-normal`}>
+                                            <Image
+                                                src={urlFor(contact.icon).url()}
+                                                alt={contact.type}
+                                                width={24}
+                                                height={24}
+                                                className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 flex-shrink-0"
+                                            />
+                                            {
+                                                contact.linkPrefix === null ? (
+                                                    contact.value.map((val, index) => (
+                                                        <span key={index} className="leading-tight">
+                                                            {val}
+                                                        </span>
+                                                    ))
+                                                ) : (
+                                                    <div className="space-y-1">
+                                                        {
+                                                            contact.value.map((val, index) => (
+                                                                <a key={index} target="_blank"
+                                                                   href={contact.type === "whatsapp" ? `${contact.linkPrefix}` : `${contact.linkPrefix}:${val}`}
+                                                                   className="hover:text-white block">{val}
+                                                                </a>
+                                                            ))
+                                                        }
+                                                    </div>
+                                                )
+                                            }
+                                            {/*        <span className="leading-tight">*/}
+                                            {/*    Hemas Building, 36 Sir Razik Fareed Mawatha, Colombo 00100*/}
+                                            {/*</span>*/}
+                                        </li>
+                                    ))
+                                }
+
+                                {/*<li className="flex items-start gap-2 sm:gap-3 md:gap-4 font-normal">*/}
+                                {/*    <Image*/}
+                                {/*        src="/location.png"*/}
+                                {/*        alt="Location"*/}
+                                {/*        width={24}*/}
+                                {/*        height={24}*/}
+                                {/*        className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 flex-shrink-0"*/}
+                                {/*    />*/}
+                                {/*    <span className="leading-tight">*/}
+                                {/*        Hemas Building, 36 Sir Razik Fareed Mawatha, Colombo 00100*/}
+                                {/*    </span>*/}
+                                {/*</li>*/}
+                                {/*<li className="flex items-center gap-2 sm:gap-3 md:gap-4 font-normal">*/}
+                                {/*    <Image*/}
+                                {/*        src="/email.png"*/}
+                                {/*        alt="Email"*/}
+                                {/*        width={24}*/}
+                                {/*        height={24}*/}
+                                {/*        className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 flex-shrink-0"*/}
+                                {/*    />*/}
+                                {/*    <a href="mailto:inquiries.travels@acorn.lk" className="hover:text-white break-all">*/}
+                                {/*        inquiries.travels@acorn.lk*/}
+                                {/*    </a>*/}
+                                {/*</li>*/}
+                                {/*<li className="flex items-center gap-2 sm:gap-3 md:gap-4 font-normal">*/}
+                                {/*    <Image*/}
+                                {/*        src="/phone.png"*/}
+                                {/*        alt="Phone"*/}
+                                {/*        width={24}*/}
+                                {/*        height={24}*/}
+                                {/*        className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 flex-shrink-0"*/}
+                                {/*    />*/}
+                                {/*    <div className="space-y-1">*/}
+                                {/*        <a href="tel:+94114704704" className="hover:text-white block">+94 114 704 704/5*/}
+                                {/*        </a>*/}
+                                {/*        <a href="tel:+94772775679" className="hover:text-white block">+94 772 775*/}
+                                {/*            679</a>*/}
+                                {/*        /!*<a href="https://wa.link/d1ikuv" className="hover:text-white block">+94 763 028 250</a>*!/*/}
+                                {/*    </div>*/}
+                                {/*</li>*/}
+                                {/*<li className="flex items-center gap-2 sm:gap-3 md:gap-4 font-normal">*/}
+                                {/*    <Image*/}
+                                {/*        src="/whatsapp.png"*/}
+                                {/*        alt="Phone"*/}
+                                {/*        width={24}*/}
+                                {/*        height={24}*/}
+                                {/*        className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 flex-shrink-0"*/}
+                                {/*    />*/}
+                                {/*    <div className="space-y-1">*/}
+                                {/*        <a href="https://wa.link/d1ikuv" className="hover:text-white block">+94 763 028*/}
+                                {/*            250</a>*/}
+                                {/*    </div>*/}
+                                {/*</li>*/}
                             </ul>
                             <div
                                 className="pt-4 sm:pt-5 md:pt-6 lg:pt-8 flex flex-col xl:flex-row items-start xl:items-center gap-3 sm:gap-4 md:gap-5">
