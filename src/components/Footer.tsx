@@ -501,7 +501,7 @@ const Footer = async () => {
                                                         {
                                                             contact.value.map((val, index) => (
                                                                 <a key={index} target="_blank"
-                                                                   href={contact.type === "whatsapp" ? `${contact.linkPrefix}` : `${contact.linkPrefix}:${val}`}
+                                                                   href={contact.type === "whatsapp" ? `${contact.linkPrefix}` : `${contact.linkPrefix}${val}`}
                                                                    className="hover:text-white block">{val}
                                                                 </a>
                                                             ))

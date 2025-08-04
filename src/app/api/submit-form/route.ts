@@ -141,6 +141,10 @@ export async function POST(req: NextRequest) {
                         <p>A new inquiry has been received through the contact form. Please review the details below.</p>
                         
                         <h2 style="color: #2B5597;">Submission Details:</h2>
+                        <div class="field">
+                            <span class="field-label">Form Type:</span>
+                            <span>${pageSource}</span>
+                        </div>
                         ${Object.entries(data)
             .filter(([key]) => key !== 'recaptchaToken')
             .map(([key, value]) => `

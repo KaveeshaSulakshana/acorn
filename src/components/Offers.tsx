@@ -223,6 +223,8 @@ const Offers = ({offersPack, type}: { offersPack: OfferProps, type: string }) =>
 
     console.log("offersss---", offersPack);
 
+    const displayedOffers = offersPack.offers?.slice(0, 6) || [];
+
     return (
         <div className="py-6 sm:py-8 md:py-16 lato">
             <div className="container mx-auto px-4 sm:px-6">
@@ -241,7 +243,7 @@ const Offers = ({offersPack, type}: { offersPack: OfferProps, type: string }) =>
 
                 <div
                     className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 px-0 sm:px-4 md:px-8 lg:px-20">
-                    {offersPack.offers?.map((offer, index) => {
+                    {displayedOffers.map((offer, index) => {
                         // <div
                         //     key={index}
                         //     className="bg-white rounded-md w-full max-w-86 mx-auto sm:max-w-full border-2 border-[#E4E6E8] overflow-hidden shadow-lg transition-shadow duration-300 relative"

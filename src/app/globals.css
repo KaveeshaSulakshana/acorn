@@ -117,7 +117,7 @@ select {
     width: 100% !important; /* Ensure full width */
     height: 46px !important;
     cursor: pointer !important; /* Indicate interactivity */
-    background-image: url('/public/arrow.svg') !important; /* Custom dropdown arrow */
+    background-image: url('/arrow.svg') !important; /* Custom dropdown arrow */
     background-repeat: no-repeat !important;
     background-position: right 0.75rem center !important; /* Position arrow */
 }

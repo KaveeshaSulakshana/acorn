@@ -514,7 +514,22 @@ export const offerDetailsQuery = `
       emergencyPhone,
       email
     },
-    topRated
+    topRated,
+    seo {
+      title,
+      description,
+      keywords,
+      ogTitle,
+      ogDescription,
+      ogImage {
+        asset->{
+          _id,
+          url
+        },
+        hotspot,
+        crop
+      }
+    }
   }
 `;
 
@@ -578,6 +593,15 @@ export const FOOTER_QUERY = `
     bottomLinks[] {
       label,
       href
-    }
+    },
+    favicon {
+      asset->{
+        _id,
+        url
+      },
+      alt
+    },
+    headerScripts,
+    footerScripts
   }
 `;

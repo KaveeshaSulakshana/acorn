@@ -4,6 +4,8 @@ import React from "react";
 import {getOfferDetailsData} from "../../../../sanity/api";
 import Nav from "@/components/Nav";
 import AnimatedSection from "@/components/AnimatedSection";
+import {Metadata} from "next";
+import {urlFor} from "../../../../sanity/sanity";
 
 interface HeroButton {
     title: string;
@@ -301,3 +303,27 @@ const OfferDetailPage = async ({params}: Props) => {
 }
 
 export default OfferDetailPage;
+
+
+
+export async function generateMetadata({params}: { params: Promise<{ id: string }> }): Promise<Metadata> {
+    const {id} = await params;
+    const blog = await getOfferDetailsData(id);
+    if (!blog) {
+        return {title: 'Blog Not Found'};
+    }
+    const mdata = blog.seo;
+
+    return {
+        title: mdata?.title || `Acorn Travel - ${blog.title}`,
+        description: mdata?.description || 'Embark on unforgettable adventures with Acorn Travels. We offer tailored corporate and leisure travel, flight bookings, visa assistance, and more for seamless experiences.',
+        keywords: mdata?.keywords?.join(', ') || 'Acorn Travels, travel agency, corporate travel, leisure travel, flight booking, visa services, MICE tours, student travel',
+        openGraph: {
+            title: mdata?.ogTitle || mdata?.title,
+            description: mdata?.ogDescription || mdata?.description || 'Discover inspiring journeys, effortless flight bookings, and reliable visa assistance with Acorn Travels. Your trusted partner for seamless travel experiences since 1973.',
+            images: mdata?.ogImage ? urlFor(mdata.ogImage).url() : '/nav_logo.png',
+            url: `https://acorn-omega.vercel.app/offers/${id}`,
+            type: 'article',
+        },
+    };
+}
