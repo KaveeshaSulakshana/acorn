@@ -577,10 +577,10 @@ const ContactForm: React.FC<ContactFormProps> = ({
                         {/*    </div>*/}
                         {/*</div>*/}
 
-                        <div className="flex flex-col justify-center sm:items-center w-full overflow-hidden">
+                        <div className="flex flex-col justify-center sm:items-center w-full overflow-visible">
                             <div className="recaptcha-wrapper
                                             w-full
-                                            max-w-[80px]
+                                            max-w-[70px]
                                             sm:max-w-[260px]
                                             md:max-w-[304px]
                                             lg:max-w-[304px]
