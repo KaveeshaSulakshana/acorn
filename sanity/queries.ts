@@ -31,10 +31,12 @@ export const homePageQuery = `
     offers {
       title,
       description,
-      items[]-> {
-        _id,
+      items[] {
+        _key,
         title,
-        slug,
+        slug {
+          current
+        },
         image {
           asset-> {
             url,
@@ -359,10 +361,12 @@ export const flightBookingQuery = `
     offers {
       title,
       description,
-      items[]-> {
-        _id,
+      items[] {
+        _key,
         title,
-        slug,
+        slug {
+          current
+        },
         image {
           asset-> {
             url,
