@@ -272,7 +272,7 @@ const Footer = async () => {
 
     const footerData: FooterData = await getFooterData();
 
-    console.log("-----footer: ", footerData);
+    // console.log("-----footer: ", footerData);
 
     return (
         <footer className="lato">
