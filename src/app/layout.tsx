@@ -12,10 +12,10 @@ const lato = Lato({
 });
 
 
-export const metadata: Metadata = {
-    title: "Acorn Travels",
-    description: "Your premier travel partner.",
-};
+// export const metadata: Metadata = {
+//     title: "Acorn Travels",
+//     description: "Your premier travel partner.",
+// };
 
 export default async function RootLayout({
                                              children,
@@ -28,13 +28,13 @@ export default async function RootLayout({
     return (
         <html lang="en">
         <head>
-            {footerData?.favicon?.url && (
-                <>
-                    <link rel="icon" href={urlFor(footerData.favicon).url()}/>
-                    <link rel="shortcut icon" href={urlFor(footerData.favicon).url()}/>
-                    <link rel="apple-touch-icon" href={urlFor(footerData.favicon).url()}/>
-                </>
-            )}
+            {/*{footerData?.favicon?.url && (*/}
+            {/*    <>*/}
+            {/*        <link rel="icon" href={urlFor(footerData.favicon).url()}/>*/}
+            {/*        <link rel="shortcut icon" href={urlFor(footerData.favicon).url()}/>*/}
+            {/*        <link rel="apple-touch-icon" href={urlFor(footerData.favicon).url()}/>*/}
+            {/*    </>*/}
+            {/*)}*/}
 
             {footerData?.headerScripts && (
                 <script
@@ -58,4 +58,15 @@ export default async function RootLayout({
         </body>
         </html>
     );
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+    const footerData = await getFooterData();
+    return {
+        title: "Acorn Travels",
+        description: "Your premier travel partner.",
+        icons: {
+            icon: footerData?.favicon?.url ? urlFor(footerData.favicon).url() : '/nav_logo_new.png',
+        },
+    };
 }
