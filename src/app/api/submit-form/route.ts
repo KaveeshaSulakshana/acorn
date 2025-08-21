@@ -156,7 +156,7 @@ export async function POST(req: NextRequest) {
                         
                         <p>For any further action, please contact the submitter at <a href="mailto:${data.email || recipientEmail}">${data.email || recipientEmail}</a>.</p>
                         
-                        <a href="https://acorn-omega.vercel.app/" class="button">Visit Website</a>
+                        <a href="https://www.acorntravels.lk/" class="button">Visit Website</a>
                     </div>
                     <div class="footer">
                         <p>Acorn Travels (Pvt) Ltd.<br>
