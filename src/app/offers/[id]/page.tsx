@@ -29,13 +29,13 @@ interface Hero {
 
 interface Props {
     params: Promise<{ id: string }>;
-    searchParams: { page: string };
+    searchParams: Promise<{ page: string }>;
 }
 
 const OfferDetailPage = async ({params, searchParams}: Props) => {
 
     const {id} = await params;
-    const pageType = searchParams.page;
+    const {page: pageType} = await searchParams;
     console.log("-------type: ", pageType);
 
     const data = await getOfferDetailsData(id, pageType);
@@ -310,12 +310,11 @@ export default OfferDetailPage;
 
 export async function generateMetadata({params, searchParams}: {
     params: Promise<{ id: string }>,
-    searchParams: { page: string }
+    searchParams: Promise<{ page: string }>
 }): Promise<Metadata> {
     const {id} = await params;
-    const pageType = searchParams.page;
+    const {page: pageType} = await searchParams;
     const data = await getOfferDetailsData(id, pageType);
-
     const blog = data[0].offers.items[0];
     if (!blog) {
         return {title: 'Blog Not Found'};

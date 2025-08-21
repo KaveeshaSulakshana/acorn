@@ -279,7 +279,7 @@ const Offers = ({offersPack, type}: { offersPack: OfferProps, type: string }) =>
 
                                 <div
                                     className="p-6 sm:p-8">
-                                    <h3 className="text-lg sm:text-3xl font-bold text-gray-900 mb-2 sm:mb-6 min-h-6 sm:min-h-30 lg:min-h-18"
+                                    <h3 className="text-lg sm:text-3xl font-bold text-gray-900 mb-2 sm:mb-6 min-h-6 sm:min-h-30 lg:min-h-28 2xl:min-h-18"
                                         style={{opacity: 1, transform: "none"}}>
                                         {offer.title}
                                     </h3>
@@ -320,7 +320,7 @@ const Offers = ({offersPack, type}: { offersPack: OfferProps, type: string }) =>
                                                     {/*    </Link>*/}
                                                     {/*</div>*/}
                                                 </div>
-                                                <div className="space-y-3 sm:space-y-4 mb-8 sm:mb-10">
+                                                <div className="space-y-3 sm:space-y-4 mb-8 min-h-6 lg:min-h-40 xl:min-h-35 sm:mb-10">
                                                     {/*<p className="text-sm sm:text-base text-gray-700 whitespace-pre-line"*/}
                                                     {/*   style={{opacity: 1, transform: "none"}}>*/}
                                                     {/*    {offer.inclusion}*/}
