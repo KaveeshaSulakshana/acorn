@@ -199,7 +199,7 @@ const FlightBookingPage = async () => {
                         image: item.image?.asset?.url || "/default-offer.png",
                         alt: item.image?.alt || "Offer image",
                         title: item.title || "Offer",
-                        link: item.slug?.current ? `/offers/${item.slug.current}` : "#",
+                        link: item.slug?.current ? `/offers/${item.slug.current}?page=flightBooking` : "#",
                         topRated: item.topRated || false,
                         duration: item.duration || "",
                         guests: item.guests || "",
@@ -392,11 +392,11 @@ export async function generateMetadata(): Promise<Metadata> {
             title: mdata?.ogTitle || mdata?.title || "Acorn Travels - Your Journey Starts Here",
             description: mdata?.ogDescription || mdata?.description || "Discover inspiring journeys, effortless flight bookings, and reliable visa assistance with Acorn Travels. Your trusted partner for seamless travel experiences since 1973.",
             images: mdata?.ogImage ? urlFor(mdata.ogImage).url() : "/nav_logo.png",
-            url: mdata?.canonicalUrl || "https://acorn-omega.vercel.app/",
+            url: mdata?.canonicalUrl || "https://www.acorntravels.lk/",
             type: "website",
         },
         alternates: {
-            canonical: mdata?.canonicalUrl || "https://acorn-omega.vercel.app/",
+            canonical: mdata?.canonicalUrl || "https://www.acorntravels.lk/",
         },
     };
 }

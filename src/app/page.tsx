@@ -342,7 +342,7 @@ export default async function Home() {
             image: item.image?.asset?.url || '/demo.png',
             alt: item.image?.alt || '',
             title: item.title || '',
-            link: item.slug?.current ? `/offers/${item.slug.current}` : '#',
+            link: item.slug?.current ? `/offers/${item.slug.current}?page=home` : '#',
             topRated: item.topRated || false,
             duration: item.duration || '',
             guests: item.guests || '',

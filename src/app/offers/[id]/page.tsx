@@ -23,19 +23,27 @@ interface Hero {
 //     params: { id: string };
 // }
 
+// interface Props {
+//     params: Promise<{ id: string }>;
+// }
+
 interface Props {
     params: Promise<{ id: string }>;
+    searchParams: { page: string };
 }
 
-const OfferDetailPage = async ({params}: Props) => {
+const OfferDetailPage = async ({params, searchParams}: Props) => {
 
     const {id} = await params;
-    const data = await getOfferDetailsData(id,"home");
+    const pageType = searchParams.page;
+    console.log("-------type: ", pageType);
+
+    const data = await getOfferDetailsData(id, pageType);
 
     const offer = data[0].offers.items[0];
 
     console.log("----------- slug: ", id);
-    console.log("--------",data[0].offers.items[0]);
+    console.log("--------", data[0].offers.items[0]);
 
     if (!offer) {
         return <div>Offer not found.</div>;
@@ -137,43 +145,44 @@ const OfferDetailPage = async ({params}: Props) => {
                                 {/*{offer.inclusions.map((inclusion: string, index: number) => (*/}
                                 {Array.isArray(offer.inclusions) ? (
                                     offer.inclusions.map((inclusion: string, index: number) => (
-                                    <AnimatedSection key={index} direction="up" delay={0.1 * (index + 5)}
-                                                     threshold={0.05}>
-                                        <li className="flex items-center">
-                                            {/*<svg*/}
-                                            {/*    className="w-3 h-3 sm:w-4 sm:h-4 mr-2 sm:mr-4 flex-shrink-0 mt-1"*/}
-                                            {/*    width="19"*/}
-                                            {/*    height="16"*/}
-                                            {/*    viewBox="0 0 19 16"*/}
-                                            {/*    fill="none"*/}
-                                            {/*    xmlns="http://www.w3.org/2000/svg"*/}
-                                            {/*>*/}
-                                            {/*    <path*/}
-                                            {/*        d="M8.11168 15.7656C8.10922 15.7656 8.10635 15.7656 8.10389 15.7656C8.00217 15.7635 7.9062 15.7201 7.83729 15.6454L0.804751 7.99846C0.684161 7.86721 0.673091 7.66951 0.778501 7.52555C0.883911 7.38199 1.07586 7.33277 1.23746 7.40824L7.67405 10.4221C7.72819 10.4475 7.79217 10.4352 7.8336 10.3921L17.6519 0.130429C17.7848 -0.00861141 18.0022 -0.0237915 18.1531 0.0959785C18.3041 0.215739 18.3389 0.430659 18.2335 0.591859L8.46688 15.5535C8.45293 15.5753 8.43653 15.595 8.41848 15.6134L8.37541 15.6565C8.30528 15.7262 8.21012 15.7656 8.11168 15.7656Z"*/}
-                                            {/*        fill="#2B5597"*/}
-                                            {/*    />*/}
-                                            {/*</svg>*/}
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                                 height="24" viewBox="0 0 24 24" fill="none"
-                                                 stroke="currentColor" strokeWidth="2"
-                                                 strokeLinecap="round" strokeLinejoin="round"
-                                                 className="lucide lucide-check w-4 h-4 mr-3 flex-shrink-0">
-                                                <path d="M20 6 9 17l-5-5"></path>
-                                            </svg>
-                                            <span
-                                                className="text-[#737373] text-sm sm:text-base leading-6 font-normal">
+                                        <AnimatedSection key={index} direction="up" delay={0.1 * (index + 5)}
+                                                         threshold={0.05}>
+                                            <li className="flex items-center">
+                                                {/*<svg*/}
+                                                {/*    className="w-3 h-3 sm:w-4 sm:h-4 mr-2 sm:mr-4 flex-shrink-0 mt-1"*/}
+                                                {/*    width="19"*/}
+                                                {/*    height="16"*/}
+                                                {/*    viewBox="0 0 19 16"*/}
+                                                {/*    fill="none"*/}
+                                                {/*    xmlns="http://www.w3.org/2000/svg"*/}
+                                                {/*>*/}
+                                                {/*    <path*/}
+                                                {/*        d="M8.11168 15.7656C8.10922 15.7656 8.10635 15.7656 8.10389 15.7656C8.00217 15.7635 7.9062 15.7201 7.83729 15.6454L0.804751 7.99846C0.684161 7.86721 0.673091 7.66951 0.778501 7.52555C0.883911 7.38199 1.07586 7.33277 1.23746 7.40824L7.67405 10.4221C7.72819 10.4475 7.79217 10.4352 7.8336 10.3921L17.6519 0.130429C17.7848 -0.00861141 18.0022 -0.0237915 18.1531 0.0959785C18.3041 0.215739 18.3389 0.430659 18.2335 0.591859L8.46688 15.5535C8.45293 15.5753 8.43653 15.595 8.41848 15.6134L8.37541 15.6565C8.30528 15.7262 8.21012 15.7656 8.11168 15.7656Z"*/}
+                                                {/*        fill="#2B5597"*/}
+                                                {/*    />*/}
+                                                {/*</svg>*/}
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                     height="24" viewBox="0 0 24 24" fill="none"
+                                                     stroke="currentColor" strokeWidth="2"
+                                                     strokeLinecap="round" strokeLinejoin="round"
+                                                     className="lucide lucide-check w-4 h-4 mr-3 flex-shrink-0">
+                                                    <path d="M20 6 9 17l-5-5"></path>
+                                                </svg>
+                                                <span
+                                                    className="text-[#737373] text-sm sm:text-base leading-6 font-normal">
                                           {inclusion}
                                         </span>
-                                        </li>
-                                    </AnimatedSection>
-                                // ))}
+                                            </li>
+                                        </AnimatedSection>
+                                        // ))}
                                     ))
                                 ) : (
                                     <li className="text-[#737373] text-sm sm:text-base">No inclusions available.</li>
                                 )}
                             </ul>
 
-                            <AnimatedSection direction="up" delay={0.1 * (offer.inclusions?.length + 5)} threshold={0.1}>
+                            <AnimatedSection direction="up" delay={0.1 * (offer.inclusions?.length + 5)}
+                                             threshold={0.1}>
                                 <h3 className="text-xs sm:text-sm md:text-base pt-2 sm:pt-3 font-normal text-[#2B5597] lato line-clamp-2">
                                     {offer.terms}
                                 </h3>
@@ -299,9 +308,13 @@ const OfferDetailPage = async ({params}: Props) => {
 export default OfferDetailPage;
 
 
-export async function generateMetadata({params}: { params: Promise<{ id: string }> }): Promise<Metadata> {
+export async function generateMetadata({params, searchParams}: {
+    params: Promise<{ id: string }>,
+    searchParams: { page: string }
+}): Promise<Metadata> {
     const {id} = await params;
-    const data = await getOfferDetailsData(id,"home");
+    const pageType = searchParams.page;
+    const data = await getOfferDetailsData(id, pageType);
 
     const blog = data[0].offers.items[0];
     if (!blog) {
@@ -317,7 +330,7 @@ export async function generateMetadata({params}: { params: Promise<{ id: string 
             title: mdata?.ogTitle || mdata?.title,
             description: mdata?.ogDescription || mdata?.description || 'Discover inspiring journeys, effortless flight bookings, and reliable visa assistance with Acorn Travels. Your trusted partner for seamless travel experiences since 1973.',
             images: mdata?.ogImage ? urlFor(mdata.ogImage).url() : '/nav_logo.png',
-            url: `https://acorn-omega.vercel.app/offers/${id}`,
+            url: `https://www.acorntravels.lk/offers/${id}`,
             type: 'article',
         },
     };
