@@ -30,25 +30,40 @@ interface Props {
 const OfferDetailPage = async ({params}: Props) => {
 
     const {id} = await params;
-    const offer = await getOfferDetailsData(id);
+    const data = await getOfferDetailsData(id,"home");
 
-    console.log(offer);
+    const offer = data[0].offers.items[0];
+
+    console.log("----------- slug: ", id);
+    console.log("--------",data[0].offers.items[0]);
 
     if (!offer) {
         return <div>Offer not found.</div>;
     }
 
+    // const hero: Hero = {
+    //     image: offer.hero?.image?.asset?.url || "",
+    //     title: offer.hero?.title || "Welcome to Leisure Travel",
+    //     description:
+    //         offer.hero?.description ||
+    //         "",
+    //     buttonText:
+    //         offer.hero?.buttonText?.map((btn: HeroButton) => ({
+    //             title: btn.title || "Explore Now",
+    //             link: `${offer?.slug.current}#${btn.link}` || "#",
+    //         })) || [],
+    // };
+
     const hero: Hero = {
-        image: offer.hero?.image?.asset?.url || "",
-        title: offer.hero?.title || "Welcome to Leisure Travel",
-        description:
-            offer.hero?.description ||
-            "",
-        buttonText:
-            offer.hero?.buttonText?.map((btn: HeroButton) => ({
-                title: btn.title || "Explore Now",
-                link: `${offer?.slug.current}#${btn.link}` || "#",
-            })) || [],
+        image: offer?.hero?.image?.asset?.url || "",
+        title: offer?.hero?.title || "Welcome to Leisure Travel",
+        description: offer?.hero?.description || "",
+        buttonText: Array.isArray(offer?.hero?.buttonText)
+            ? offer.hero.buttonText.map((btn: { title: string; link: string; }) => ({
+                title: btn?.title || "Explore Now",
+                link: btn?.link ? `${offer?.slug?.current || ""}#${btn.link}` : "#",
+            }))
+            : [],
     };
 
     const formFields: FormField[] = [
@@ -95,36 +110,6 @@ const OfferDetailPage = async ({params}: Props) => {
                             {
                                 offer.duration && offer.guests && (
                                     <div>
-                                        {/*<div*/}
-                                        {/*    className="flex flex-row flex-wrap items-center text-[#737373] text-xs sm:text-sm md:text-base gap-6 md:gap-12 lg:gap-16">*/}
-                                        {/*    <div className="flex items-center text-[#737373] gap-1 sm:gap-2">*/}
-                                        {/*        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"*/}
-                                        {/*             xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 sm:w-5 sm:h-5">*/}
-                                        {/*            <g clipPath="url(#clip0_2163_4849)">*/}
-                                        {/*                <path*/}
-                                        {/*                    d="M8.00008 0.666504C6.54969 0.666504 5.13186 1.0966 3.9259 1.9024C2.71994 2.70819 1.78001 3.8535 1.22497 5.19349C0.669925 6.53349 0.524701 8.00797 0.807659 9.4305C1.09062 10.853 1.78905 12.1597 2.81464 13.1853C3.84022 14.2109 5.1469 14.9093 6.56942 15.1923C7.99195 15.4752 9.46644 15.33 10.8064 14.775C12.1464 14.2199 13.2917 13.28 14.0975 12.074C14.9033 10.8681 15.3334 9.45024 15.3334 7.99984C15.3311 6.05562 14.5578 4.19169 13.183 2.81692C11.8082 1.44215 9.9443 0.668798 8.00008 0.666504ZM10.4714 10.4712C10.3464 10.5962 10.1769 10.6664 10.0001 10.6664C9.82331 10.6664 9.65377 10.5962 9.52875 10.4712L7.52875 8.47117C7.40372 8.34618 7.33346 8.17664 7.33342 7.99984V3.99984C7.33342 3.82303 7.40366 3.65346 7.52868 3.52843C7.6537 3.40341 7.82327 3.33317 8.00008 3.33317C8.1769 3.33317 8.34647 3.40341 8.47149 3.52843C8.59651 3.65346 8.66675 3.82303 8.66675 3.99984V7.72384L10.4714 9.52851C10.5964 9.65352 10.6666 9.82306 10.6666 9.99984C10.6666 10.1766 10.5964 10.3462 10.4714 10.4712Z"*/}
-                                        {/*                    fill="#2B5597"/>*/}
-                                        {/*            </g>*/}
-                                        {/*            <defs>*/}
-                                        {/*                <clipPath id="clip0_2163_4849">*/}
-                                        {/*                    <rect width="16" height="16" fill="white"/>*/}
-                                        {/*                </clipPath>*/}
-                                        {/*            </defs>*/}
-                                        {/*        </svg>*/}
-                                        {/*        <span className="lato">{offer.duration}</span>*/}
-                                        {/*    </div>*/}
-
-
-                                        {/*    <div className="flex items-center text-[#737373] gap-1 sm:gap-2">*/}
-                                        {/*        <svg width="15" height="14" viewBox="0 0 17 16" fill="none"*/}
-                                        {/*             xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 sm:w-5 sm:h-5">*/}
-                                        {/*            <path*/}
-                                        {/*                d="M4.92325 4.66667C4.92325 2.92067 6.34392 1.5 8.08992 1.5C9.83592 1.5 11.2565 2.92067 11.2565 4.66667C11.2565 6.41267 9.83592 7.83333 8.08992 7.83333C6.34392 7.83333 4.92325 6.41267 4.92325 4.66667ZM10.0899 8.83333H6.08992C3.97659 8.83333 2.25659 10.5533 2.25659 12.6667C2.25659 13.678 3.07859 14.5 4.08992 14.5H12.0899C13.1012 14.5 13.9232 13.678 13.9232 12.6667C13.9232 10.5533 12.2032 8.83333 10.0899 8.83333Z"*/}
-                                        {/*                fill="#2B5597"/>*/}
-                                        {/*        </svg>*/}
-                                        {/*        <span className="lato">{offer.guests}</span>*/}
-                                        {/*    </div>*/}
-                                        {/*</div>*/}
                                         <AnimatedSection direction="up" delay={0.3} threshold={0.1}>
                                             <h3 className="text-xs sm:text-sm md:text-base pt-4 sm:pt-6 font-bold text-[#2B5597] lato line-clamp-2">
                                                 Starting From - {offer.price}
@@ -149,7 +134,9 @@ const OfferDetailPage = async ({params}: Props) => {
                             </AnimatedSection>
 
                             <ul className="space-y-1 sm:space-y-2 mb-6 mt-5 sm:mb-8">
-                                {offer.inclusions.map((inclusion: string, index: number) => (
+                                {/*{offer.inclusions.map((inclusion: string, index: number) => (*/}
+                                {Array.isArray(offer.inclusions) ? (
+                                    offer.inclusions.map((inclusion: string, index: number) => (
                                     <AnimatedSection key={index} direction="up" delay={0.1 * (index + 5)}
                                                      threshold={0.05}>
                                         <li className="flex items-center">
@@ -179,10 +166,14 @@ const OfferDetailPage = async ({params}: Props) => {
                                         </span>
                                         </li>
                                     </AnimatedSection>
-                                ))}
+                                // ))}
+                                    ))
+                                ) : (
+                                    <li className="text-[#737373] text-sm sm:text-base">No inclusions available.</li>
+                                )}
                             </ul>
 
-                            <AnimatedSection direction="up" delay={0.1 * (offer.inclusions.length + 5)} threshold={0.1}>
+                            <AnimatedSection direction="up" delay={0.1 * (offer.inclusions?.length + 5)} threshold={0.1}>
                                 <h3 className="text-xs sm:text-sm md:text-base pt-2 sm:pt-3 font-normal text-[#2B5597] lato line-clamp-2">
                                     {offer.terms}
                                 </h3>
@@ -232,7 +223,8 @@ const OfferDetailPage = async ({params}: Props) => {
                                                     </defs>
                                                 </svg>
                                                 <p className="text-[#737373] font-normal text-xs sm:text-sm md:text-base">
-                                                    {offer.contactDetails.phone}
+                                                    {/*{offer.contactDetails.phone}*/}
+                                                    {offer.contactDetails?.phone || "N/A"}
                                                 </p>
                                             </div>
                                             <div className="flex gap-3 sm:gap-4 items-center">
@@ -254,7 +246,8 @@ const OfferDetailPage = async ({params}: Props) => {
                                                     />
                                                 </svg>
                                                 <p className="text-[#737373] font-normal text-xs sm:text-sm md:text-base">
-                                                    {offer.contactDetails.emergencyPhone}
+                                                    {/*{offer.contactDetails.emergencyPhone}*/}
+                                                    {offer.contactDetails?.emergencyPhone || "N/A"}
                                                 </p>
                                             </div>
                                         </div>
@@ -277,7 +270,8 @@ const OfferDetailPage = async ({params}: Props) => {
                                                 />
                                             </svg>
                                             <p className="text-[#737373] font-normal text-xs sm:text-sm md:text-base">
-                                                {offer.contactDetails.email}
+                                                {/*{offer.contactDetails.email}*/}
+                                                {offer.contactDetails?.email || "N/A"}
                                             </p>
                                         </div>
                                     </div>
@@ -305,10 +299,11 @@ const OfferDetailPage = async ({params}: Props) => {
 export default OfferDetailPage;
 
 
-
 export async function generateMetadata({params}: { params: Promise<{ id: string }> }): Promise<Metadata> {
     const {id} = await params;
-    const blog = await getOfferDetailsData(id);
+    const data = await getOfferDetailsData(id,"home");
+
+    const blog = data[0].offers.items[0];
     if (!blog) {
         return {title: 'Blog Not Found'};
     }
@@ -327,3 +322,5 @@ export async function generateMetadata({params}: { params: Promise<{ id: string 
         },
     };
 }
+
+export const revalidate = 60;

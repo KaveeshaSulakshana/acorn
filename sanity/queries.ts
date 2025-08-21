@@ -609,3 +609,57 @@ export const FOOTER_QUERY = `
     footerScripts
   }
 `;
+
+
+export const GET_OFFER = `
+*[_type == $type] {
+  offers {
+    items[slug.current == $slug] {
+      _key,
+      title,
+    slug,
+    hero {
+      title,
+      description,
+      image {
+        asset-> {
+          _id,
+          url
+        }
+      },
+      buttonText[] {
+        title,
+        link
+      }
+    },
+    packageDescription,
+    duration,
+    guests,
+    price,
+    inclusions,
+    terms,
+    contactDetails {
+      phone,
+      emergencyPhone,
+      email
+    },
+    topRated,
+    seo {
+      title,
+      description,
+      keywords,
+      ogTitle,
+      ogDescription,
+      ogImage {
+        asset->{
+          _id,
+          url
+        },
+        hotspot,
+        crop
+      }
+    }
+    }
+  }
+}
+`;
