@@ -346,7 +346,7 @@ const Offers = ({offersPack, type}: { offersPack: OfferProps, type: string }) =>
                                                     {/*    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-check w-4 h-4 mr-3 flex-shrink-0"><path d="M20 6 9 17l-5-5"></path></svg>*/}
                                                     {/*    <span className="text-sm sm:text-base text-gray-700">Aquaventure Water Park</span></div>*/}
                                                 </div>
-                                                <Link href={`${offer.link}#inquiry`}>
+                                                <Link href={`${offer.link}#explore`}>
                                                     <button
                                                         className="w-full bg-blue-900 text-white py-3 sm:py-4 rounded-lg cursor-pointer sm:rounded-xl font-semibold hover:bg-blue-800 hover:scale-105 transition-all duration-300 uppercase tracking-wide text-xs sm:text-base"
                                                         style={{

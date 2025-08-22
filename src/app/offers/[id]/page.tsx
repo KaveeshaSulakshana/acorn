@@ -69,7 +69,7 @@ const OfferDetailPage = async ({params, searchParams}: Props) => {
         buttonText: Array.isArray(offer?.hero?.buttonText)
             ? offer.hero.buttonText.map((btn: { title: string; link: string; }) => ({
                 title: btn?.title || "Explore Now",
-                link: btn?.link ? `${offer?.slug?.current || ""}#${btn.link}` : "#",
+                link: btn?.link ? `${offer?.slug?.current || ""}?page=${pageType}#${btn.link}` : "#",
             }))
             : [],
     };
