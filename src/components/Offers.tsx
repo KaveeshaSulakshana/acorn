@@ -402,7 +402,7 @@ const Offers = ({offersPack, type}: { offersPack: OfferProps, type: string }) =>
                                 {type === "home" ? (
                                     cardContent
                                 ) : (
-                                    <Link href={`${offer.link}#inquiry`}>
+                                    <Link href={`${offer.link}#explore`}>
                                         {cardContent}
                                     </Link>
                                 )}
