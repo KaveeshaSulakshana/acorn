@@ -306,7 +306,7 @@ const createSchema = (fields: FormField[]) => {
 const ContactForm: React.FC<ContactFormProps> = ({
                                                      fields,
                                                      title = "Contact Form",
-                                                     contactEmail = "inquiries.travel@acorn.lk",
+                                                     contactEmail = "inquiries.travels@acorn.lk",
                                                      onSubmit,
                                                      pageSource = "Unknown",
                                                      reCaptchaSiteKey,
