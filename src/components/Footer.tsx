@@ -705,7 +705,9 @@ const Footer = async () => {
             <div
                 className="container mx-auto py-3 sm:py-4 md:py-5 px-4 sm:px-6 md:px-8 text-[#2B5597] bg-white flex flex-col lg:flex-row justify-between items-center border-t">
                 <p className="text-[13px] sm:text-[14px] md:text-[16px] font-normal mb-2 md:mb-0 text-center">
-                    {footerData.copyrightText} {footerData.developedBy && ` Developed By ${footerData.developedBy}`}
+                    {/*{footerData.copyrightText} {footerData.developedBy && ` Developed By ${footerData.developedBy}`}*/}
+                    {footerData.copyrightText} {footerData.developedBy && ` Developed By `}
+                    {footerData.developedBy && <Link href="https://kodetech.co/" target="_blank">{footerData.developedBy}</Link>}
                     {/*Copyright 2025 ©Acorn Travels Pvt Ltd Developed By KodeTech*/}
                 </p>
                 <div
