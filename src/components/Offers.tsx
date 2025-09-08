@@ -257,25 +257,27 @@ const Offers = ({offersPack, type}: { offersPack: OfferProps, type: string }) =>
                                 // animate={isInView ? "visible" : "hidden"}
                                 // variants={cardVariants}
                             >
-                                <div className="relative m-5">
-                                    <Image
-                                        src={offer.image}
-                                        alt={offer.alt || offer.title}
-                                        width={400}
-                                        height={400}
-                                        className="w-full h-48 sm:h-56 lg:h-80 object-cover rounded-3xl"
-                                        // sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                                        style={{opacity: 1, transform: "none"}}
-                                        quality={85}
-                                    />
-                                    {offer.topRated && (
-                                        <span
-                                            className="absolute top-3 sm:top-4 left-3 sm:left-4 bg-white text-gray-800 px-3 sm:px-4 py-1 sm:py-2 rounded-lg text-xs sm:text-sm font-bold"
-                                            style={{opacity: 1, transform: "none"}}>
+                                <Link href={`${offer.link}#explore`}>
+                                    <div className="relative m-5">
+                                        <Image
+                                            src={offer.image}
+                                            alt={offer.alt || offer.title}
+                                            width={400}
+                                            height={400}
+                                            className="w-full h-48 sm:h-56 lg:h-80 object-cover rounded-3xl"
+                                            // sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                            style={{opacity: 1, transform: "none"}}
+                                            quality={85}
+                                        />
+                                        {offer.topRated && (
+                                            <span
+                                                className="absolute top-3 sm:top-4 left-3 sm:left-4 bg-white text-gray-800 px-3 sm:px-4 py-1 sm:py-2 rounded-lg text-xs sm:text-sm font-bold"
+                                                style={{opacity: 1, transform: "none"}}>
                                         Top Rated
                                     </span>
-                                    )}
-                                </div>
+                                        )}
+                                    </div>
+                                </Link>
 
                                 <div
                                     className="p-6 sm:p-8">
@@ -320,7 +322,8 @@ const Offers = ({offersPack, type}: { offersPack: OfferProps, type: string }) =>
                                                     {/*    </Link>*/}
                                                     {/*</div>*/}
                                                 </div>
-                                                <div className="space-y-3 sm:space-y-4 mb-8 min-h-6 lg:min-h-40 xl:min-h-35 sm:mb-10">
+                                                <div
+                                                    className="space-y-3 sm:space-y-4 mb-8 min-h-6 lg:min-h-40 xl:min-h-35 sm:mb-10">
                                                     {/*<p className="text-sm sm:text-base text-gray-700 whitespace-pre-line"*/}
                                                     {/*   style={{opacity: 1, transform: "none"}}>*/}
                                                     {/*    {offer.inclusion}*/}

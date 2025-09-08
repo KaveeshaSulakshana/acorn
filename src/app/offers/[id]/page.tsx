@@ -116,11 +116,11 @@ const OfferDetailPage = async ({params, searchParams}: Props) => {
                             </AnimatedSection>
 
                             {
-                                offer.duration && offer.guests && (
+                                pageType === "home" && (
                                     <div>
                                         <AnimatedSection direction="up" delay={0.3} threshold={0.1}>
                                             <h3 className="text-xs sm:text-sm md:text-base pt-4 sm:pt-6 font-bold text-[#2B5597] lato line-clamp-2">
-                                                Starting From - {offer.price}
+                                                Starting From - {offer.price} / per person
                                             </h3>
                                         </AnimatedSection>
                                     </div>
