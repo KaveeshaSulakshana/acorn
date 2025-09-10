@@ -62,11 +62,12 @@ export default async function RootLayout({
 
 export async function generateMetadata(): Promise<Metadata> {
     const footerData = await getFooterData();
+    // console.log("-------footer: ",footerData.favicon.asset.url);
     return {
         title: "Acorn Travels",
         description: "Your premier travel partner.",
         icons: {
-            icon: footerData?.favicon?.url ? urlFor(footerData.favicon).url() : '/nav_logo_new.png',
+            icon: footerData?.favicon?.url ? urlFor(footerData.favicon).url() : '/favicon.png',
         },
     };
 }
